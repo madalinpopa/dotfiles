@@ -1,0 +1,20 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "html",
+    "json",
+    "python",
+    "vue"
+  ],
+
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+
+  // Eslint configuration
+  "eslint.autoFixOnSave": true,
+
+  // Prettier configuration
+  "prettier.singleQuote": true
+
+  // Vetur configuration
+}

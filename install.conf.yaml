@@ -1,3 +1,32 @@
-- clean: []
-- link: {}
-- shell: []
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    # Git configuration
+    ~/.gitconfig:
+      path: config/git/gitconfig
+    ~/.gitignore_global:
+      path: config/git/gitignore_global
+    # Bash configuration
+    ~/.bashrc.d:
+      path: config/bash/bashrc.d
+    ~/.bashrc:
+      path: config/bash/bashrc
+      force: true
+    ~/.profile:
+      path: config/bash/profile
+      force: true
+    # Tmux configuration
+    ~/.tmux.conf:
+      path: config/tmux/tmux.conf
+
+- shell:
+    - git submodule sync --recursive
+    # the following have to run after linking ~/.gitconfig
+    - git update-submodules
+    - ./scripts/git-autocomplete-init.sh
+    - source ~/.bashrc
