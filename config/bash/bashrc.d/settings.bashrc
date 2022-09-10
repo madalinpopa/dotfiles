@@ -5,9 +5,6 @@ shopt -s histappend # append to history file
 
 export EDITOR=vim
 
-# git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
-
 # anki blank window
 export QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox"
 
