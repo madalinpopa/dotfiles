@@ -35,6 +35,9 @@ the config files in my dotfiles.
     # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
+    # Podman configuration
+    # ~/.config/containers:
+    #   path: config/podman/containers
 
 - shell:
     - git submodule sync --recursive
