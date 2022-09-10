@@ -6,10 +6,21 @@
 - clean: ['~']
 
 - link:
+    # Git configuration
     ~/.gitconfig:
       path: config/git/gitconfig
     ~/.gitignore_global:
       path: config/git/gitignore_global
+    # Bash configuration
+    ~/.bashrc.d:
+      path: config/bash/bashrc.d
+    ~/.bashrc:
+      path: config/bash/bashrc
+      force: true
+    ~/.profile:
+      path: config/bash/profile
+      force: true
+    # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
 
