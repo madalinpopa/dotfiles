@@ -1,12 +1,12 @@
-- clean: []
-- link: {}
-- shell: []
 - defaults:
     link:
       create: true
       relink: true
 
 - clean: ['~']
+
+- link:
+    -
 
 - shell:
     - git submodule sync --recursive
