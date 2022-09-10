@@ -18,6 +18,6 @@ if [[ ! -f ~/.git-completion.bash ]]; then
 fi
 
 if [[ ! -f ~/.git-prompt.sh ]]; then
-    curl https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh \
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh \
         -o ~/.git-prompt.sh
 fi
