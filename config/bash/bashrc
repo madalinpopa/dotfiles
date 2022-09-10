@@ -18,6 +18,10 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
 unset rc
 . "$HOME/.cargo/env"
 
