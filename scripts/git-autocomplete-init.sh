@@ -17,7 +17,7 @@ if [[ ! -f ~/.git-completion.bash ]]; then
         -o ~/.git-completion.bash
 fi
 
-# if [[ ! -f ~/.git-prompt.sh ]]; then
-#     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh \
-#         -o ~/.git-prompt.sh
-# fi
+if [[ ! -f ~/.git-prompt.sh ]]; then
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh \
+        -o ~/.git-prompt.sh
+fi
