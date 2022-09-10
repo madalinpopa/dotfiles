@@ -33,6 +33,6 @@ sudo apt install \
   pkg-config \
   runc \
   uidmap
-
+sudo apt install slirp4netns
 curl -v https://github.com/containers/podman/archive/refs/tags/v4.2.1.tar.gz
 tar -xzf v4.2.1.tar.gz
