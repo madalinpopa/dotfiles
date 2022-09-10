@@ -18,9 +18,9 @@ machine_name() {
 
 PROMPT_DIRTRIM=3
 
-if [ -f ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
-fi
+# if [ -f ~/.git-prompt.sh ]; then
+#     . ~/.git-prompt.sh
+# fi
 
 # git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
