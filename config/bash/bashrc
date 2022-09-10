@@ -9,6 +9,15 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+# Load git completion and prompt.sh
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
+fi
+
 # Load custom files
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
@@ -16,10 +25,6 @@ if [ -d ~/.bashrc.d ]; then
             . "$rc"
         fi
     done
-fi
-
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
 fi
 
 unset rc
