@@ -1,0 +1,21 @@
+{
+  "bootstrapped": true,
+  "in_process_packages": [
+  ],
+  "installed_packages": ["A File Icon", "AdvancedNewFile", "AutoDocstring", "Color Highlighter",    "Djaneiro",
+    "Emmet",
+    "Git",
+    "GitGutter",
+    "LSP",
+    "LSP-json",
+    "LSP-pyright",
+    "LSP-tailwindcss",
+    "Package Control",
+    "SideBarEnhancements",
+    "SublimeLinter",
+    "SublimeLinter-flake8",
+    "SublimeLinter-pyflakes",
+    "Theme - Gravity",
+    "TOML",
+  ],
+}
