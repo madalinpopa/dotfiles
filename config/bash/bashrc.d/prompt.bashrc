@@ -18,8 +18,21 @@ machine_name() {
 
 PROMPT_DIRTRIM=3
 
-PS1="\n${COLOR_BLUE}#${COLOR_DEFAULT} ${COLOR_CYAN}\\u${COLOR_DEFAULT} ${COLOR_GREEN}at${COLOR_DEFAULT} ${COLOR_MAGENTA}\$(machine_name)${COLOR_DEFAULT}${COLOR_GREEN} in${COLOR_DEFAULT}
-${COLOR_YELLOW}\w${COLOR_DEFAULT}${COLOR_GREEN}$(__git_ps1 ' (%s)')${COLOR_DEFAULT} \n\$(if [ \$? -ne 0 ]; then echo \"${COLOR_RED}!${COLOR_DEFAULT} \"; fi)${COLOR_BLUE}>${COLOR_DEFAULT} "
+# if [ -f ~/.git-prompt.sh ]; then
+#     . ~/.git-prompt.sh
+# fi
+
+function changes_in_branch() {
+    if [ -d .git ]; then
+        if expr length + "$(git status -s)" 2>&1 >/dev/null; then
+            echo -ne "\033[0;33m$(__git_ps1)\033[0m"
+        else
+            echo -ne "\033[0;32m$(__git_ps1)\033[0m"
+        fi
+    fi
+}
+
+export PS1="\n${COLOR_BLUE}#${COLOR_DEFAULT} ${COLOR_CYAN}\\u${COLOR_DEFAULT} ${COLOR_GREEN}at${COLOR_DEFAULT} ${COLOR_MAGENTA}\$(machine_name)${COLOR_DEFAULT}${COLOR_GREEN} in${COLOR_DEFAULT}${COLOR_YELLOW}\w${COLOR_DEFAULT}${COLOR_GREEN}$(changes_in_branch)${COLOR_DEFAULT} \n\$(if [ \$? -ne 0 ]; then echo \"${COLOR_RED}!${COLOR_DEFAULT} \"; fi)${COLOR_BLUE}>${COLOR_DEFAULT} "
 
 PS2="${COLOR_BLUE}>${COLOR_DEFAULT} "
 
