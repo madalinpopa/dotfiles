@@ -32,8 +32,7 @@ function changes_in_branch() {
     fi
 }
 
-export PS1="\n${COLOR_BLUE}#${COLOR_DEFAULT} ${COLOR_CYAN}\\u${COLOR_DEFAULT} ${COLOR_GREEN}at${COLOR_DEFAULT} ${COLOR_MAGENTA}\$(machine_name)${COLOR_DEFAULT}${COLOR_GREEN} in${COLOR_DEFAULT}
-${COLOR_YELLOW}\w${COLOR_DEFAULT}${COLOR_GREEN}$(changes_in_branch)${COLOR_DEFAULT} \n\$(if [ \$? -ne 0 ]; then echo \"${COLOR_RED}!${COLOR_DEFAULT} \"; fi)${COLOR_BLUE}>${COLOR_DEFAULT} "
+export PS1="\n${COLOR_BLUE}#${COLOR_DEFAULT} ${COLOR_CYAN}\\u${COLOR_DEFAULT} ${COLOR_GREEN}at${COLOR_DEFAULT} ${COLOR_MAGENTA}\$(machine_name)${COLOR_DEFAULT}${COLOR_GREEN} in${COLOR_DEFAULT}${COLOR_YELLOW}\w${COLOR_DEFAULT}${COLOR_GREEN}$(changes_in_branch)${COLOR_DEFAULT} \n\$(if [ \$? -ne 0 ]; then echo \"${COLOR_RED}!${COLOR_DEFAULT} \"; fi)${COLOR_BLUE}>${COLOR_DEFAULT} "
 
 PS2="${COLOR_BLUE}>${COLOR_DEFAULT} "
 
