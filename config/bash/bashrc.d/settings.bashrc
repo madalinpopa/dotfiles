@@ -15,4 +15,4 @@ export QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox"
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 # Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
