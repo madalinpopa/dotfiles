@@ -20,6 +20,14 @@
     ~/.profile:
       path: config/bash/profile
       force: true
+    ~/.zshrc:
+      path: config/zsh/zshrc
+      force: true
+    ~/.config/zsh/config.d:
+      path: config/zsh/config.d
+    ~/.oh-my-zsh:
+      path: config/zsh/oh-my-zsh
+      force: true
     # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
@@ -32,3 +40,4 @@
     # the following have to run after linking ~/.gitconfig
     - git update-submodules
     - ./scripts/git-autocomplete-init.sh
+    # - ./scripts/install-zsh.sh
