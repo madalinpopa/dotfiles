@@ -6,6 +6,8 @@ alias l='ls'
 alias cp='cp -i'
 alias mv='mv -i'
 
+alias vim='nvim'
+
 # git related aliases
 alias gag='git exec ag'
 
