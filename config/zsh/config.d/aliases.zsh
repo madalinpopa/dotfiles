@@ -20,9 +20,9 @@ dfu() {
 }
 
 # nala alias
-apt() {
-    command nala "$@"
-}
+# apt() {
+#     command nala "$@"
+# }
 sudo() {
     if [ "$1" = "apt" ]; then
         shift
