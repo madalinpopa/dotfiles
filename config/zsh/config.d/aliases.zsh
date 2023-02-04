@@ -6,7 +6,7 @@ alias l='ls'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias vim='nvim'
+# alias vim='nvim'
 
 # git related aliases
 alias gag='git exec ag'
@@ -23,11 +23,11 @@ dfu() {
 # apt() {
 #     command nala "$@"
 # }
-sudo() {
-    if [ "$1" = "apt" ]; then
-        shift
-        command sudo nala "$@"
-    else
-        command sudo "$@"
-    fi
-}
+# sudo() {
+#     if [ "$1" = "apt" ]; then
+#         shift
+#         command sudo nala "$@"
+#     else
+#         command sudo "$@"
+#     fi
+# }

@@ -12,4 +12,4 @@
 # Email: github@madalinpopa.com
 
 # Ubuntu
-sudo apt update && sudo apt install nala
+# sudo apt update && sudo apt install nala

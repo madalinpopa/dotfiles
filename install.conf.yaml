@@ -17,8 +17,8 @@
     ~/.bashrc:
       path: config/bash/bashrc
       force: true
-    ~/.profile:
-      path: config/bash/profile
+    # ~/.profile:
+    #   path: config/bash/profile
       force: true
     ~/.zshrc:
       path: config/zsh/zshrc
