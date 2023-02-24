@@ -35,7 +35,7 @@
     ~/.config/nvim:
       path: config/nvim
     # Vim configuration
-    ~/.config/vim:
+    ~/.vim:
       path: config/vim
 
 - shell:
