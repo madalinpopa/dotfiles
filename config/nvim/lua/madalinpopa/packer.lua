@@ -47,8 +47,7 @@ return packer.startup(function(use)
     use "windwp/nvim-autopairs"
 
     use 'kyazdani42/nvim-tree.lua'
-    use 'feline-nvim/feline.nvim'
-    use "folke/trouble.nvim"
+    -- use "folke/trouble.nvim"
 
     -- Color schemes and icons
     use "dracula/vim"
@@ -64,7 +63,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-buffer" -- buffer completions
     use "hrsh7th/cmp-path" -- path completions
     use "hrsh7th/cmp-cmdline" -- cmdline completions
-    -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    use "saadparwaiz1/cmp_luasnip" -- snippet completions
 
     -- snippets
     use "L3MON4D3/LuaSnip" -- snippet engine
@@ -83,8 +82,6 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
-    use "p00f/nvim-ts-rainbow"
-    use "nvim-treesitter/playground"
 
     -- Git
     use "lewis6991/gitsigns.nvim"

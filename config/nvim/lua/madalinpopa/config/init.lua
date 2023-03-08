@@ -40,9 +40,9 @@ require('madalinpopa.config.toggleterm')
 ------------------------------------------------------
 -- Import Airline
 ------------------------------------------------------
-require('madalinpopa.config.statusbar')
+-- require('madalinpopa.config.statusbar')
 
 ------------------------------------------------------
 -- Import trouble
 ------------------------------------------------------
-require('madalinpopa.config.trouble')
+-- require('madalinpopa.config.trouble')

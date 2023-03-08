@@ -9,16 +9,16 @@
 require('madalinpopa.packer')
 
 ------------------------------------------------------
--- Import ptions
+-- Import base configuration
 ------------------------------------------------------
 require('madalinpopa.base')
 
 ------------------------------------------------------
--- Import plugins
+-- Import plugins configuration
 ------------------------------------------------------
 require('madalinpopa.config')
 
 ------------------------------------------------------
 -- Import LSP configuration
 ------------------------------------------------------
-require('madalinpopa.lsp')
+-- require('madalinpopa.lsp')
