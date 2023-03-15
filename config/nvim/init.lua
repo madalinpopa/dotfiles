@@ -8,6 +8,110 @@
 
 require('coderustle')
 
+------------------------------------------------------
+-- Toggle Term config
+------------------------------------------------------
+function _G.set_terminal_keymaps()
+  local opts = {
+      noremap = true,
+      buffer = 0
+  }
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+  vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+  vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+  vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+end
+
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({
+  cmd = "lazygit",
+  hidden = true
+})
+
+function _LAZYGIT_TOGGLE()
+  lazygit:toggle()
+end
+
+local node = Terminal:new({
+  cmd = "node",
+  hidden = true
+})
+
+function _NODE_TOGGLE()
+  node:toggle()
+end
+
+local ncdu = Terminal:new({
+  cmd = "ncdu",
+  hidden = true
+})
+
+function _NCDU_TOGGLE()
+  ncdu:toggle()
+end
+
+local htop = Terminal:new({
+  cmd = "htop",
+  hidden = true
+})
+
+function _HTOP_TOGGLE()
+  htop:toggle()
+end
+
+local python = Terminal:new({
+  cmd = "python",
+  hidden = true
+})
+
+function _PYTHON_TOGGLE()
+  python:toggle()
+end
+------------------------------------------------------
+-- Telescope config
+------------------------------------------------------
+
+-- [[ Configure Telescope ]]
+-- See `:help telescope` and `:help telescope.setup()`
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      i = {
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
+      },
+    },
+  },
+}
+
+-- Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
+
+-- See `:help telescope.builtin`
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer' })
+
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+------------------------------------------------------
+-- Telescope config
+------------------------------------------------------
+
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -114,7 +218,9 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
+------------------------------------------------------
+-- CMP setup
+------------------------------------------------------
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -159,3 +265,29 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+------------------------------------------------------
+-- Neovim Tree setup
+------------------------------------------------------
+
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup{
+  filters = {
+    dotfiles = true,
+    exclude = {'node_modules', '.git', '.cache', '.vscode', '.idea'}
+  }
+}
+
+local map = vim.api.nvim_set_keymap
+
+  -- Nvim Tree plugin
+map('n', '<leader>nn', '<cmd>NvimTreeToggle<cr>', {noremap=true})
+map('n', '<leader>nr', '<cmd>NvimTreeRefresh<cr>', {noremap=true})
+map('n', '<leader>nf', '<cmd>NvimTreeFindFile<cr>', {noremap=true})

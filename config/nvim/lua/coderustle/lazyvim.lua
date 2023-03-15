@@ -55,7 +55,7 @@ require('lazy').setup({
   },
 
   -- Terminal
-  { 'akinsho/toggleterm.nvim' }, -- plugin for terminal
+  { 'akinsho/toggleterm.nvim', version = "*", config = true }, -- plugin for terminal
 
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -137,4 +137,12 @@ require('lazy').setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  }
 }, {})
