@@ -1,6 +1,7 @@
 require("nvim-tree").setup{
     filters = {
       dotfiles = false,
-      custom = {'.git'}
+      exclude = {'dist', '.github'},
+      custom = {'.git', '.yarn', 'node_modules'}
     }
   }
