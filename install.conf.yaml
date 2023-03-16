@@ -37,6 +37,9 @@
     # Vim configuration
     ~/.vim:
       path: config/vim
+    # Tmux configuration
+    ~/.tmux.conf:
+      path: config/tmux/tmux.conf
 
 - shell:
     - git submodule sync --recursive
