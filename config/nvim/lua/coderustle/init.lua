@@ -5,4 +5,3 @@
 require('coderustle.lazyvim')
 require('coderustle.set')
 require('coderustle.remap')
-require('coderustle.filetypes')
