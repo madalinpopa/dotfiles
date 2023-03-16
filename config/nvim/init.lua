@@ -9,84 +9,8 @@
 require('coderustle')
 
 ------------------------------------------------------
--- Toggle Term config
-------------------------------------------------------
-function _G.set_terminal_keymaps()
-  local opts = {
-      noremap = true,
-      buffer = 0
-  }
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-end
-
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({
-  cmd = "lazygit",
-  hidden = true
-})
-
-function _LAZYGIT_TOGGLE()
-  lazygit:toggle()
-end
-
-local node = Terminal:new({
-  cmd = "node",
-  hidden = true
-})
-
-function _NODE_TOGGLE()
-  node:toggle()
-end
-
-local ncdu = Terminal:new({
-  cmd = "ncdu",
-  hidden = true
-})
-
-function _NCDU_TOGGLE()
-  ncdu:toggle()
-end
-
-local htop = Terminal:new({
-  cmd = "htop",
-  hidden = true
-})
-
-function _HTOP_TOGGLE()
-  htop:toggle()
-end
-
-local python = Terminal:new({
-  cmd = "python",
-  hidden = true
-})
-
-function _PYTHON_TOGGLE()
-  python:toggle()
-end
-------------------------------------------------------
 -- Telescope config
 ------------------------------------------------------
-
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -192,15 +116,9 @@ local servers = {
   },
 }
 
--- Setup neovim lua configuration
-require('neodev').setup()
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- Setup mason so it can manage external tooling
-require('mason').setup()
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
@@ -218,53 +136,6 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-------------------------------------------------------
--- CMP setup
-------------------------------------------------------
--- nvim-cmp setup
-local cmp = require 'cmp'
-local luasnip = require 'luasnip'
-
-luasnip.config.setup {}
-
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete {},
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
-}
 
 ------------------------------------------------------
 -- Neovim Tree setup
@@ -276,14 +147,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
-
--- empty setup using defaults
-require("nvim-tree").setup{
-  filters = {
-    dotfiles = true,
-    exclude = {'node_modules', '.git', '.cache', '.vscode', '.idea'}
-  }
-}
 
 local map = vim.api.nvim_set_keymap
 
