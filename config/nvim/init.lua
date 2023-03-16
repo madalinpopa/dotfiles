@@ -33,10 +33,9 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 ------------------------------------------------------
--- Telescope config
+-- LSP config
 ------------------------------------------------------
 
--- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible

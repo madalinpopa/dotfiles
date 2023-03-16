@@ -29,20 +29,20 @@ vim.keymap.set('', '<LEFT>', '<NOP>', {noremap = true})
 vim.keymap.set('', '<RIGHT>', '<NOP>', {noremap = true})
 
 -- Moving around split navigations
-vim.keymap.set('n', '<C-j>', '<C-w>j', defaults)
-vim.keymap.set('n', '<C-k>', '<C-w>k', defaults)
-vim.keymap.set('n', '<C-l>', '<C-w>l', defaults)
-vim.keymap.set('n', '<C-h>', '<C-w>h', defaults)
+vim.keymap.set('n', '<C-j>', '<C-w>j', {noremap = true})
+vim.keymap.set('n', '<C-k>', '<C-w>k', {noremap = true})
+vim.keymap.set('n', '<C-l>', '<C-w>l', {noremap = true})
+vim.keymap.set('n', '<C-h>', '<C-w>h', {noremap = true})
 
 
 -- Resize with arrows
-vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", defaults)
-vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", defaults)
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", defaults)
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", defaults)
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", {noremap = true})
+vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", {noremap = true})
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", {noremap = true})
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", {noremap = true})
 
 -- Quick exit without save
--- vim.keymap.set('n', '<leader>q', ':q!<CR>', defaults)
+-- vim.keymap.set('n', '<leader>q', ':q!<CR>', {noremap = true})
 
 -- Quick save
 -- vim.keymap.set('n', '<leader>w', ':w<CR>', defaults)
