@@ -41,11 +41,6 @@ vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", {noremap = true})
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", {noremap = true})
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", {noremap = true})
 
--- Quick exit without save
--- vim.keymap.set('n', '<leader>q', ':q!<CR>', {noremap = true})
-
--- Quick save
--- vim.keymap.set('n', '<leader>w', ':w<CR>', defaults)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
