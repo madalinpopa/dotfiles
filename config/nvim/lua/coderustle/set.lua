@@ -76,3 +76,9 @@ vim.cmd([[au BufRead,BufNewFile *.js,*json set shiftwidth=4]])
 vim.cmd([[au BufRead,BufNewFile *.js,*json set tabstop=4]])
 vim.cmd([[au BufRead,BufNewFile *.js set softtabstop=4]])
 
+
+-- spaces for indents
+vim.cmd([[au BufRead,BufNewFile *.html set shiftwidth=2]])
+vim.cmd([[au BufRead,BufNewFile *.html set tabstop=2]])
+vim.cmd([[au BufRead,BufNewFile *.html set softtabstop=2]])
+
