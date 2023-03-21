@@ -18,8 +18,8 @@ local w = vim.wo        		-- windows-scoped options
 -- SETTING OPTIONS
 -- See `:help vim.o`
 ------------------------------------------------------
-g.mapleader = ' '                   -- Set leader to ''
-g.maplocalleader = ' '              -- Set local leader to ''
+g.mapleader = ','                   -- Set leader to ''
+g.maplocalleader = ','              -- Set local leader to ''
 o.mouse = 'a'			    -- enable mouse support
 o.hlsearch = false                  -- Set highlight on search
 w.number = true                     -- Make line numbers default
@@ -28,11 +28,11 @@ w.signcolumn = 'yes'                -- Keep signcolumn on by default
 o.undofile = true                   -- Enable persistent undo
 o.breakindent = true                -- Enable break indent
 o.clipboard = 'unnamedplus'	    -- copy/paste to system clipboard
-b.swapfile = false		      -- disable swapfile
-o.encoding ='UTF-8'	        -- set default encoding type
-o.syntax = 'enable'	        -- enable syntax highlight
-w.number = true		          -- show line number
-o.showmatch = true          -- highlight matching parenthesis
+b.swapfile = false		    -- disable swapfile
+o.encoding ='UTF-8'	            -- set default encoding type
+o.syntax = 'enable'	            -- enable syntax highlight
+w.number = true		            -- show line number
+o.showmatch = true                  -- highlight matching parenthesis
 w.foldmethod = 'indent'     -- enable folding (default 'indent')
 w.colorcolumn = '120'       -- line lenght marker at 120 columns
 o.splitright = true         -- vertical split to the right
