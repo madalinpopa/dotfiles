@@ -69,3 +69,10 @@ o.timeoutlen=300            -- by default timeoutlen is 1000 ms
 b.textwidth=120		    -- hard wrap
 w.colorcolumn="120"	    -- display a color column for text width
 w.foldenable=false	    -- all fold to be open by default
+
+
+-- spaces for indents
+vim.cmd([[au BufRead,BufNewFile *.js,*json set shiftwidth=4]])
+vim.cmd([[au BufRead,BufNewFile *.js,*json set tabstop=4]])
+vim.cmd([[au BufRead,BufNewFile *.js set softtabstop=4]])
+
