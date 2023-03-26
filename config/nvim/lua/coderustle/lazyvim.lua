@@ -148,5 +148,10 @@ require('lazy').setup({
   {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
+  },
+  -- Github Copilot
+  {
+    "github/copilot.vim"
   }
+
 }, {})

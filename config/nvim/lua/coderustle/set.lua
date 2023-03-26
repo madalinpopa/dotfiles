@@ -82,3 +82,9 @@ vim.cmd([[au BufRead,BufNewFile *.html set shiftwidth=2]])
 vim.cmd([[au BufRead,BufNewFile *.html set tabstop=2]])
 vim.cmd([[au BufRead,BufNewFile *.html set softtabstop=2]])
 
+
+-- config for python filetypes
+vim.cmd([[au BufRead, BufNewFile *.py set tabstop=4]])
+vim.cmd([[au BufRead, BufNewFile *.py set shiftwidth=4]])
+vim.cmd([[au BufRead, BufNewFile *.py set textwidth=80]])
+
