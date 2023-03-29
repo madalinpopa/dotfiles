@@ -4,4 +4,3 @@ setlocal expandtab
 setlocal textwidth=79
 setlocal autoindent
 setlocal smarttab
-setlocal fileformat=unix
