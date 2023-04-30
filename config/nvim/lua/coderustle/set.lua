@@ -70,22 +70,21 @@ b.textwidth=120		    -- hard wrap
 w.colorcolumn="120"	    -- display a color column for text width
 w.foldenable=false	    -- all fold to be open by default
 
+-- spaces for indents
+-- vim.cmd([[au BufRead,BufNewFile *.js,*json set shiftwidth=4]])
+-- vim.cmd([[au BufRead,BufNewFile *.js,*json set tabstop=4]])
+-- vim.cmd([[au BufRead,BufNewFile *.js set softtabstop=4]])
+
 
 -- spaces for indents
-vim.cmd([[au BufRead,BufNewFile *.js,*json set shiftwidth=4]])
-vim.cmd([[au BufRead,BufNewFile *.js,*json set tabstop=4]])
-vim.cmd([[au BufRead,BufNewFile *.js set softtabstop=4]])
-
-
--- spaces for indents
-vim.cmd([[au BufRead,BufNewFile *.html set shiftwidth=2]])
-vim.cmd([[au BufRead,BufNewFile *.html set tabstop=2]])
-vim.cmd([[au BufRead,BufNewFile *.html set softtabstop=2]])
+-- vim.cmd([[au BufRead,BufNewFile *.html set shiftwidth=2]])
+-- vim.cmd([[au BufRead,BufNewFile *.html set tabstop=2]])
+-- vim.cmd([[au BufRead,BufNewFile *.html set softtabstop=2]])
 
 
 -- config for python filetypes
-vim.cmd([[au BufRead, BufNewFile *.py set tabstop=4]])
-vim.cmd([[au BufRead, BufNewFile *.py set shiftwidth=4]])
-vim.cmd([[au BufRead, BufNewFile *.py set textwidth=80]])
-vim.cmd([[au BufRead, BufNewFile *.py set colorcolumn="80"]])
+-- vim.cmd([[au BufRead, BufNewFile *.py set tabstop=4]])
+-- vim.cmd([[au BufRead, BufNewFile *.py set shiftwidth=4]])
+-- vim.cmd([[au BufRead, BufNewFile *.py set textwidth=80]])
+-- vim.cmd([[au BufRead, BufNewFile *.py set colorcolumn="80"]])
 
