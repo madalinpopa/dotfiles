@@ -11,6 +11,9 @@ alias mv='mv -i'
 # git related aliases
 alias gag='git exec ag'
 
+# use neovim diff
+alias vimdiff='nvim -d'
+
 
 # Update dotfiles
 dfu() {
