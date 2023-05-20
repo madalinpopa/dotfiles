@@ -53,3 +53,6 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', {noremap = true, silent = true})
 
 -- Quick exit without save
 vim.keymap.set('n', '<leader>q', ':q!<CR>', {noremap = true, silent = true})
+
+-- format python files with black
+vim.keymap.set('n', '<leader>f', ':!black %<CR>', {noremap = true, silent = true})
