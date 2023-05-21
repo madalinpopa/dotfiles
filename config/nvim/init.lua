@@ -92,6 +92,7 @@ local servers = {
   emmet_ls = {
       filetypes = {
         'djangohtml',
+        'htmldjango',
         'html',
         'typescriptreact',
         'javascriptreact',
