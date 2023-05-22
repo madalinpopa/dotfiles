@@ -150,3 +150,6 @@ local map = vim.api.nvim_set_keymap
 map('n', '<leader>nn', '<cmd>NvimTreeToggle<cr>', {noremap=true})
 map('n', '<leader>nr', '<cmd>NvimTreeRefresh<cr>', {noremap=true})
 map('n', '<leader>nf', '<cmd>NvimTreeFindFile<cr>', {noremap=true})
+
+
+require("luasnip.loaders.from_snipmate").lazy_load()
