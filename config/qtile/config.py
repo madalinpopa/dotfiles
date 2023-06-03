@@ -145,7 +145,7 @@ layouts = [
     ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
+    layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(
@@ -186,7 +186,7 @@ screens = [
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
             ],
             24,
-            border_width=[6, 6, 6, 6],  # Draw top and bottom borders
+            border_width=[2, 2, 2, 2],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),

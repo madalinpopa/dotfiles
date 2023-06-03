@@ -46,6 +46,15 @@
     # Qtile configuration
     ~/.config/qtile:
       path: config/qtile
+    # Picom (window compositor) configuration
+    ~/.config/picom:
+      path: config/picom
+    # Rofi command run
+    ~/.config/rofi:
+      path: config/rofi
+    # Hotkey daemon
+    ~/.config/sxhkd:
+      path: config/sxhkd
 
 
 - shell:

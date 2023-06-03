@@ -1,0 +1,8 @@
+
+# Open file manager
+super + e
+	nautilus
+
+# Run rofi run
+alt + space
+	rofi -show run
