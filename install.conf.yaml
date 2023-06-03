@@ -40,6 +40,13 @@
     # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
+    # Alacrity configuration
+    ~/.config/alacritty:
+      path: config/alacritty
+    # Qtile configuration
+    ~/.config/qtile:
+      path: config/qtile
+
 
 - shell:
     - git submodule sync --recursive
