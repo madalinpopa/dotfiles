@@ -55,6 +55,9 @@
     # Hotkey daemon
     ~/.config/sxhkd:
       path: config/sxhkd
+    # Sublime text
+    ~/.config/sublime-text/Packages/User:
+      path: config/sublime-text/Packages/User
 
 
 - shell:

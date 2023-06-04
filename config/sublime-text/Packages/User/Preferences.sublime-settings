@@ -3,7 +3,7 @@
 {
   // Editor
   "font_face": "Fira Code Medium",
-  "font_size": 14,
+  "font_size": 16,
   "trim_trailing_white_space_on_save": "all",
   "ensure_newline_at_eof_on_save": true,
   "auto_complete": false,
@@ -58,6 +58,8 @@
     "*.sublime-project"
 
   ],
-  "theme": "Default Dark.sublime-theme",
+  "theme": "Adaptive.sublime-theme",
   "color_scheme": "Mariana.sublime-color-scheme",
+  "auto_hide_tabs": true,
+  "auto_hide_menu": true,
 }
