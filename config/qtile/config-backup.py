@@ -36,30 +36,10 @@ keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
-    Key(
-        [mod],
-        "h",
-        lazy.layout.left(),
-        desc="Move focus to left",
-    ),
-    Key(
-        [mod],
-        "l",
-        lazy.layout.right(),
-        desc="Move focus to right",
-    ),
-    Key(
-        [mod],
-        "j",
-        lazy.layout.down(),
-        desc="Move focus down",
-    ),
-    Key(
-        [mod],
-        "k",
-        lazy.layout.up(),
-        desc="Move focus up",
-    ),
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key(
         [mod],
         "space",
@@ -81,17 +61,9 @@ keys = [
         desc="Move window to the right",
     ),
     Key(
-        [mod, "shift"],
-        "j",
-        lazy.layout.shuffle_down(),
-        desc="Move window down",
+        [mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"
     ),
-    Key(
-        [mod, "shift"],
-        "k",
-        lazy.layout.shuffle_up(),
-        desc="Move window up",
-    ),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key(
@@ -107,23 +79,10 @@ keys = [
         desc="Grow window to the right",
     ),
     Key(
-        [mod, "control"],
-        "j",
-        lazy.layout.grow_down(),
-        desc="Grow window down",
+        [mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"
     ),
-    Key(
-        [mod, "control"],
-        "k",
-        lazy.layout.grow_up(),
-        desc="Grow window up",
-    ),
-    Key(
-        [mod],
-        "n",
-        lazy.layout.normalize(),
-        desc="Reset all window sizes",
-    ),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -134,37 +93,12 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key(
-        [mod],
-        "Return",
-        lazy.spawn(terminal),
-        desc="Launch terminal",
-    ),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key(
-        [mod],
-        "Tab",
-        lazy.next_layout(),
-        desc="Toggle between layouts",
-    ),
-    Key(
-        [mod],
-        "w",
-        lazy.window.kill(),
-        desc="Kill focused window",
-    ),
-    Key(
-        [mod, "control"],
-        "r",
-        lazy.reload_config(),
-        desc="Reload the config",
-    ),
-    Key(
-        [mod, "control"],
-        "q",
-        lazy.shutdown(),
-        desc="Shutdown Qtile",
-    ),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key(
         [mod],
         "r",
@@ -174,7 +108,6 @@ keys = [
 ]
 
 groups = [Group(i) for i in "123456789"]
-
 
 for i in groups:
     keys.extend(
@@ -191,7 +124,9 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                desc="Switch to & move focused window to group {}".format(
+                    i.name
+                ),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -201,22 +136,23 @@ for i in groups:
     )
 
 layouts = [
-    layout.MonadTall(
-        border_focus="#000",
-        border_normal="#000",
+    layout.Columns(
         border_width=2,
-        margin=25,
+        border_normal="#83EEFF",
+        border_normal_stack="#83EEFF",
+        border_focus_stack="#83EEFF",
+        margin=6,
     ),
-    # layout.Columns(
-    #     border_focus_stack=["#d75f5f", "#8f3d3d"],
-    #     border_width=4,
-    #     margin=8,
-    # ),
-    # layout.Max(),
+    layout.Max(),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
+    layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
+    # layout.MonadTall(
+    #     margin=6,
+    #     border_normal="#83EEFF",
+    #     border_focus="#83EEFF",
+    # ),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -227,8 +163,8 @@ layouts = [
 
 widget_defaults = dict(
     font="Ubuntu",
-    fontsize=16,
-    padding=4,
+    fontsize=13,
+    padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -236,20 +172,22 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                # widget.CurrentLayout(),
-                widget.Spacer(length=20),
+                widget.CurrentLayout(),
                 widget.GroupBox(),
-                widget.Spacer(),
-                # widget.Prompt(),
-                # NB Systray is incompatible with Wayland,
-                # consider using StatusNotifier instead
-                # widget.StatusNotifier(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.Spacer(length=20),
             ],
-            46,
-            background="#00000000",
+            24,
+            border_width=[2, 2, 2, 2],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),
 ]
@@ -263,7 +201,10 @@ mouse = [
         start=lazy.window.get_position(),
     ),
     Drag(
-        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+        [mod],
+        "Button3",
+        lazy.window.set_size_floating(),
+        start=lazy.window.get_size(),
     ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
