@@ -3,14 +3,14 @@
 {
   // Editor
   "font_face": "Fira Code Medium",
-  "font_size": 16,
+  "font_size": 15,
   "trim_trailing_white_space_on_save": "all",
   "ensure_newline_at_eof_on_save": true,
   "auto_complete": false,
   "hot_exit": false,
 
   // Interface
-  "auto_hide_tabs": false,
+  "auto_hide_tabs": true,
 
   // General
   "ignored_packages": ["A File Icon",
@@ -58,8 +58,6 @@
     "*.sublime-project"
 
   ],
-  "theme": "Adaptive.sublime-theme",
+  "theme": "Default Dark.sublime-theme",
   "color_scheme": "Mariana.sublime-color-scheme",
-  "auto_hide_tabs": true,
-  "auto_hide_menu": true,
 }

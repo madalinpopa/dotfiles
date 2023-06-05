@@ -27,11 +27,16 @@
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
+# ==============================================================
+# Set mod and default terminal
+# ==============================================================
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty"
 
+# ==============================================================
+# Set window keys
+# ==============================================================
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -173,8 +178,34 @@ keys = [
     ),
 ]
 
-groups = [Group(i) for i in "123456789"]
+# ==============================================================
+# Set group names and labels
+# ==============================================================
 
+groups = []
+
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+group_labels = ["", "", "", "", "", "", "", "", ""]
+group_layouts = [
+    "monadtall",
+    "monadtall",
+    "monadtall",
+    "monadtall",
+    "monadtall",
+    "monadtall",
+    "monadtall",
+    "monadtall",
+    "monadtall",
+]
+
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        )
+    )
 
 for i in groups:
     keys.extend(
@@ -200,6 +231,9 @@ for i in groups:
         ]
     )
 
+# ==============================================================
+# Set window layouts
+# ==============================================================
 layouts = [
     layout.MonadTall(
         border_focus="#000",
@@ -207,22 +241,6 @@ layouts = [
         border_width=2,
         margin=25,
     ),
-    # layout.Columns(
-    #     border_focus_stack=["#d75f5f", "#8f3d3d"],
-    #     border_width=4,
-    #     margin=8,
-    # ),
-    # layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
@@ -232,6 +250,9 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# ==============================================================
+# Set screens and bar objects
+# ==============================================================
 screens = [
     Screen(
         top=bar.Bar(
@@ -254,6 +275,10 @@ screens = [
     ),
 ]
 
+# ==============================================================
+# Drag floating layouts.
+# ==============================================================
+
 # Drag floating layouts.
 mouse = [
     Drag(
@@ -263,7 +288,10 @@ mouse = [
         start=lazy.window.get_position(),
     ),
     Drag(
-        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+        [mod],
+        "Button3",
+        lazy.window.set_size_floating(),
+        start=lazy.window.get_size(),
     ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
@@ -285,6 +313,13 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
+floating_layout.border_focus = "#000000"
+floating_layout.border_normal = "#000000"
+
+# ==============================================================
+# Other settings
+# ==============================================================
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
