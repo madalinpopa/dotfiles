@@ -8,6 +8,7 @@
   "ensure_newline_at_eof_on_save": true,
   "auto_complete": false,
   "hot_exit": false,
+  "rulers": [79,80],
 
   // Interface
   "auto_hide_tabs": true,
