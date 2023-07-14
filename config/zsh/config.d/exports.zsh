@@ -27,3 +27,11 @@ fi
 if [ -f "/opt/homebrew/bin/brew" ]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
+
+# settings for pyenv
+if [ -f "/home/linuxbrew/.linuxbrew/bin/pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv" 
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
