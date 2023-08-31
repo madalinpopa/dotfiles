@@ -3,7 +3,7 @@
 {
   // Editor
   "font_face": "Fira Code Medium",
-  "font_size": 15,
+  "font_size": 12,
   "trim_trailing_white_space_on_save": "all",
   "ensure_newline_at_eof_on_save": true,
   "auto_complete": false,
