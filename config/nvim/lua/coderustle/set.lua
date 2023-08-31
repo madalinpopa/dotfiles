@@ -67,8 +67,8 @@ o.writebackup=false         -- no backup file writing
 o.updatetime=250       	    -- faster completion
 o.timeout = true            -- enable timeout
 o.timeoutlen=300            -- by default timeoutlen is 1000 ms
-b.textwidth=120		    -- hard wrap
-w.colorcolumn="120"	    -- display a color column for text width
+b.textwidth=79		    -- hard wrap
+w.colorcolumn="+1"	    -- display a color column for text width
 w.foldenable=false	    -- all fold to be open by default
 
 -- enable filetypes
