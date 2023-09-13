@@ -41,23 +41,26 @@
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
     # Alacrity configuration
-    ~/.config/alacritty:
-      path: config/alacritty
+    # ~/.config/alacritty:
+    #   path: config/alacritty
     # Qtile configuration
-    ~/.config/qtile:
-      path: config/qtile
+    # ~/.config/qtile:
+    #   path: config/qtile
     # Picom (window compositor) configuration
-    ~/.config/picom:
-      path: config/picom
+    # ~/.config/picom:
+    #   path: config/picom
     # Rofi command run
-    ~/.config/rofi:
-      path: config/rofi
+    # ~/.config/rofi:
+    #   path: config/rofi
     # Hotkey daemon
-    ~/.config/sxhkd:
-      path: config/sxhkd
+    # ~/.config/sxhkd:
+    #   path: config/sxhkd
     # Sublime text
     ~/.config/sublime-text/Packages/User:
       path: config/sublime-text/Packages/User
+    # 1Password config
+    ~/.config/1Password:
+      path: config/1Password
 
 
 - shell:
