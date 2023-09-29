@@ -114,8 +114,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = less -FRX
-	editor = nvim
-
+	editor = vim
 # Allow local customizations in the .gitconfig_local file
 [include]
 	path = ~/.gitconfig_local
