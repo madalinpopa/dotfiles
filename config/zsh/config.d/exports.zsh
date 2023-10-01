@@ -35,3 +35,13 @@ if [ -f "/home/linuxbrew/.linuxbrew/bin/pyenv" ]; then
   eval "$(pyenv init -)"
 fi
 
+# bun completions
+[ -s "/Users/madalinpopa/.bun/_bun" ] && source "/Users/madalinpopa/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+if [ -x "$(command -v thefuck)" ]; then
+  eval $(thefuck --alias)
+fi
