@@ -17,9 +17,6 @@
     ~/.bashrc:
       path: config/bash/bashrc
       force: true
-    # ~/.profile:
-    #   path: config/bash/profile
-      force: true
     ~/.zshrc:
       path: config/zsh/zshrc
       force: true
@@ -28,36 +25,12 @@
     ~/.oh-my-zsh:
       path: config/zsh/oh-my-zsh
       force: true
-    # Tmux configuration
-    ~/.tmux.conf:
-      path: config/tmux/tmux.conf
-    # Neovim configuration
-    ~/.config/nvim:
-      path: config/nvim
     # Vim configuration
     ~/.vim:
       path: config/vim
     # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
-    # Alacrity configuration
-    # ~/.config/alacritty:
-    #   path: config/alacritty
-    # Qtile configuration
-    # ~/.config/qtile:
-    #   path: config/qtile
-    # Picom (window compositor) configuration
-    # ~/.config/picom:
-    #   path: config/picom
-    # Rofi command run
-    # ~/.config/rofi:
-    #   path: config/rofi
-    # Hotkey daemon
-    # ~/.config/sxhkd:
-    #   path: config/sxhkd
-    # Sublime text
-    ~/.config/sublime-text/Packages/User:
-      path: config/sublime-text/Packages/User
     # 1Password config
     ~/.config/1Password:
       path: config/1Password

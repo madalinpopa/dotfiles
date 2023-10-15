@@ -1,9 +1,0 @@
-let mapleader = ','
-
-nnoremap <leader>q :q!<CR>
-nnoremap <leader>w :w<CR>
-
-nmap <leader>a <action>(GotoAction)
-nmap <leader>f <action>(GotoFile)
-nmap <leader>c <action>(GotoClass)
-nmap <leader>t <action>(ActivateTerminalToolWindow)
