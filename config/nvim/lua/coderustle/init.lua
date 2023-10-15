@@ -4,6 +4,6 @@
 ------------------------------------------------------
 require('coderustle.options')
 require('coderustle.lazyvim')
-require('coderustle.commands')
 require('coderustle.keymap')
+require('coderustle.commands')
 

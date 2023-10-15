@@ -96,15 +96,7 @@ require('lazy').setup({
     },
   },
 
-  { -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
-  },
+
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -134,18 +126,7 @@ require('lazy').setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
-  -- Neovim tree
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
 
-  -- Auto Pairs plugin
-  {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  },
+
+
 }, {})

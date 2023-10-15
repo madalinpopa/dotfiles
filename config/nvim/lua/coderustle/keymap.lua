@@ -6,7 +6,7 @@
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 
 -- Quick exit without save
-vim.keymap.set('n', '<leader>q', ':q!<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>qq', ':q!<CR>', { noremap = true, silent = true })
 
 -- Disable arrow navigation
 vim.keymap.set('', '<UP>', '<NOP>', { noremap = true })
@@ -48,3 +48,19 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+------------------------------------------------------
+-- Nvimtree keymaps
+------------------------------------------------------
+
+-- Nvim Tree plugin
+vim.keymap.set('n', '<leader>nn', '<cmd>NvimTreeToggle<cr>', {noremap=true})
+vim.keymap.set('n', '<leader>nr', '<cmd>NvimTreeRefresh<cr>', {noremap=true})
+vim.keymap.set('n', '<leader>nf', '<cmd>NvimTreeFindFile<cr>', {noremap=true})
+
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
