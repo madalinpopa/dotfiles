@@ -6,7 +6,7 @@
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 
 -- Quick exit without save
-vim.keymap.set('n', '<leader>qq', ':q!<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>q', ':q!<CR>', { noremap = true, silent = true })
 
 -- Disable arrow navigation
 vim.keymap.set('', '<UP>', '<NOP>', { noremap = true })
@@ -63,4 +63,4 @@ vim.keymap.set('n', '<leader>nf', '<cmd>NvimTreeFindFile<cr>', {noremap=true})
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<leader>ee', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
