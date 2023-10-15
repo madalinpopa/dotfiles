@@ -25,6 +25,9 @@
     ~/.oh-my-zsh:
       path: config/zsh/oh-my-zsh
       force: true
+    # Alacritty configuration
+    ~/.config/alacritty/alacritty.yml:
+      path: config/alacritty/alacritty.yml
     # Vim configuration
     ~/.vim:
       path: config/vim
