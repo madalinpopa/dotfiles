@@ -2,9 +2,7 @@
 -- Author: Madalin Popa
 -- Email: contact@madalinpopa.com
 ------------------------------------------------------
-------------------------------------------------------
--- Configure package manager
-------------------------------------------------------
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -21,11 +19,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-
-  -- Color scheme
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-}, {})
+-- Start lazyvim
+require("lazy").setup("plugins")

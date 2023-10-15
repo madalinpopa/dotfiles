@@ -1,12 +1,7 @@
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-    defaults = {
-      mappings = {
-        i = {
-          ['<C-u>'] = false,
-          ['<C-d>'] = false,
-        },
-      },
-    },
-  }
+-- plugins/telescope.lua:
+-- https://github.com/nvim-telescope/telescope.nvim
+return {
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.4',
+  dependencies = { 'nvim-lua/plenary.nvim' }
+}
