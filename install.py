@@ -40,10 +40,32 @@ class ExtendedEnvBuilder(venv.EnvBuilder):
     def run_dotbot(self):
         """Run dotbot to create links"""
         logger.info("Run dotbot")
-        subprocess.run(["dotbot", "-c", "install.conf.yaml"])
+        subprocess.run(["dotbot", "-c", "conf.yaml"])
+
+
+class Utilities:
+    """
+    This is used to install a hand of utilities needed for my dotfiles.
+    """
+
+    def install_homebrew(self):
+        url = "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+
+        logger.info("Check if brew is installed")
+        command = ["command", "-v", "brew"]
+        result = subprocess.run(command, shell=True)
+        if result.returncode == 0:
+            logger.info("homebrew is installed")
+        else:
+            logger.info("Install homebrew")
+            command = ["/bin/bash", "-c", "curl", "-fsSl", url]
 
 
 if __name__ == "__main__":
     logger.info("Create virtual environment `.venv`")
     venv = ExtendedEnvBuilder(with_pip=True, clear=True)
     venv.create(".venv")
+
+    # Install utilities
+    util = Utilities()
+    util.install_homebrew()
