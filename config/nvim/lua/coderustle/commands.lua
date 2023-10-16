@@ -22,3 +22,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- Ensure that automatic filetype detection is
+cmd('filetype on')

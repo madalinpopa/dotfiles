@@ -35,7 +35,8 @@ vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { noremap = true })
 
-
+-- format python files with black
+vim.keymap.set('n', '<leader>f', ':!black %<CR>', {noremap = true, silent = true})
 
 ------------------------------------------------------
 -- Telescope Keymaps
