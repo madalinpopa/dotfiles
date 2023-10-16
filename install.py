@@ -48,9 +48,9 @@ class Utilities:
     This is used to install a hand of utilities needed for my dotfiles.
     """
 
-    def install_homebrew(self):
-        url = "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+    brew = "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 
+    def install_homebrew(self):
         logger.info("Check if brew is installed")
         command = ["command", "-v", "brew"]
         result = subprocess.run(command, shell=True)
@@ -58,7 +58,7 @@ class Utilities:
             logger.info("homebrew is installed")
         else:
             logger.info("Install homebrew")
-            command = ["/bin/bash", "-c", "curl", "-fsSl", url]
+            command = ["/bin/bash", "-c", "curl", "-fsSl", self.brew]
 
 
 if __name__ == "__main__":
