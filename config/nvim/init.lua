@@ -151,6 +151,8 @@ local servers = {
             }
         }
     },
+    tailwindcss = {},
+    cssls = {},
     html = { filetypes = { 'html', 'twig', 'hbs', 'djangohtml' } },
     lua_ls = {
         Lua = {

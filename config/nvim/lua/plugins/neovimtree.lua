@@ -6,7 +6,10 @@ return {
         filters = {
             dotfiles = false,
             exclude = { 'dist', '.github' },
-            custom = { '.git', '.yarn', 'node_modules' }
+            custom = {
+                '.git', '.yarn', 'node_modules', 'venv', '.venv',
+                '__pycache__'
+            }
         }
     },
     dependencies = {
