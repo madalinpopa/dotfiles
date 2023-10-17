@@ -45,3 +45,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 if [ -x "$(command -v thefuck)" ]; then
   eval $(thefuck --alias)
 fi
+
+# Alacrity completions
+if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
+fi
+

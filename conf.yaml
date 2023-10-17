@@ -24,8 +24,8 @@
     ~/.config/zsh/config.d:
       path: config/zsh/config.d
     # Alacritty configuration
-    ~/.config/alacritty/alacritty.yml:
-      path: config/alacritty/alacritty.yml
+    ~/.config/alacritty/alacritty.toml:
+      path: config/alacritty/alacritty.toml
       force: true
     # Vim configuration
     ~/.vim:
