@@ -35,12 +35,14 @@ class ExtendedEnvBuilder(venv.EnvBuilder):
     def install_requirements(self):
         """Install requirements.txt"""
         logger.info("Install python requirements")
-        subprocess.run(["pip", "install", "-r", "requirements.txt"])
+        command = ["pip", "install", "-r", "requirements.txt"]
+        subprocess.run(command, shell=True)
 
     def run_dotbot(self):
         """Run dotbot to create links"""
         logger.info("Run dotbot")
-        subprocess.run(["dotbot", "-c", "conf.yaml"])
+        command = ["dotbot", "-c", "conf.yaml"]
+        subprocess.run(command, shell=True)
 
 
 class Utilities:
