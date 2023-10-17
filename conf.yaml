@@ -17,6 +17,7 @@
     ~/.bashrc:
       path: config/bash/bashrc
       force: true
+    # Zsh configuration
     ~/.zshrc:
       path: config/zsh/zshrc
       force: true
@@ -25,6 +26,7 @@
     # Alacritty configuration
     ~/.config/alacritty/alacritty.yml:
       path: config/alacritty/alacritty.yml
+      force: true
     # Vim configuration
     ~/.vim:
       path: config/vim
@@ -40,4 +42,4 @@
     # Install git autocomplete
     - ./scripts/git-autocomplete-init.sh
     # Install oh-my-zsh
-    - ./scripts/install-ohmyzsh.sh
+    # - ./scripts/install-ohmyzsh.sh
