@@ -50,5 +50,9 @@ fi
 if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
    fpath+=~/.zfunc
    fpath+=${ZDOTDIR:-~}/.zsh_functions
+else
+   mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
 fi
 
