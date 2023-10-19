@@ -154,6 +154,7 @@ local servers = {
     tailwindcss = {},
     cssls = {},
     html = { filetypes = { 'html', 'twig', 'hbs', 'djangohtml' } },
+    ruff_lsp = {},
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
