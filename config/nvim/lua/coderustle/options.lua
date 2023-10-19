@@ -51,10 +51,15 @@ o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 o.termguicolors = true
 
+-- Keep signcolumn on by default
+o.signcolumn = 'yes'
+
 -- Window scoped options
 ------------------------------------------------------
 -- Make line numbers default
 w.number = true
 
--- Keep signcolumn on by default
-o.signcolumn = 'yes'
+-- Update line numbers for scroll
+w.scroll = 5
+
+
