@@ -62,4 +62,6 @@ w.number = true
 -- Update line numbers for scroll
 w.scroll = 5
 
+-- Highlight cursor line
+w.cursorline = true
 
