@@ -23,3 +23,13 @@ lines = 30
 [window.padding]
 x = 5
 y = 5
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+mods = "None"
