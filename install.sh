@@ -22,7 +22,7 @@ if [ ! -d "${DOTFILES_DIR}" ]; then
 else
     echo "${DOTFILES_DIR} already exists. Pulling latest changes..."
     cd "${DOTFILES_DIR}"
-    git pull origin main
+    git pull -f origin main
 fi
 
 # Execute Dotbot
