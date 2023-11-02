@@ -28,6 +28,6 @@ fi
 # Execute Dotbot
 echo "Running Dotbot..."
 cd "${DOTFILES_DIR}"
-dotbot -c conf.yaml
+python3 -m dotbot -c conf.yaml
 
 echo "Dotfiles setup complete!"
