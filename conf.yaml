@@ -30,7 +30,7 @@
     ~/.vim:
       path: config/vim
     # Neovim configuration
-    ~/.config/nvim
+    ~/.config/nvim:
       path: config/nvim
     # Tmux configuration
     ~/.tmux.conf:
