@@ -29,6 +29,9 @@
     # Vim configuration
     ~/.vim:
       path: config/vim
+    # Neovim configuration
+    ~/.config/nvim
+      path: config/nvim
     # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
