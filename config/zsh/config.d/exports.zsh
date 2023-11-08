@@ -39,7 +39,9 @@ fi
 [ -s "/Users/madalinpopa/.bun/_bun" ] && source "/Users/madalinpopa/.bun/_bun"
 
 # kubectl completions
-[ -s "/home/linuxbrew/.linuxbrew/bin/kubectl" ] && source <(kubectl completion zsh)
+if [ -x "$(command -v kubectl)" ]; then
+        source <(kubectl completion zsh)
+fi
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
