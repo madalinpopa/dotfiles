@@ -90,6 +90,7 @@ export NVM_DIR="$HOME/.nvm"
 # fi
 
 autoload -Uz compinit
+compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 fpath+=${ZDOTDIR:-~}/.zsh_functions
