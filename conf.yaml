@@ -35,8 +35,8 @@
     # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
-    ~/.tmux/bin/theme:
-      path: config/tmux/theme.sh
+    ~/.tmux/bin/toggle-theme:
+      path: config/tmux/toggle-theme
 
 - shell:
     # Install git autocomplete
