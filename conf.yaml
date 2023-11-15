@@ -35,10 +35,6 @@
     # Tmux configuration
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
-    # 1Password config
-    ~/.config/1Password:
-      path: config/1Password
-
 
 - shell:
     # Install git autocomplete
