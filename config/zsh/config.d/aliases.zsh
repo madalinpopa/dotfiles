@@ -14,6 +14,8 @@ alias gag='git exec ag'
 # use neovim diff
 alias vimdiff='nvim -d'
 
+# alias for ranger
+alias ff='ranger'
 
 # Update dotfiles
 dfu() {
