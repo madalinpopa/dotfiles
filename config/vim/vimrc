@@ -16,30 +16,15 @@ call plug#begin()
 Plug 'tomasiser/vim-code-dark'
 Plug 'ayu-theme/ayu-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Airline, for status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Intellisense
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Start Screen
-Plug 'mhinz/vim-startify'
-
-" File Explorer
-Plug 'scrooloose/nerdtree'
-
 " Auto-pairs
 Plug 'jiangmiao/auto-pairs'
-
-" Colorscheme
-Plug 'morhetz/gruvbox'
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-" File icons
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ryanoasis/vim-devicons'
 
 " Show indent lines
 Plug 'Yggdroot/indentLine'
@@ -60,52 +45,143 @@ call plug#end()
 " OPTIONS
 " -------------------------------------------------
 
+" Set colorscheme
 colorscheme dracula
-set nu															" enable line numbers
-syntax on														" enable syntax
-set mouse=a													" enable mouse support
-set clipboard=unnamed,unnamedplus		" enable copy/paste support
-set noswapfile											" disable swapfile
-set encoding=UTF-8									" change default encoding file
-set showmatch												" highlight matching parenthesis
-set foldmethod=indent								" enable folding (default 'foldmarker')
-set colorcolumn=120									" set column lenght
-set splitright											" vertical split to the right
-set splitbelow											" horizontal split to down
-set ignorecase											" ignore case letters when search
-set smartcase												" ignore lowercase for the whole pattern
-set hidden													" enable background buffers
-set history=100											" remember n lines in history
-set lazyredraw											" faster scrolling
-set synmaxcol=240										" max column for syntax highlight
-set termguicolors										" enable 24-bit RGB colors
-set pumheight=10										" makes popup menu smaller
-set fileencoding=UTF-8							" set the encoding file type for buffer
-set ruler														" show the cursor position all the time
-set cmdheight=2											" more space for displaying messages
-set conceallevel=1									" so that I can se `` in markdown file
-set tabstop=2												" insert 2 spaces for a tab
-set shiftwidth=2										" change the number of spaces characters
-set smarttab												" makes tabbing smarter
-set smartindent											" makes indenting
-set autoindent            					" copy the indent line from the above
-set laststatus=0          					" always display the status line
-set relativenumber        					" set relative number
-set cursorline            					" enable hightlighting of the current line
-set background=dark       					" tell vim what the background color looks like
-set showtabline=2         					" always show tabs
-set showmode              					" we don't need to see things like INSERT
-set nobackup              					" no backup file when writing
-set nowritebackup         					" no backup file writing
-set updatetime=300        					" faster completion
-set timeoutlen=500        					" by default timeoutlen is 1000 ms
-set textwidth=120         					" hard wrap
-set nofoldenable          					" disable fold to open default
-set formatoptions-=tcroa  					" format options
-set noeb vb t_vb=          					" disable visual bell
-set backspace=indent,eol,start 			" configure backspace to work
-set nowrap 													" set no wrap lines
-set hlsearch  											" highlight search
+
+" enable line numbers
+set nu
+
+" enable syntax
+syntax on
+
+" Enable mouse support
+set mouse=a
+
+" Enable copy/paste support
+set clipboard=unnamed,unnamedplus
+
+" Disable swapfile
+set noswapfile
+
+" Set default encoding file
+set encoding=UTF-8
+
+" highlight matching parenthesis
+set showmatch
+
+" enable folding (default 'foldmarker')
+set foldmethod=indent
+
+" set column lenght
+set colorcolumn=120
+
+" vertical split to the right
+set splitright
+
+" horizontal split to down
+set splitbelow
+
+" ignore case letters when search
+set ignorecase
+
+" ignore lowercase for the whole pattern
+set smartcase
+
+" enable background buffers
+set hidden
+
+" remember n lines in history
+set history=100
+
+" faster scrolling
+set lazyredraw
+
+" max column for syntax highlight
+set synmaxcol=240
+
+" enable 24-bit RGB colors
+set termguicolors
+
+" makes popup menu smaller
+set pumheight=10
+
+" set the encoding file type for buffer
+set fileencoding=UTF-8
+
+" show the cursor position all the time
+set ruler
+
+" more space for displaying messages
+set cmdheight=2
+
+" so that I can se `` in markdown file
+set conceallevel=1
+
+" insert 2 spaces for a tab
+set tabstop=2
+
+" change the number of spaces characters
+set shiftwidth=2
+
+" makes tabbing smarter
+set smarttab
+
+" makes indenting
+set smartindent
+
+" copy the indent line from the above
+set autoindent
+
+" always display the status line
+set laststatus=0
+
+" set relative number
+set relativenumber
+
+" enable hightlighting of the current line
+set cursorline
+
+" tell vim what the background color looks like
+set background=dark
+
+" always show tabs
+set showtabline=2
+
+" we don't need to see things like INSERT
+set showmode
+
+" no backup file when writing
+set nobackup
+
+" no backup file writing
+set nowritebackup
+
+" faster completion
+set updatetime=300
+
+" by default timeoutlen is 1000 ms
+set timeoutlen=500
+
+" hard wrap
+set textwidth=120
+
+" disable fold to open default
+set nofoldenable
+
+" format options
+set formatoptions-=tcroa
+
+" disable visual bell
+set noeb vb t_vb=
+
+" configure backspace to work
+set backspace=indent,eol,start
+
+" set no wrap lines
+set nowrap
+
+" highlight search
+set hlsearch
 
 " -------------------------------------------------
 " VARIABLES
@@ -169,23 +245,6 @@ noremap <leader>t :term<CR>
 " PLUGINS
 " -------------------------------------------------
 
-" NERDTREE
-" -------------------------------------------------
-
-" Ignore file and folders
-let NERDTreeIgnore=['^node_modules$', '\.pyc$', '\~$']
-
-" au VimEnter *  NERDTree
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=0
-let g:NERDTreeWinSize=35
-
-" Mappings
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
-map <leader>nr :NERDTreeRefreshRoot<cr>
-
 " AIRLINE
 " -------------------------------------------------
 
@@ -197,32 +256,4 @@ let g:airline_theme='ayu'
 " -------------------------------------------------
 
 " Search for all files recorded by the git
-nmap <C-P> :GFiles .<CR>
-
-" COC VIM
-" -------------------------------------------------
-
-" let g:coc_node_path = "/usr/local/bin/node"
-
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+nmap <leader>f :GFiles .<CR>
