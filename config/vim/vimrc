@@ -46,7 +46,7 @@ call plug#end()
 " -------------------------------------------------
 
 " Set colorscheme
-colorscheme dracula
+colorscheme ayu
 
 " enable line numbers
 set nu
