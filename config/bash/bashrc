@@ -9,10 +9,6 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
-# Load git completion and prompt.sh
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
-fi
 
 # Load custom files
 if [ -d ~/.bashrc.d ]; then
@@ -23,8 +19,11 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 
-# unset rc
-# . "$HOME/.cargo/env"
+
+# Load git completion and prompt.sh
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -34,6 +33,10 @@ export NVM_DIR="$HOME/.nvm"
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+# kubectl completions
+if [ -x "$(command -v kubectl)" ]; then
+        source <(kubectl completion zsh)
+fi
 
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #     tmux attach -t default || tmux new -s default
