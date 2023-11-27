@@ -30,7 +30,7 @@ fi
 
 # settings for pyenv
 if [ -f "/home/linuxbrew/.linuxbrew/bin/pyenv" ]; then
-  export PYENV_ROOT="$HOME/.pyenv" 
+  export PYENV_ROOT="$HOME/.pyenv"
   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
@@ -41,6 +41,11 @@ fi
 # kubectl completions
 if [ -x "$(command -v kubectl)" ]; then
         source <(kubectl completion zsh)
+fi
+
+# kustomize completions
+if [ -x "$(command -v kustomize)" ]; then
+        source <(kustomize completion zsh)
 fi
 
 # bun
