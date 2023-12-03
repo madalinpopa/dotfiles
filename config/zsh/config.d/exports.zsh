@@ -66,3 +66,4 @@ else
    fpath+=${ZDOTDIR:-~}/.zsh_functions
 fi
 
+export GPG_TTY=$(tty)

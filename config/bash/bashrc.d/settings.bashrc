@@ -16,3 +16,5 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 # Homebrew
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export GPG_TTY=$(tty)
