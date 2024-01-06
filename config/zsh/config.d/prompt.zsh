@@ -6,9 +6,6 @@ autoload -Uz vcs_info
 add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:*' enable hg git cvs svn
 zstyle ':vcs_info:*' formats '%s|%b|%a|%i|%R|%r|%S|%m'
-zstyle ":completion:*" menu select=long
-zstyle ":completion:*" menu select=2
-
 
 # my prompt theme
 function promptSetup () {
