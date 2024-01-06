@@ -12,9 +12,9 @@ style = "Retina"
 history = 10000
 
 [window]
-decorations = "None"
 dynamic_padding = true
 opacity = 0.9
+blur = true
 
 [window.dimensions]
 columns = 100
