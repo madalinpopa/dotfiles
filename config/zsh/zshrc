@@ -28,16 +28,6 @@ if [ -f "/opt/homebrew/bin/brew" ]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-# Kubectl completions
-if [ -x "$(command -v kubectl)" ]; then
-        source <(kubectl completion zsh)
-fi
-
-# # Kustomize completions
-if [ -x "$(command -v kustomize)" ]; then
-        source <(kustomize completion zsh)
-fi
-
 # Bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
@@ -46,3 +36,13 @@ fi
 
 # # This loads nvm bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Kubectl completions
+if [ -x "$(command -v kubectl)" ]; then
+  source <(kubectl completion zsh)
+fi
+
+# # Kustomize completions
+if [ -x "$(command -v kustomize)" ]; then
+  source <(kustomize completion zsh)
+fi
