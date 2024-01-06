@@ -8,6 +8,16 @@ for FILE in ~/.config/zsh/config.d/*; do
     source $FILE
 done
 
+# Enable zsh functions
+if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
+else
+   mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
+fi
+
 # Everytime open terminal, open a Tmux session
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #     tmux attach -t default || tmux new -s default
@@ -39,15 +49,3 @@ fi
 
 # # This loads nvm bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# # Enable zsh functions
-if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
-   fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-~}/.zsh_functions
-else
-   mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-   fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-~}/.zsh_functions
-fi
-
-
