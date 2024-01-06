@@ -14,25 +14,9 @@ alias gag='git exec ag'
 # use neovim diff
 alias vimdiff='nvim -d'
 
-# alias for ranger
-alias ff='ranger'
-
 # Update dotfiles
 dfu() {
     (
         cd ~/.dotfiles && git pull --ff-only && ./install -q
     )
 }
-
-# nala alias
-# apt() {
-#     command nala "$@"
-# }
-# sudo() {
-#     if [ "$1" = "apt" ]; then
-#         shift
-#         command sudo nala "$@"
-#     else
-#         command sudo "$@"
-#     fi
-# }
