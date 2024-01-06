@@ -81,7 +81,7 @@ fpath+=~/.zfunc
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # User configuration
-PROMPT="%* %n@%m "
+PROMPT="%* %n@%m%#"
 
 # Everytime open terminal, open a Tmux session
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
