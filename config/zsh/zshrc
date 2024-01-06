@@ -8,51 +8,46 @@ for FILE in ~/.config/zsh/config.d/*; do
     source $FILE
 done
 
-
-# zstyle ':completion:*' menu select
-# fpath+=~/.zfunc
-# fpath+=${ZDOTDIR:-~}/.zsh_functions
-
 # Everytime open terminal, open a Tmux session
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #     tmux attach -t default || tmux new -s default
 # fi
 
 # Set PATH, MANPATH, etc., for Homebrew.
-# if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-#   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# fi
-# if [ -f "/opt/homebrew/bin/brew" ]; then
-#   eval $(/opt/homebrew/bin/brew shellenv)
-# fi
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
 
 # Kubectl completions
-# if [ -x "$(command -v kubectl)" ]; then
-#         source <(kubectl completion zsh)
-# fi
+if [ -x "$(command -v kubectl)" ]; then
+        source <(kubectl completion zsh)
+fi
 
 # Kustomize completions
-# if [ -x "$(command -v kustomize)" ]; then
-#         source <(kustomize completion zsh)
-# fi
+if [ -x "$(command -v kustomize)" ]; then
+        source <(kustomize completion zsh)
+fi
 
 # Bun completions
-# [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # This loads nvm
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # This loads nvm bash_completion
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Alacrity completions
-# if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
-#    fpath+=~/.zfunc
-#    fpath+=${ZDOTDIR:-~}/.zsh_functions
-# else
-#    mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-#    fpath+=~/.zfunc
-#    fpath+=${ZDOTDIR:-~}/.zsh_functions
-# fi
+# Enable zsh functions
+if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
+else
+   mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
+fi
 
 
