@@ -8,12 +8,11 @@ add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:*' enable hg git cvs svn
 zstyle ':vcs_info:*' formats '%s|%b|%a|%i|%R|%r|%S|%m'
 zstyle ":completion:*" menu select=2
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ":completion:*" list-colors ""
 # zstyle ":completion:*" auto-description "specify: %d"
 # zstyle ":completion:*" completer _complete _correct _approximate
 # zstyle ":completion:*" format "Completing %d"
 # zstyle ":completion:*" group-name ""
-# zstyle ":completion:*" list-colors ""
 # zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 # zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"
 # zstyle ":completion:*" menu select=long
