@@ -12,7 +12,7 @@ style = "Retina"
 history = 10000
 
 [window]
-decorations = "buttonless"
+decorations = "None"
 dynamic_padding = true
 opacity = 0.9
 
