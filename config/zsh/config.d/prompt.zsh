@@ -80,14 +80,12 @@ function promptSetup () {
         # we are on our home desktop
     else
         # we are outside on a server
-        PR_SIGN+="`hostname` "
+        PR_SIGN+="$CURRENT_USER@`hostname` "
     fi
 
     # setup the main sign
     if [[ $CURRENT_USER == 'root' ]]; then
         PR_SIGN+="☠"
-    elif [[ $CURRENT_USER == 'vagrant' ]]; then
-        PR_SIGN+="𝓥"
     elif [[ $POETRY_ACTIVE == "1" ]]; then
         PYTHON_VERSION=$(python --version | cut -d " " -f 2)
         PR_SIGN+="Ƥ ${PYTHON_VERSION}"
@@ -96,8 +94,6 @@ function promptSetup () {
     fi
 
     PR_SIGN+="%F{white}%b"
-
-
 
     # http://unix.stackexchange.com/questions/1022/is-it-possible-to-display-stuff-below-the-prompt-at-a-prompt
     terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
