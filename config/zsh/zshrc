@@ -4,9 +4,6 @@
 # ZSH plugins
 plugins=(git)
 
-compinit
-autoload -Uz compinit
-
 for FILE in ~/.config/zsh/config.d/*; do
     source $FILE
 done
