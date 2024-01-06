@@ -1,4 +1,18 @@
 
+# executable search path
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/sbin:$PATH
+
+# XDG Base Directory Specification
+# http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# Set date as DD-MM-YYYY
+export DATE=$(date +%d-%m-%Y)
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -7,11 +21,6 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='nvim'
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Bun
