@@ -14,12 +14,12 @@ done
 # fi
 
 # Set PATH, MANPATH, etc., for Homebrew.
-# if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-#   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# fi
-# if [ -f "/opt/homebrew/bin/brew" ]; then
-#   eval $(/opt/homebrew/bin/brew shellenv)
-# fi
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
 
 # Kubectl completions
 # if [ -x "$(command -v kubectl)" ]; then
