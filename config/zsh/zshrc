@@ -27,9 +27,9 @@ fi
 # fi
 
 # # Kustomize completions
-# if [ -x "$(command -v kustomize)" ]; then
-#         source <(kustomize completion zsh)
-# fi
+if [ -x "$(command -v kustomize)" ]; then
+        source <(kustomize completion zsh)
+fi
 
 # Bun completions
 # [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
