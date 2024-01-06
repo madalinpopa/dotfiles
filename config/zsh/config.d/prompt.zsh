@@ -1,5 +1,6 @@
 # enable hook method
 autoload add-zsh-hook
+autoload -U compinit; compinit
 
 # enable and configure vcs_info
 autoload -Uz vcs_info
@@ -11,7 +12,7 @@ zstyle ":completion:*" completer _complete _correct _approximate
 zstyle ":completion:*" format "Completing %d"
 zstyle ":completion:*" group-name ""
 zstyle ":completion:*" menu select=2
-zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ":completion:*" list-colors ""
 zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"

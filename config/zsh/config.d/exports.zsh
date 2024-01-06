@@ -21,6 +21,9 @@ export LANG=en_US.UTF-8
 # Enable  256 color support
 export TERM="xterm-256color"
 
+# Enable colors for ls, etc.
+export CLICOLOR=1
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
