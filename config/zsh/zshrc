@@ -1,9 +1,6 @@
 # Author: Madalin Popa
 # Email: contact@madalinpopa.com
 
-# ZSH plugins
-plugins=(git)
-
 for FILE in ~/.config/zsh/config.d/*; do
     source $FILE
 done
