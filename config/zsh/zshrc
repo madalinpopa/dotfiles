@@ -32,22 +32,22 @@ if [ -x "$(command -v kustomize)" ]; then
 fi
 
 # Bun completions
-# [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # # This loads nvm
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # # This loads nvm bash_completion
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # # Enable zsh functions
-# if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
-#    fpath+=~/.zfunc
-#    fpath+=${ZDOTDIR:-~}/.zsh_functions
-# else
-#    mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-#    fpath+=~/.zfunc
-#    fpath+=${ZDOTDIR:-~}/.zsh_functions
-# fi
+if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
+else
+   mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+   fpath+=~/.zfunc
+   fpath+=${ZDOTDIR:-~}/.zsh_functions
+fi
 
 
