@@ -76,11 +76,11 @@ function promptSetup () {
         # if not set, home is nowhere
         MYHOSTEXPRESSION="^$"
     fi
-    if [[ "%* `hostname`" =~ "$MYHOSTEXPRESSION" ]]; then
+    if [[ "%T `hostname`" =~ "$MYHOSTEXPRESSION" ]]; then
         # we are on our home desktop
     else
         # we are outside on a server
-        PR_SIGN+="%* `hostname` "
+        PR_SIGN+="%T `hostname` "
     fi
 
     # setup the main sign
