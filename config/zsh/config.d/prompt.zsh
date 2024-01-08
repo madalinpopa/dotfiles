@@ -88,6 +88,8 @@ function promptSetup () {
     elif [[ $POETRY_ACTIVE == "1" ]]; then
         PYTHON_VERSION=$(python --version | cut -d " " -f 2)
         PR_SIGN+="Ƥ ${PYTHON_VERSION}"
+    elif [[ -n "$VIRTUAL_ENV" ]]; then
+        PR_SIGN+="ⓔ"
     else
         PR_SIGN+="∴"
     fi
