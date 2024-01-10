@@ -51,6 +51,6 @@ fi
 if [ -x "$(command -v hatch)" ] && [ ! -f "$HOME/.hatch-complete.zsh" ]; then
   _HATCH_COMPLETE=zsh_source hatch > ~/.hatch-complete.zsh
   source ~/.hatch-complete.zsh
-else
+elif [ -f "$HOME/.hatch-complete.zsh" ]; then
     source ~/.hatch-complete.zsh
 fi
