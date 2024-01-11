@@ -1,7 +1,6 @@
 # enable hook method
 autoload add-zsh-hook
 autoload -U compinit; compinit
-
 # enable and configure vcs_info
 autoload -Uz vcs_info
 add-zsh-hook precmd vcs_info
@@ -79,7 +78,7 @@ function promptSetup () {
         # we are on our home desktop
     else
         # we are outside on a server
-        PR_SIGN+="%T `hostname` (%1d) "
+        PR_SIGN+="%T `hostname` [%1d] "
     fi
 
     # setup the main sign
