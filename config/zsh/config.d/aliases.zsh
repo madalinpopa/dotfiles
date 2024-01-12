@@ -20,3 +20,6 @@ dfu() {
         cd ~/.dotfiles && git pull --ff-only && ./install -q
     )
 }
+
+# LazyGit aliases
+alias ly=lazygit
