@@ -1,2 +1,13 @@
 theme = "ayu_mirage"
 
+[editor]
+line-number = "absolute"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
