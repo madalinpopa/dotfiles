@@ -6,7 +6,7 @@ file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstr
 shebangs = ["python"]
 roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json", ".git"]
 comment-token = "#"
-language-server = [ "pyright-lsp" ] 
+language-servers = [ "pyright-lsp" ] 
 indent = { tab-width = 4, unit = "    " }
 
 [[grammar]]
