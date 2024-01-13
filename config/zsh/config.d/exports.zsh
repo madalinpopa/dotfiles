@@ -24,13 +24,6 @@ export TERM="xterm-256color"
 # Enable colors for ls, etc.
 export CLICOLOR=1
 
-# Preferred editor for local and remote sessions
-#if [[ -n $SSH_CONNECTION ]]; then
-#  export EDITOR='vim'
-#else
-#  export EDITOR='hx'
-#fi
-
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
