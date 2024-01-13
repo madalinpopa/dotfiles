@@ -28,7 +28,7 @@ export CLICOLOR=1
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='hx'
 fi
 
 # Bun
@@ -40,3 +40,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Needed for GNU-GPG
 export GPG_TTY=$(tty)
+
