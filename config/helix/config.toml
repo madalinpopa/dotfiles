@@ -1,4 +1,4 @@
-theme = "acme"
+theme = "github_dark"
 
 [editor]
 line-number = "absolute"
