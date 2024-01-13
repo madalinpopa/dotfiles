@@ -42,3 +42,5 @@ export NVM_DIR="$HOME/.nvm"
 export GPG_TTY=$(tty)
 
 # Export default editor
+export EDITOR=hx
+export VISUAL=hx
