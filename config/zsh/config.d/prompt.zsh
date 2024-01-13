@@ -88,7 +88,7 @@ function promptSetup () {
         PYTHON_VERSION=$(python --version | cut -d " " -f 2)
         PR_SIGN+="Ƥ ${PYTHON_VERSION}"
     elif [[ -n "$VIRTUAL_ENV" ]]; then
-        PR_SIGN+="🐍 ${VIRTUAL_ENV_PROMPT}"
+        PR_SIGN+="(${VIRTUAL_ENV_PROMPT}) 🐍"
     else
         PR_SIGN+="∴"
     fi
