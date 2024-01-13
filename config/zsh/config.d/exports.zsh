@@ -25,11 +25,11 @@ export TERM="xterm-256color"
 export CLICOLOR=1
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='hx'
-fi
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='hx'
+#fi
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"
@@ -41,3 +41,4 @@ export NVM_DIR="$HOME/.nvm"
 # Needed for GNU-GPG
 export GPG_TTY=$(tty)
 
+# Export default editor

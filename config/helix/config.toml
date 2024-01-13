@@ -1,7 +1,8 @@
-theme = "ayu_mirage"
+theme = "acme"
 
 [editor]
 line-number = "absolute"
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
