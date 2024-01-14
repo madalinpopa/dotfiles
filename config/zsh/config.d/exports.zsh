@@ -37,3 +37,6 @@ export GPG_TTY=$(tty)
 # Export default editor
 export EDITOR=hx
 export VISUAL=hx
+
+# Needed by LF file manager
+export OPENER=hx
