@@ -21,8 +21,14 @@ else # macOS `ls`
 	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
 
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
+# use exa if available
+if [[ -x "$(command -v exa)" ]]; then
+  alias ll="exa --icons --git --long"
+  alias l="exa --icons --git --all --long"
+else
+  alias l="ls -lah ${colorflag}"
+  alias ll="ls -lFh ${colorflag}"
+fi
 
 # List all files colorized in long format, excluding . and ..
 alias la="ls -lAF ${colorflag}"
@@ -58,3 +64,9 @@ dfu() {
 
 # LazyGit aliases
 alias ly=lazygit
+
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'
