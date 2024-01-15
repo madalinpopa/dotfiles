@@ -11,6 +11,7 @@ alias -- -="cd -"
 alias dl="cd ~/Downloads"
 alias p="cd ~/projects"
 alias g="git"
+alias n="cd ~/notes && hx"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
