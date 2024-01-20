@@ -67,7 +67,7 @@ function promptSetup () {
     # rootshell gets another prompt sign
     CURRENT_USER=`whoami`
     PR_SIGN=$NOCOLOR
-    PR_SIGN+="%F{160}%B"
+    PR_SIGN+="%F{81}%B"
 
     # prepend the hostname if we are outside
     if [[ "$MYHOSTEXPRESSION" == "" ]]; then
