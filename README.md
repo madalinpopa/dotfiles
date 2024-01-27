@@ -7,3 +7,20 @@ This is a repository with all my dotfiles.
 curl -sSL https://raw.githubusercontent.com/madalinpopa/dotfiles/main/install.sh | bash
 
 ```
+
+### A list of dependencies
+
+```bash
+
+brew install git
+brew install fzf
+brew install ripgrep
+brew install helix
+brew install lazygit
+brew install tmux
+brew install neovim
+brew install tree-sitter
+brew install webp
+brew install hatch
+
+```
