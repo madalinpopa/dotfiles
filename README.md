@@ -22,5 +22,7 @@ brew install neovim
 brew install tree-sitter
 brew install webp
 brew install hatch
+brew install pyright       # LSP
+brew install marksman      # LSP
 
 ```
