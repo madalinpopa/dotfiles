@@ -6,8 +6,12 @@ file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstr
 shebangs = ["python"]
 roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json", ".git"]
 comment-token = "#"
-language-servers = [ "pyright-lsp" ] 
+language-servers = [ "pyright-lsp", "ruff-lsp" ] 
 indent = { tab-width = 4, unit = "    " }
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
 
 [[grammar]]
 name = "python"
@@ -16,3 +20,6 @@ source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "4bf
 [language-server.pyright-lsp]
 command = "pyright-langserver"
 args = ["--stdio"]
+
+[language-server.ruff-lsp]
+command = "ruff-lsp"

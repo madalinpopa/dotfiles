@@ -24,5 +24,5 @@ brew install webp
 brew install hatch
 brew install pyright       # LSP
 brew install marksman      # LSP
-
+brew install ruff-lsp      # LSP
 ```
