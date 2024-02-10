@@ -13,6 +13,7 @@ alias p="cd ~/projects"
 alias g="git"
 alias n="cd ~/notes && hx"
 alias ns="cd ~/notes && git save 'Save notes' && git push"
+alias k="kubectl"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

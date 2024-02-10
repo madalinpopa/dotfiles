@@ -1,11 +1,52 @@
-# Use colors in coreutils utilities output
-alias ls='ls --color=auto'
-alias grep='grep --color'
 
-# ls aliases
-alias ll='ls -lah'
-alias la='ls -A'
-alias l='ls'
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# Shortcuts
+alias dl="cd ~/Downloads"
+alias p="cd ~/projects"
+alias g="git"
+alias n="cd ~/notes && hx"
+alias ns="cd ~/notes && git save 'Save notes' && git push"
+alias k="kubectl"
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+	export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+else # macOS `ls`
+	colorflag="-G"
+	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+fi
+
+# use exa if available
+if [[ -x "$(command -v exa)" ]]; then
+  alias ll="exa --icons --git --long"
+  alias l="exa --icons --git --all --long"
+else
+  alias l="ls -lah ${colorflag}"
+  alias ll="ls -lFh ${colorflag}"
+fi
+
+# List all files colorized in long format, excluding . and ..
+alias la="ls -lAF ${colorflag}"
+
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Aliases to protect against overwriting
 alias cp='cp -i'
@@ -14,6 +55,9 @@ alias mv='mv -i'
 # git related aliases
 alias gag='git exec ag'
 
+# use neovim diff
+alias vimdiff='nvim -d'
+
 # Update dotfiles
 dfu() {
     (
@@ -21,116 +65,11 @@ dfu() {
     )
 }
 
-# Use pip without requiring virtualenv
-syspip() {
-    PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
+# LazyGit aliases
+alias ly=lazygit
 
-syspip2() {
-    PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
-}
-
-syspip3() {
-    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
-}
-
-# cd to git root directory
-alias cdgr='cd "$(git root)"'
-
-# Create a directory and cd into it
-mcd() {
-    mkdir "${1}" && cd "${1}"
-}
-
-# Jump to directory containing file
-jump() {
-    cd "$(dirname ${1})"
-}
-
-# cd replacement for screen to track cwd (like tmux)
-scr_cd() {
-    builtin cd $1
-    screen -X chdir "$PWD"
-}
-
-if [[ -n $STY ]]; then
-    alias cd=scr_cd
-fi
-
-# Go up [n] directories
-up() {
-    local cdir="$(pwd)"
-    if [[ "${1}" == "" ]]; then
-        cdir="$(dirname "${cdir}")"
-    elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
-        echo "Error: argument must be a number"
-    elif ! [[ "${1}" -gt "0" ]]; then
-        echo "Error: argument must be positive"
-    else
-        for ((i = 0; i < ${1}; i++)); do
-            local ncdir="$(dirname "${cdir}")"
-            if [[ "${cdir}" == "${ncdir}" ]]; then
-                break
-            else
-                cdir="${ncdir}"
-            fi
-        done
-    fi
-    cd "${cdir}"
-}
-
-# Execute a command in a specific directory
-xin() {
-    (
-        cd "${1}" && shift && "${@}"
-    )
-}
-
-# Check if a file contains non-ascii characters
-nonascii() {
-    LC_ALL=C grep -n '[^[:print:][:space:]]' "${1}"
-}
-
-# Fetch pull request
-
-fpr() {
-    if ! git rev-parse --git-dir >/dev/null 2>&1; then
-        echo "error: fpr must be executed from within a git repository"
-        return 1
-    fi
-    (
-        cdgr
-        if [ "$#" -eq 1 ]; then
-            local repo="${PWD##*/}"
-            local user="${1%%:*}"
-            local branch="${1#*:}"
-        elif [ "$#" -eq 2 ]; then
-            local repo="${PWD##*/}"
-            local user="${1}"
-            local branch="${2}"
-        elif [ "$#" -eq 3 ]; then
-            local repo="${1}"
-            local user="${2}"
-            local branch="${3}"
-        else
-            echo "Usage: fpr [repo] username branch"
-            return 1
-        fi
-
-        git fetch "git@github.com:${user}/${repo}" "${branch}:${user}/${branch}"
-    )
-}
-
-# nala alias
-
-# apt() {
-#     command nala "$@"
-# }
-# sudo() {
-#     if [ "$1" = "apt" ]; then
-#         shift
-#         command sudo nala "$@"
-#     else
-#         command sudo "$@"
-#     fi
-# }
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'

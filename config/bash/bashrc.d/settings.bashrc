@@ -1,20 +1,46 @@
-HISTSIZE=1048576
-HISTFILE="$HOME/.bash_history"
-SAVEHIST=$HISTSIZE
-shopt -s histappend # append to history file
 
-export EDITOR=vim
+# executable search path;
+export PATH=/usr/local/bin:$PATH;
+export PATH=/usr/local/sbin:$PATH;
+export PATH=$HOME/.local/bin:$PATH;
+export PATH=$HOME/.local/sbin:$PATH;
 
-# git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
+# XDG Base Directory Specification;
+# http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+export XDG_CONFIG_HOME="$HOME/.config";
+export XDG_CACHE_HOME="$HOME/.cache";
+export XDG_DATA_HOME="$HOME/.local/share";
+export XDG_DATA_DIRS="/usr/local/share:/usr/share";
 
-# anki blank window
-export QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox"
+# Set date as DD-MM-YYYY
+export DATE=$(date +%d-%m-%Y);
 
-# Java Home
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8;
 
-# Homebrew
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Enable  256 color support
+export TERM="xterm-256color";
 
-export GPG_TTY=$(tty)
+# Enable colors for ls, etc.
+export CLICOLOR=1;
+
+# Bun
+export BUN_INSTALL="$HOME/.bun";
+export PATH="$BUN_INSTALL/bin:$PATH";
+
+# NVM export
+export NVM_DIR="$HOME/.nvm";
+
+# Needed for GNU-GPG
+export GPG_TTY=$(tty);
+
+# Export default editor
+export EDITOR=vim;
+export VISUAL=vim;
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X";
+

@@ -54,3 +54,8 @@ if [ -x "$(command -v hatch)" ] && [ ! -f "$HOME/.hatch-complete.zsh" ]; then
 elif [ -f "$HOME/.hatch-complete.zsh" ]; then
     source ~/.hatch-complete.zsh
 fi
+
+# Start tmux session
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
