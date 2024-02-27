@@ -33,12 +33,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Vim fugitive
-Plug 'tpope/vim-fugitive'
-
-" emmet plugin
-Plug 'mattn/emmet-vim'
-
 call plug#end()
 
 " -------------------------------------------------
