@@ -25,11 +25,11 @@ export TERM="xterm-256color";
 export CLICOLOR=1;
 
 # Bun
-export BUN_INSTALL="$HOME/.bun"; 
+export BUN_INSTALL="$HOME/.bun";
 export PATH="$BUN_INSTALL/bin:$PATH";
 
 # NVM export
-export NVM_DIR="$HOME/.nvm";
+export NVM_DIR="$HOME/.config/nvm";
 
 # Needed for GNU-GPG
 export GPG_TTY=$(tty);
