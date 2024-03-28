@@ -1,0 +1,11 @@
+# Configuration
+
+[dotfiles]
+version = "1.0"
+author = "Madalin Popa"
+email = "contact@madalinpopa.com"
+
+[dotfiles.bash]
+source = "bash/bashrc"
+destination = "~/.bashrc"
+
