@@ -1,0 +1,12 @@
+{
+    "dotfiles": [
+        {
+            "source": "bash/profile",
+            "target": "~/.profile"
+        },
+        {
+            "source": "bash/bashrc",
+            "target": "~/.bashrc"
+        }
+    ]
+}
