@@ -7,6 +7,18 @@
         {
             "source": "bash/bashrc",
             "target": "~/.bashrc"
+        },
+        {
+            "source": "bash/bashrc.d",
+            "target": "~/.bashrc.d"
+        },
+        {
+            "source": "git/gitconfig",
+            "target": "~/.gitconfig"
+        },
+        {
+            "source": "git/gitignore_global",
+            "target": "~/.gitignore_global"
         }
     ]
 }
