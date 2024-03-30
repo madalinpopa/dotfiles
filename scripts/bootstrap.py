@@ -1,7 +1,8 @@
-import os
-from textwrap import indent
-import sys
 import json
+import os
+import sys
+from textwrap import indent
+
 
 def output(message: str, output_type: str = "INFO") -> str:
     """Print message to standard output"""
@@ -9,7 +10,7 @@ def output(message: str, output_type: str = "INFO") -> str:
         "INFO": ("\033[94m", ".."),
         "WARNING": ("\033[93m", "WARNING"),
         "FAIL": ("\033[91m", "FAIL"),
-        "OK": ("\033[00;32m", "OK")
+        "OK": ("\033[00;32m", "OK"),
     }
 
     # Get color code and prefix, or raise error if invalid output_type
@@ -25,10 +26,10 @@ def output(message: str, output_type: str = "INFO") -> str:
     return indent(f"{formatted_message}", "  ")
 
 
-def load_config(file_path='config.json') -> dict[str]:
+def load_config(file_path="config.json") -> dict[str]:
     """Loads the configuration from a JSON file."""
     try:
-        with open(file_path, 'r') as config_file:
+        with open(file_path, "r") as config_file:
             message = "Configuration file was found and loaded"
             print(output(message, output_type="OK"))
             return json.load(config_file)
@@ -37,53 +38,61 @@ def load_config(file_path='config.json') -> dict[str]:
         print(output(message, output_type="FAIL"))
         sys.exit(1)
     except json.JSONDecodeError:
-        message= "Error parsing the config.json file"
+        message = "Error parsing the config.json file"
         print(output(message, output_type="FAIL"))
         sys.exit(1)
 
 
-def create_symlinks(config: dict, base_path: str) -> None:
-    """Creates symlinks based on the loaded configuration."""
-    for dotfile in config.get('dotfiles', []):
-        source = os.path.join(base_path, dotfile['source'])
-        target = os.path.expanduser(dotfile['target'])
-
-        # Ensure the source file exists
-        if os.path.exists(source) and not os.path.islink(target):
-            prompt = f"File {target} exists and is not a symlink. Delete? (y/N): "
-            response = input(output(prompt, output_type="WARNING"))
-            if response.lower() == 'y':
-                os.remove(target)
-                print(output(f"Deleted {target}."))
-            else:
-                print(output(f"Skipping {target}."))
-                continue
+def handle_existing_target(target: str) -> bool:
+    """Validate if source file exists and is not symlink"""
+    if os.path.exists(target) and not os.path.islink(target):
+        prompt = f"File {target} exists and is not a symlink. Delete? (y/N): "
+        response = input(output(prompt, output_type="WARNING"))
+        if response.lower() == "y":
+            os.remove(target)
+            print(output(f"Deleted {target}."))
         else:
-            message = f"Source file {source} not found. Skipping..."
-            print(output(message, output_type="WARNING"))
+            print(output(f"Skipping {target}."))
+            return False
+    elif os.path.islink(target):
+        message = f"Remove old symlink for {target}"
+        print(output(message, output_type="OK"))
+        os.remove(target)
+    return True
+
+
+def ensure_target_directory_exists(target: str):
+    """Ensures the directory for the target path exists."""
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+
+
+def create_symlink(source: str, target: str) -> None:
+    """Attempts to create a symlink and handles potential errors"""
+    try:
+        os.symlink(source, target)
+        text = output(f"Created symlink: {source} -> {target}", output_type="OK")
+        print(text)
+    except OSError as e:
+        message = f"Failed to create symlink for {source} -> {target}: {e}"
+        print(output(message, output_type="FAIL"))
+
+
+def process_config(config: dict, base_path: str) -> None:
+    """Creates symlinks based on the loaded configuration."""
+    for dotfile in config.get("dotfiles", []):
+        source = os.path.join(base_path, dotfile["source"])
+        target = os.path.expanduser(dotfile["target"])
+
+        if not os.path.exists(source):
+            print(f"Source file {source} not found. Skipping...")
             continue
 
-        # Check if target exists and is not a symlink
-        if os.path.exists(target) and not os.path.islink(target):
-            message = f"Skipping {target}: File exists and is not a symlink."
-            print(output(message, output_type="WARNING"))
-            continue
+        if not handle_existing_target(target):
+            continue  # Skip this file if the user chooses not to delete the existing non-symlink file
 
-        # Ensure the target directory exists
-        os.makedirs(os.path.dirname(target), exist_ok=True)
+        ensure_target_directory_exists(target)
 
-        # Remove the target if it already exists (e.g., as an old symlink)
-        try:
-            if os.path.lexists(target):
-                message = f"Remove old symlink for {target}"
-                print(output(message, output_type="OK"))
-                os.remove(target)
-            os.symlink(source, target)
-            text = output(f"Created symlink: {source} -> {target}", output_type="OK")
-            print(text)
-        except OSError as e:
-            message = f"Failed to create symlink for {source} -> {target}: {e}"
-            print(output(message, output_type="FAIL"))
+        create_symlink(source, target)
 
 
 if __name__ == "__main__":
@@ -93,4 +102,4 @@ if __name__ == "__main__":
     config_path = sys.argv[1]
     base_path = sys.argv[2]
     config = load_config(config_path)
-    create_symlinks(config, base_path)
+    process_config(config, base_path)
