@@ -21,7 +21,16 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 BOOTSTRAP_PATH="$SCRIPT_DIR/scripts/bootstrap.py"
 CONFIG_PATH="$SCRIPT_DIR/config.json"
 
+# Default force flag set to false
+FORCE_FLAG="false"
 
+# Parse arguments
+for arg in "$@"
+do
+  if [[ "$arg" == "--force" ]]; then
+    FORCE_FLAG="true"
+  fi
+done
 #=====================================================================
 # FUNCTIONS
 #=====================================================================
@@ -45,20 +54,20 @@ fail () {
 }
 # Script entrypoint
 main () {
-    if command -v python3 &>/dev/null; then
-        info "Run bootstrap.py script"
-        info ""
+  if command -v python3 &>/dev/null; then
+    info "Run bootstrap.py script"
+    info ""
 
-        if [[ -f "$BOOTSTRAP_PATH" ]]; then
-          python3 "$BOOTSTRAP_PATH" "$CONFIG_PATH" "$SCRIPT_DIR"
-        else
-          echo "Error: Unable to find bootstrap.py at $BOOTSTRAP_PATH"
-          exit 1
-        fi
-    else
-        fail "Python3 not found"
+      if [[ -f "$BOOTSTRAP_PATH" ]]; then
+        python3 "$BOOTSTRAP_PATH" "$CONFIG_PATH" "$SCRIPT_DIR" $FORCE_FLAG
+      else
+        echo "Error: Unable to find bootstrap.py at $BOOTSTRAP_PATH"
         exit 1
-    fi
+      fi
+  else
+    fail "Python3 not found"
+    exit 1
+  fi
 }
 #=====================================================================
 # START INSTALLATION

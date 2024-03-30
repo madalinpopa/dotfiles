@@ -43,17 +43,21 @@ def load_config(file_path="config.json") -> dict[str]:
         sys.exit(1)
 
 
-def handle_existing_target(target: str) -> bool:
+def handle_existing_target(target: str, force: bool) -> bool:
     """Validate if source file exists and is not symlink"""
     if os.path.exists(target) and not os.path.islink(target):
-        prompt = f"File {target} exists and is not a symlink. Delete? (y/N): "
-        response = input(output(prompt, output_type="WARNING"))
-        if response.lower() == "y":
+        if force:
             os.remove(target)
-            print(output(f"Deleted {target}."))
+            print(output(f"Deleted {target} (force applied)."))
         else:
-            print(output(f"Skipping {target}."))
-            return False
+            prompt = f"File {target} exists and is not a symlink. Delete? (y/N): "
+            response = input(output(prompt, output_type="WARNING"))
+            if response.lower() == "y":
+                os.remove(target)
+                print(output(f"Deleted {target}."))
+            else:
+                print(output(f"Skipping {target}."))
+                return False
     elif os.path.islink(target):
         message = f"Remove old symlink for {target}"
         print(output(message, output_type="OK"))
@@ -77,7 +81,7 @@ def create_symlink(source: str, target: str) -> None:
         print(output(message, output_type="FAIL"))
 
 
-def process_config(config: dict, base_path: str) -> None:
+def process_config(config: dict, base_path: str, force: bool) -> None:
     """Creates symlinks based on the loaded configuration."""
     for dotfile in config.get("dotfiles", []):
         source = os.path.join(base_path, dotfile["source"])
@@ -87,8 +91,10 @@ def process_config(config: dict, base_path: str) -> None:
             print(f"Source file {source} not found. Skipping...")
             continue
 
-        if not handle_existing_target(target):
-            continue  # Skip this file if the user chooses not to delete the existing non-symlink file
+        if not handle_existing_target(target, force):
+            # Skip this file if the user chooses not to delete
+            # the existing non-symlink file
+            continue
 
         ensure_target_directory_exists(target)
 
@@ -96,10 +102,16 @@ def process_config(config: dict, base_path: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage: python3 bootstrap.py <config_path> <base_path>")
+    if len(sys.argv) < 4:
+        print("Usage: python3 bootstrap.py <config_path> <base_path> <force_flag>")
         sys.exit(1)
     config_path = sys.argv[1]
     base_path = sys.argv[2]
-    config = load_config(config_path)
-    process_config(config, base_path)
+    force_flag = sys.argv[3].lower() == "true"
+
+    try:
+        config = load_config(config_path)
+        process_config(config, base_path, force_flag)
+    except KeyboardInterrupt:
+        print(output("Installation interrupted by user. Cleaning up..."))
+        sys.exit(1)
