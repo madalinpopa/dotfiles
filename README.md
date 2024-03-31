@@ -15,3 +15,5 @@ By default, `bootstrap.py` will check if target exists and is not a symlink. If 
 ```bash
 .dotfiles/install.sh --force
 ```
+## test
+To test the dotfiles config and how they look, you can run `make build` and `make run`.
