@@ -1,6 +1,8 @@
 # dotfiles
 This repository contains my personal dotfiles, which are configuration files for various tools and applications that I use.
 
+To setup my dotfiles I use plain Python with no other dependencies beside what is include in standard library.
+
 ## install
 ```bash
 git clone https://github.com/madalinpopa/dotfiles ~/.dotfiles
