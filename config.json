@@ -48,5 +48,16 @@
             "source": "alacritty/alacritty.toml",
             "target": "~/.config/alacritty/alacritty.toml"
         }
+    ],
+    "external_scripts": [
+        {
+            "target": "~/.git-completion.bash",
+            "url": "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
+        },
+        {
+            "target": "~/.git-prompt.sh",
+            "url": "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+        }
     ]
+
 }

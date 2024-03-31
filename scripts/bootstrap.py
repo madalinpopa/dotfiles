@@ -1,5 +1,6 @@
 import sys
 
+from packages import install_git_completion
 from symlinks import create_symlinks
 from utils import load_config, output
 
@@ -13,7 +14,13 @@ if __name__ == "__main__":
 
     try:
         config = load_config(config_path)
+
+        # Create symlinks
         create_symlinks(config, base_path, force_flag)
+        print(output(""))
+        # Install pacakges and additional configurations
+        install_git_completion(config, force_flag)
+
     except KeyboardInterrupt:
         print(output("Installation interrupted by user. Cleaning up..."))
         sys.exit(1)
