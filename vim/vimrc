@@ -1,0 +1,253 @@
+" -------------------------------------------------
+" Author: Madalin Popa
+" Email: contact@madalinpopa.com
+" Description: Basic vimrc setup
+" -------------------------------------------------
+
+let mapleader = ","
+
+" -------------------------------------------------
+" PLUGINS
+" -------------------------------------------------
+
+call plug#begin()
+
+" Colorschme
+Plug 'tomasiser/vim-code-dark'
+Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Airline, for status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Auto-pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Show indent lines
+Plug 'Yggdroot/indentLine'
+
+" Fzf plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+" -------------------------------------------------
+" OPTIONS
+" -------------------------------------------------
+
+" Set colorscheme
+colorscheme ayu
+
+" enable line numbers
+set nu
+
+" enable syntax
+syntax on
+
+" Enable mouse support
+set mouse=a
+
+" Enable copy/paste support
+set clipboard=unnamed,unnamedplus
+
+" Disable swapfile
+set noswapfile
+
+" Set default encoding file
+set encoding=UTF-8
+
+" highlight matching parenthesis
+set showmatch
+
+" enable folding (default 'foldmarker')
+set foldmethod=indent
+
+" set column lenght
+set colorcolumn=120
+
+" vertical split to the right
+set splitright
+
+" horizontal split to down
+set splitbelow
+
+" ignore case letters when search
+set ignorecase
+
+" ignore lowercase for the whole pattern
+set smartcase
+
+" enable background buffers
+set hidden
+
+" remember n lines in history
+set history=100
+
+" faster scrolling
+set lazyredraw
+
+" max column for syntax highlight
+set synmaxcol=240
+
+" enable 24-bit RGB colors
+set termguicolors
+
+" makes popup menu smaller
+set pumheight=10
+
+" set the encoding file type for buffer
+set fileencoding=UTF-8
+
+" show the cursor position all the time
+set ruler
+
+" more space for displaying messages
+set cmdheight=2
+
+" so that I can se `` in markdown file
+set conceallevel=1
+
+" insert 2 spaces for a tab
+set tabstop=2
+
+" change the number of spaces characters
+set shiftwidth=2
+
+" makes tabbing smarter
+set smarttab
+
+" makes indenting
+set smartindent
+
+" copy the indent line from the above
+set autoindent
+
+" always display the status line
+set laststatus=0
+
+" set relative number
+set relativenumber
+
+" enable hightlighting of the current line
+set cursorline
+
+" tell vim what the background color looks like
+set background=dark
+
+" always show tabs
+set showtabline=2
+
+" we don't need to see things like INSERT
+set showmode
+
+" no backup file when writing
+set nobackup
+
+" no backup file writing
+set nowritebackup
+
+" faster completion
+set updatetime=300
+
+" by default timeoutlen is 1000 ms
+set timeoutlen=500
+
+" hard wrap
+set textwidth=120
+
+" disable fold to open default
+set nofoldenable
+
+" format options
+set formatoptions-=tcroa
+
+" disable visual bell
+set noeb vb t_vb=
+
+" configure backspace to work
+set backspace=indent,eol,start
+
+" set no wrap lines
+set nowrap
+
+" highlight search
+set hlsearch
+
+" -------------------------------------------------
+" VARIABLES
+" -------------------------------------------------
+
+" Show double quotes in json files
+let g:vim_json_conceal=0
+
+" -------------------------------------------------
+" COMMANDS
+" -------------------------------------------------
+
+" remove whitespace on save
+au BufWritePre * :%s/\s\+$//e
+
+" highlight colorcolumn
+au VimEnter * highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+
+" get comment json highlight
+au FileType json syntax match Comment +\/\/.\+$+
+
+" -------------------------------------------------
+" MAPPINGS
+" -------------------------------------------------
+
+" Disable arrow navigation
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Quick exit without save
+noremap <leader>q :q!<CR>
+
+" Quick save
+noremap <leader>w :w<CR>
+
+" Run python file
+noremap <leader>r :!python %<CR>
+
+" Terminal navigation
+tnoremap <C-h> <C-\><C-n><C-h>
+tnoremap <C-j> <C-\><C-n><C-j>
+tnoremap <C-k> <C-\><C-n><C-k>
+tnoremap <C-l> <C-\><C-n><C-l>
+
+" easily escape terminal
+tnoremap <leader><esc> <C-\><C-n><esc><cr>
+tnoremap <C-o> <C-\><C-n><esc><cr>
+
+" Open a terminal quick
+noremap <leader>t :term<CR>
+
+" -------------------------------------------------
+" PLUGINS
+" -------------------------------------------------
+
+" AIRLINE
+" -------------------------------------------------
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_theme='ayu'
+
+" FZF
+" -------------------------------------------------
+
+" Search for all files recorded by the git
+nmap <leader>f :GFiles .<CR>

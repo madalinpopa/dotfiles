@@ -31,6 +31,10 @@
         {
             "source": "tmux/tmux.conf",
             "target": "~/.config/tmux/tmux.conf"
+        },
+        {
+            "source": "vim",
+            "target": "~/.vim"
         }
     ]
 }
