@@ -27,6 +27,10 @@
         {
             "source": "zsh/config.d",
             "target": "~/.config/zsh/config.d"
+        },
+        {
+            "source": "tmux/tmux.conf",
+            "target": "~/.config/tmux/tmux.conf"
         }
     ]
 }
