@@ -39,6 +39,14 @@
         {
             "source": "nvim",
             "target": "~/.config/nvim"
+        },
+        {
+            "source": "helix",
+            "target": "~/.config/helix"
+        },
+        {
+            "source": "alacritty/alacritty.toml",
+            "target": "~/.config/alacritty/alacritty.toml"
         }
     ]
 }
