@@ -21,7 +21,9 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 BOOTSTRAP_PATH="$SCRIPT_DIR/scripts/bootstrap.py"
 CONFIG_PATH="$SCRIPT_DIR/config.json"
 
-# Default force flag set to false
+export PYTHONPATH="$SCRIPT_DIR/scripts"
+
+#Flags
 FORCE_FLAG="false"
 
 # Parse arguments
@@ -58,12 +60,12 @@ main () {
     info "Run bootstrap.py script"
     info ""
 
-      if [[ -f "$BOOTSTRAP_PATH" ]]; then
-        python3 "$BOOTSTRAP_PATH" "$CONFIG_PATH" "$SCRIPT_DIR" $FORCE_FLAG
-      else
-        echo "Error: Unable to find bootstrap.py at $BOOTSTRAP_PATH"
-        exit 1
-      fi
+    if [[ -f "$BOOTSTRAP_PATH" ]]; then
+      python3 "$BOOTSTRAP_PATH" "$CONFIG_PATH" "$SCRIPT_DIR" $FORCE_FLAG
+    else
+      echo "Error: Unable to find bootstrap.py at $BOOTSTRAP_PATH"
+      exit 1
+    fi
   else
     fail "Python3 not found"
     exit 1
@@ -79,5 +81,6 @@ info ""
 info "SCRIPT_DIR: $SCRIPT_DIR"
 info "CONFIG_PATH: $CONFIG_PATH"
 info "BOOTSTRAP_PATH: $BOOTSTRAP_PATH"
+info "PYTHONPATH: $PYTHONPATH"
 info ""
 main
