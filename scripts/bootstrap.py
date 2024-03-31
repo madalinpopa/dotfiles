@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 import sys
 from textwrap import indent
 
@@ -43,25 +44,32 @@ def load_config(file_path="config.json") -> dict[str]:
         sys.exit(1)
 
 
+def delete_target(target: str) -> None:
+    if os.path.isfile(target) or os.path.islink(target):
+        os.remove(target)
+    elif os.path.isdir(target):
+        shutil.rmtree(target)
+
+
 def handle_existing_target(target: str, force: bool) -> bool:
     """Validate if source file exists and is not symlink"""
-    if os.path.exists(target) and not os.path.islink(target):
+    if os.path.exists(target):
         if force:
-            os.remove(target)
+            delete_target(target)
             print(output(f"Deleted {target} (force applied)."))
         else:
             prompt = f"File {target} exists and is not a symlink. Delete? (y/N): "
             response = input(output(prompt, output_type="WARNING"))
             if response.lower() == "y":
-                os.remove(target)
+                delete_target(target)
                 print(output(f"Deleted {target}."))
             else:
                 print(output(f"Skipping {target}."))
                 return False
-    elif os.path.islink(target):
+    else:
         message = f"Remove old symlink for {target}"
         print(output(message, output_type="OK"))
-        os.remove(target)
+        delete_target(target)
     return True
 
 
