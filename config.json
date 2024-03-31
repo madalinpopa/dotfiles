@@ -19,6 +19,14 @@
         {
             "source": "git/gitignore_global",
             "target": "~/.gitignore_global"
+        },
+        {
+            "source": "zsh/zshrc",
+            "target": "~/.zshrc"
+        },
+        {
+            "source": "zsh/config.d",
+            "target": "~/.config/zsh/config.d"
         }
     ]
 }
