@@ -35,6 +35,10 @@
         {
             "source": "vim",
             "target": "~/.vim"
+        },
+        {
+            "source": "nvim",
+            "target": "~/.config/nvim"
         }
     ]
 }
