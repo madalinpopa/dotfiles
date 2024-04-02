@@ -15,11 +15,6 @@ else
    fpath+=${ZDOTDIR:-~}/.zsh_functions
 fi
 
-# Everytime open terminal, open a Tmux session
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#     tmux attach -t default || tmux new -s default
-# fi
-
 # Set PATH, MANPATH, etc., for Homebrew.
 if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -56,6 +51,6 @@ elif [ -f "$HOME/.hatch-complete.zsh" ]; then
 fi
 
 # Start tmux session
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#     tmux attach -t default || tmux new -s default
-# fi
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+   tmux attach -t default || tmux new -s default
+fi
