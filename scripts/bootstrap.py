@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
         print(output(""))
 
-        # Install pacakges and additional configurations
+        # Install packages and additional configurations
         install_git_completion(config, force_flag)
 
     except KeyboardInterrupt:
