@@ -11,15 +11,15 @@ set -euo pipefail
 # GLOBAL VARIABLES
 #=====================================================================
 # Colors used for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+declare -r RED='\033[0;31m'
+declare -r GREEN='\033[0;32m'
+declare -r BLUE='\033[0;34m'
+declare -r NC='\033[0m' # No Color
 
-ROOT="$(pwd)"
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-BOOTSTRAP_PATH="$SCRIPT_DIR/scripts/bootstrap.py"
-CONFIG_PATH="$SCRIPT_DIR/config.json"
+declare -r ROOT="$(pwd)"
+declare -r SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+declare -r BOOTSTRAP_PATH="$SCRIPT_DIR/scripts/bootstrap.py"
+declare -r CONFIG_PATH="$SCRIPT_DIR/config.json"
 
 export PYTHONPATH="$SCRIPT_DIR/scripts"
 
