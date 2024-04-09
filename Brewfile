@@ -1,0 +1,14 @@
+brew git
+brew fzf
+brew ripgrep
+brew helix
+brew lazygit
+brew tmux
+brew neovim
+brew tree-sitter
+brew webp
+brew hatch
+brew black
+brew pyright
+brew marksman
+brew ruff-lsp
