@@ -17,7 +17,9 @@ if __name__ == "__main__":
 
         # Create symlinks
         create_symlinks(config, base_path, force_flag)
+
         print(output(""))
+
         # Install pacakges and additional configurations
         install_git_completion(config, force_flag)
 
