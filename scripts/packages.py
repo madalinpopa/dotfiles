@@ -24,7 +24,3 @@ def install_git_completion(config: dict[str], force_flag: bool) -> None:
         else:
             message = output(f"File {target} already present")
             print(message)
-
-
-def install_homebrew(config: dict[str]) -> None:
-    pass
