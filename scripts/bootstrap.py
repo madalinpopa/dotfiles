@@ -1,8 +1,34 @@
+#!/usr/bin/env python3
+
+import os
 import sys
 
-from packages import install_git_completion
 from symlinks import create_symlinks
-from utils import load_config, output
+from utils import load_config, output, wget, progress
+
+
+def install_git_completion(config: dict[str], force_flag: bool) -> None:
+    """
+    Install git completion script from the given configuration.
+
+    Args:
+        config (dict): The configuration containing the external scripts.
+        force_flag (bool): Flag indicating whether to force installation even if the file already exists.
+    """
+    for script in config.get("completion_scripts", []):
+        url = script["url"]
+        target = os.path.expanduser(script["target"])
+        message = output(f"Downloaded {target}", output_type="OK")
+
+        file_exists: bool = os.path.exists(target)
+
+        if (force_flag and file_exists) or not file_exists:
+            wget(url=url, file_path=target)
+            print(message)
+        else:
+            message = output(f"File {target} already present")
+            print(message)
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
@@ -16,12 +42,14 @@ if __name__ == "__main__":
         config = load_config(config_path)
 
         # Create symlinks
-        create_symlinks(config, base_path, force_flag)
+        with progress():
+            create_symlinks(config, base_path, force_flag)
 
         print(output(""))
 
         # Install packages and additional configurations
-        install_git_completion(config, force_flag)
+        with progress():
+            install_git_completion(config, force_flag)
 
     except KeyboardInterrupt:
         print(output("Installation interrupted by user. Cleaning up..."))

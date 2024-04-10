@@ -31,7 +31,7 @@ declare -r CONFIG_PATH="$SCRIPT_DIR/config.json"
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare -r BOOTSTRAP_SCRIPT="$SCRIPT_DIR/scripts/bootstrap.py"
-declare -r PACKAGES_SCRIPT="$SCRIPT_DIR/scripts/packages.py"
+declare -r SETUP_SCRIPT="$SCRIPT_DIR/scripts/setup.py"
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -41,7 +41,7 @@ export PYTHONPATH="$SCRIPT_DIR/scripts"
 
 #Flags
 FORCE_FLAG="true"
-PACKAGE_FLAG="false"
+SETUP_FLAG="false"
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -51,8 +51,8 @@ do
   if [[ "$arg" == "--interactive" ]]; then
     FORCE_FLAG="false"
   fi
-  if [[ "$arg" == "--packages" ]]; then
-    PACKAGE_FLAG="true"
+  if [[ "$arg" == "--setup" ]]; then
+    SETUP_FLAG="true"
   fi
 done
 
@@ -103,18 +103,23 @@ install_dotfiles () {
 }
 
 install_packages () {
-  info ""
+  if [[ -f "$SETUP_SCRIPT" ]]; then
+      python3 "$SETUP_SCRIPT" "$CONFIG_PATH" "$SCRIPT_DIR"
+    else
+      echo "Error: Unable to find setup.py at $SETUP_SCRIPT"
+      exit 1
+    fi
 }
 # Script entrypoint
 main () {
   if command -v python3 &>/dev/null ; then
 
-    if [[ "$PACKAGE_FLAG" == "false" ]]; then
+    if [[ "$SETUP_FLAG" == "false" ]]; then
       header "Install dotfiles"
       install_dotfiles
     fi
 
-    if [[ "$PACKAGE_FLAG" == "true" ]]; then
+    if [[ "$SETUP_FLAG" == "true" ]]; then
       header "Install packages"
       install_packages
     fi
@@ -137,6 +142,7 @@ info ""
 info "SCRIPT_DIR: $SCRIPT_DIR"
 info "CONFIG_PATH: $CONFIG_PATH"
 info "BOOTSTRAP_SCRIPT: $BOOTSTRAP_SCRIPT"
+info "SETUP_SCRIPT: $SETUP_SCRIPT"
 info "PYTHONPATH: $PYTHONPATH"
 info ""
 main

@@ -1,13 +1,19 @@
+import itertools
 import json
 import os
+import platform
 import shutil
 import sys
+import threading
+import time
 import urllib.request
+from contextlib import contextmanager
 from textwrap import indent
+from typing import Generator
 
 
 def output(message: str, output_type: str = "INFO") -> str:
-    """Print message to standard output"""
+    """Format message to standard output"""
     output_types = {
         "INFO": ("\033[94m", ".."),
         "WARNING": ("\033[93m", "WARNING"),
@@ -26,6 +32,34 @@ def output(message: str, output_type: str = "INFO") -> str:
     # Format and print the message
     formatted_message = f"[{color} {prefix} {reset_code}] {message}"
     return indent(f"{formatted_message}", "  ")
+
+
+def display(message: str, output_type: str = "INFO") -> None:
+    """Prints a message to standard console"""
+    message = output(message=message, output_type=output_type)
+    print(message)
+
+
+def display_loader(event):
+    """Displays a loader."""
+    for c in itertools.cycle(["|", "/", "-", "\\"]):
+        if event.is_set():
+            break
+        print(output(c), end="\r", flush=True)
+        time.sleep(0.1)
+    sys.stdout.flush()
+
+
+@contextmanager
+def progress() -> Generator:
+    event = threading.Event()
+    loader = threading.Thread(target=display_loader, args=(event,))
+    loader.start()
+    try:
+        yield
+    finally:
+        event.set()
+        loader.join()
 
 
 def load_config(file_path="config.json") -> dict[str]:
@@ -62,3 +96,16 @@ def wget(url: str, file_path: str) -> None:
     Downloads a file from the specified URL and saves it to the specified file path.
     """
     urllib.request.urlretrieve(url, file_path)
+
+
+def get_os() -> str:
+    """Get the operating system name"""
+    system = platform.system()
+    if system.lower() == "darwin":
+        return system
+    if system.lower() == "linux":
+        os_release = platform.freedesktop_os_release()
+        os_id = os_release.get("ID")
+        if os_id and os_id == "ubuntu":
+            return "ubuntu"
+    return ""
