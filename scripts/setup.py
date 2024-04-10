@@ -2,10 +2,10 @@
 import os
 import subprocess
 import sys
-from shutil import which, rmtree
-import time
-from utils import display, load_config, wget, progress
+from shutil import rmtree, which
 from tempfile import mkdtemp
+
+from utils import display, load_config, progress, wget
 
 
 def ask_for_sudo() -> bool:

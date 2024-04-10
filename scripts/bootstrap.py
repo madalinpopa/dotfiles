@@ -4,7 +4,7 @@ import os
 import sys
 
 from symlinks import create_symlinks
-from utils import load_config, output, wget, progress
+from utils import load_config, output, progress, wget
 
 
 def install_git_completion(config: dict[str], force_flag: bool) -> None:
