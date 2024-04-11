@@ -1,6 +1,7 @@
 import os
 
-from utils import delete_path, ensure_dirs, output
+from util.system import delete_path
+from util.display import output
 
 
 def handle_existing_target(target: str, force: bool) -> bool:
@@ -51,6 +52,6 @@ def create_symlinks(config: dict, base_path: str, force: bool) -> None:
             # the existing non-symlink file
             continue
 
-        ensure_dirs(target)
+        os.makedirs(os.path.dirname(target), exist_ok=True)
 
         handle_symlink_creation(source, target)

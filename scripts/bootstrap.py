@@ -3,8 +3,10 @@
 import os
 import sys
 
-from symlinks import create_symlinks
-from utils import load_config, output, progress, wget
+from util.common import wget
+from util.config import load_config
+from util.display import output, progress
+from util.symlinks import create_symlinks
 
 
 def install_git_completion(config: dict[str], force_flag: bool) -> None:

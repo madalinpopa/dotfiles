@@ -5,7 +5,10 @@ import sys
 from shutil import rmtree, which
 from tempfile import mkdtemp
 
-from utils import display, load_config, progress, wget
+from util.common import wget
+from util.config import load_config
+from util.display import display, progress
+from util.system import get_os
 
 
 def ask_for_sudo() -> bool:
@@ -40,6 +43,10 @@ def run_bash_script(script_path: str) -> bool:
         stderr=subprocess.DEVNULL,
     )
     return result.returncode == 0
+
+
+def install_linux_build_essentials() -> None:
+    print(get_os())
 
 
 def install_external_scripts(config: dict):
@@ -77,6 +84,9 @@ if __name__ == "__main__":
 
         # Set needed environment variables
         setup_env_variables()
+
+        # Get OS info
+        install_linux_build_essentials()
 
         is_sudo = ask_for_sudo()
         if not is_sudo:
