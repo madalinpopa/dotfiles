@@ -39,27 +39,10 @@ export PYTHONPATH="$SCRIPT_DIR/scripts"
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#Flags
-FORCE_FLAG="true"
-SETUP_FLAG="false"
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Parse arguments
-for arg in "$@"
-do
-  if [[ "$arg" == "--interactive" ]]; then
-    FORCE_FLAG="false"
-  fi
-  if [[ "$arg" == "--setup" ]]; then
-    SETUP_FLAG="true"
-  fi
-done
-
 #=====================================================================
-# FUNCTIONS
+# DISPLAY FUNCTIONS
 #=====================================================================
-# Define a function to print colored text
+
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
@@ -84,6 +67,8 @@ fail () {
   exit
 }
 
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 header () {
   info ""
   info "============================================"
@@ -91,7 +76,38 @@ header () {
   info "============================================"
   info ""
 }
+
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#=====================================================================
+# FLAGS
+#=====================================================================
+
+FORCE_FLAG="true"
+SETUP_FLAG="false"
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Parse arguments
+for arg in "$@"
+do
+  case "$arg" in
+    "--interactive")
+      FORCE_FLAG="false"
+      ;;
+    "--setup")
+      SETUP_FLAG="true"
+      ;;
+    *)
+      fail "Error: Invalid argument. Only '--interactive' and '--setup' are allowed."
+      exit 1
+      ;;
+  esac
+done
+
+#=====================================================================
+# FUNCTIONS
+#=====================================================================
 
 install_dotfiles () {
     if [[ -f "$BOOTSTRAP_SCRIPT" ]]; then
@@ -102,6 +118,8 @@ install_dotfiles () {
     fi
 }
 
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 install_packages () {
   if [[ -f "$SETUP_SCRIPT" ]]; then
       python3 "$SETUP_SCRIPT" "$CONFIG_PATH" "$SCRIPT_DIR"
@@ -110,7 +128,9 @@ install_packages () {
       exit 1
     fi
 }
-# Script entrypoint
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 main () {
   if command -v python3 &>/dev/null ; then
 
