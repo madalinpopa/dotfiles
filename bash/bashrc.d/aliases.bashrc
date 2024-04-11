@@ -9,10 +9,8 @@ alias -- -="cd -"
 
 # Shortcuts
 alias dl="cd ~/Downloads"
-alias p="cd ~/projects"
+alias p="cd ~/Projects"
 alias g="git"
-alias n="cd ~/notes && hx"
-alias ns="cd ~/notes && git save 'Save notes' && git push"
 alias k="kubectl"
 
 # Detect which `ls` flavor is in use
