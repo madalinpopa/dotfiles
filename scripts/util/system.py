@@ -1,7 +1,7 @@
 import os
 import platform
-import subprocess
 import shutil
+import subprocess
 
 from util.display import display
 
