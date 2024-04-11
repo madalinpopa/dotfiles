@@ -10,6 +10,7 @@ brew "tmux"
 brew "webp"
 brew "hatch"
 brew "black"
+brew "gcc"
 
 # TEXT EDIT
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
