@@ -45,6 +45,10 @@
             "target": "~/.config/helix"
         },
         {
+            "source": "ansible/ansible.cfg",
+            "target": "~/.ansible.cfg"
+        },
+        {
             "source": "alacritty/alacritty.toml",
             "target": "~/.config/alacritty/alacritty.toml"
         }
