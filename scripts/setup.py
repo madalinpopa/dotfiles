@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import subprocess
 import sys
 from shutil import rmtree, which
 from tempfile import mkdtemp
@@ -8,11 +9,10 @@ from util.common import wget
 from util.config import load_config
 from util.display import display, progress
 from util.system import (
-    get_os,
-    shell_command,
     ask_for_sudo,
-    locate_apt_package,
+    get_os,
     install_apt_package,
+    locate_apt_package,
     update_apt_cache,
 )
 
@@ -50,8 +50,17 @@ def install_external_scripts(config: dict) -> None:
             display(message=f"Installing {name}")
             with progress():
                 command = ["/bin/bash", script]
-                shell_command(command=command)
-                display(f"{name} was installed successfully", output_type="OK")
+                process = subprocess.run(
+                    command,
+                    stderr=subprocess.DEVNULL,
+                    stdout=subprocess.DEVNULL,
+                )
+                if process.returncode == 0:
+                    message = f"{name} was installed successfully"
+                    display(message, output_type="OK")
+                else:
+                    message = f"{name} could not be installed"
+                    display(message, output_type="FAIL")
         else:
             display(f"{app['name']} is already installed")
     rmtree(temp_directory)
