@@ -5,10 +5,8 @@
 
     - ansible.builtin.ping:
 
-    - name: Clone TPM tmux plugin manager
-      ansible.builtin.git:
-        repo: https://github.com/tmux-plugins/tpm
-        dest: ~/.tmux/plugins/tpm
+    - ansible.builtin.import_role:
+        name: tmux
 
     - ansible.builtin.import_role:
         name: hello
