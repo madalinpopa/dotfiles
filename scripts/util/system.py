@@ -47,7 +47,7 @@ def get_os() -> str:
     elif system == "linux":
         os_release = platform.freedesktop_os_release()
         os_id = os_release.get("ID")
-        if os_id and os_id in ["ubuntu", "debian"]:
+        if os_id and os_id in ["ubuntu", "debian", "pop"]:
             return "debian-based"
     return ""
 
