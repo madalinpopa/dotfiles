@@ -69,6 +69,13 @@
             "executable": "brew",
             "url": "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
         }
+    ],
+    "apt_packages": [
+        "build-essential",
+        "procps",
+        "curl",
+        "file",
+        "git",
+        "zsh"
     ]
-
 }

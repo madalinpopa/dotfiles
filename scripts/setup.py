@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import subprocess
 import sys
 from shutil import rmtree, which
 from tempfile import mkdtemp
@@ -8,17 +7,14 @@ from tempfile import mkdtemp
 from util.common import wget
 from util.config import load_config
 from util.display import display, progress
-from util.system import get_os
-
-
-def ask_for_sudo() -> bool:
-    """Ask for sudo password"""
-    result = subprocess.run(
-        ["/usr/bin/sudo", "/usr/bin/id"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-    return result.returncode == 0
+from util.system import (
+    get_os,
+    shell_command,
+    ask_for_sudo,
+    locate_apt_package,
+    install_apt_package,
+    update_apt_cache,
+)
 
 
 def setup_env_variables() -> None:
@@ -27,29 +23,20 @@ def setup_env_variables() -> None:
     os.environ["NONINTERACTIVE"] = "1"
 
 
-def check_prerequisites() -> None:
-    """Check if prerequisites tools are installed"""
-    if not which("git"):
-        display("Git is required for setup script.")
-        display("Please install git and start again...")
-        sys.exit(1)
+def install_config_packages(config: dict) -> None:
+    """Run apt-get on Ubuntu to install build-essential"""
+    packages = config["apt_packages"]
+    if get_os() == "debian-based":
+        display("")
+        with progress():
+            update_apt_cache()
+        for package in packages:
+            if locate_apt_package(package):
+                with progress():
+                    install_apt_package(package)
 
 
-def run_bash_script(script_path: str) -> bool:
-    """Runs a bash script and return True or False if succeded or fails"""
-    result = subprocess.run(
-        ["/bin/bash", script_path],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-    return result.returncode == 0
-
-
-def install_linux_build_essentials() -> None:
-    print(get_os())
-
-
-def install_external_scripts(config: dict):
+def install_external_scripts(config: dict) -> None:
     """Install tools through external scripts defined in config.json"""
     applications = config["external_scripts"]
     temp_directory = mkdtemp()
@@ -62,7 +49,8 @@ def install_external_scripts(config: dict):
             wget(file_path=script, url=url)
             display(message=f"Installing {name}")
             with progress():
-                run_bash_script(script_path=script)
+                command = ["/bin/bash", script]
+                shell_command(command=command)
                 display(f"{name} was installed successfully", output_type="OK")
         else:
             display(f"{app['name']} is already installed")
@@ -79,21 +67,18 @@ if __name__ == "__main__":
     try:
         config = load_config(config_path)
 
-        # Check if required tools are installed
-        check_prerequisites()
-
         # Set needed environment variables
         setup_env_variables()
-
-        # Get OS info
-        install_linux_build_essentials()
 
         is_sudo = ask_for_sudo()
         if not is_sudo:
             display("Sudo privileges are required to continue the setup")
             sys.exit(1)
         else:
+            install_config_packages(config=config)
+            display("")
             install_external_scripts(config=config)
+            display("")
 
     except KeyboardInterrupt:
         sys.exit(1)
