@@ -63,3 +63,9 @@
       ansible.builtin.service:
         name: containerd.service
         enabled: yes
+
+    - name: Copy daemon.json
+      ansible.builtin.template:
+        dest: "/etc/docker/daemon.json"
+        src: "daemon.json"
+      notify: restart_docker
