@@ -1,0 +1,23 @@
+- name: Add Microsoft GPG apt key
+  become: true
+  vars:
+    keyrings: /etc/apt/keyrings
+    apt_repo: https://packages.microsoft.com/repos/azure-cli/
+  block:
+    - name: Download microsoft GPG key
+      ansible.builtin.get_url:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        dest: "{{ keyrings }}/microsoft.asc"
+
+    - name: Add docker apt repository
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64 signed-by={{ keyrings }}/microsoft.asc] {{ apt_repo }} {{ ansible_distribution_release }} main"
+        filename: docker
+        state: present
+    # TODO: add support for other distribution
+
+    - name: Install Azure CLI
+      ansible.builtin.package:
+        name:
+          - azure-cli
+        state: present
