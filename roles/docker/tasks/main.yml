@@ -6,16 +6,19 @@
     keyrings: /etc/apt/keyrings
     apt_repo: https://download.docker.com/linux/ubuntu
   block:
-    - ansible.builtin.file:
+    - name: Create /etc/apt/keyrings directory
+      ansible.builtin.file:
         path: "{{ keyrings }}"
         state: directory
         mode: '0755'
 
-    - ansible.builtin.get_url:
+    - name: Download docker gpg key
+      ansible.builtin.get_url:
         url: https://download.docker.com/linux/ubuntu/gpg
         dest: "{{ keyrings }}/docker.asc"
 
-    - ansible.builtin.apt_repository:
+    - name: Add docker apt repository
+      ansible.builtin.apt_repository:
         repo: "deb [arch=amd64 signed-by={{ keyrings }}/docker.asc] {{ apt_repo }} {{ ansible_distribution_release }} stable"
         filename: docker
         state: present
@@ -28,7 +31,8 @@
 - name: Install the latest version of Docker engine
   become: true
   block:
-    - ansible.builtin.package:
+    - name: Install docker package
+      ansible.builtin.package:
         name:
           - docker-ce
           - docker-ce-cli
@@ -37,13 +41,25 @@
           - docker-compose-plugin
         state: present
 
-    - ansible.builtin.group:
+    - name: Create docker group
+      ansible.builtin.group:
         name: docker
         state: present
 
-    - ansible.builtin.user:
+    - name: Add playbook user to docker group
+      ansible.builtin.user:
         name: "{{ playbook_user }}"
         groups:
           - docker
         append: yes
         state: present
+
+    - name: Enable docker service
+      ansible.builtin.service:
+        name: docker.service
+        enabled: yes
+
+    - name: Enable containerd service
+      ansible.builtin.service:
+        name: containerd.service
+        enabled: yes
