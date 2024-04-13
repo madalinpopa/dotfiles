@@ -6,7 +6,12 @@
     - ansible.builtin.ping:
 
     - ansible.builtin.import_role:
+        name: packages
+      tags: ["never", "setup", "packages"]
+
+    - ansible.builtin.import_role:
         name: tmux
+      tags: ["never", "setup", "tmux"]
 
     - ansible.builtin.import_role:
         name: hello

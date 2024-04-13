@@ -1,0 +1,9 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Common packages
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - gnupg
+  - curl
+  - tmux
