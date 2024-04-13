@@ -1,0 +1,49 @@
+
+
+- name: Add Docker GPG apt Key
+  become: true
+  vars:
+    keyrings: /etc/apt/keyrings
+    apt_repo: https://download.docker.com/linux/ubuntu
+  block:
+    - ansible.builtin.file:
+        path: "{{ keyrings }}"
+        state: directory
+        mode: '0755'
+
+    - ansible.builtin.get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: "{{ keyrings }}/docker.asc"
+
+    - ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64 signed-by={{ keyrings }}/docker.asc] {{ apt_repo }} {{ ansible_distribution_release }} stable"
+        filename: docker
+        state: present
+    # TODO: add support for other distribution
+
+- name: Get the username of the user running the playbook
+  set_fact:
+    playbook_user: "{{ ansible_user_id }}"
+
+- name: Install the latest version of Docker engine
+  become: true
+  block:
+    - ansible.builtin.package:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+
+    - ansible.builtin.group:
+        name: docker
+        state: present
+
+    - ansible.builtin.user:
+        name: "{{ playbook_user }}"
+        groups:
+          - docker
+        append: yes
+        state: present

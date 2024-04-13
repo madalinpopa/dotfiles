@@ -3,11 +3,21 @@
   connection: local
   tasks:
 
-    - ansible.builtin.ping:
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # Packages and Tools roles
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     - ansible.builtin.import_role:
         name: packages
       tags: ["never", "setup", "packages"]
+
+    - ansible.builtin.import_role:
+        name: docker
+      tags: ["never", "setup", "docker"]
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # Configuration roles
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     - ansible.builtin.import_role:
         name: tmux
