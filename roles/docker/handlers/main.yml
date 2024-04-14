@@ -1,4 +1,4 @@
-- name: Restart docker service
+- name: restart_docker
   become: true
   ansible.builtin.service:
     name: docker
