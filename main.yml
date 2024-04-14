@@ -26,3 +26,7 @@
     - ansible.builtin.import_role:
         name: tmux
       tags: ["never", "setup", "tmux"]
+
+    - ansible.builtin.import_role:
+        name: ssh
+      tags: ["never", "setup", "ssh"]

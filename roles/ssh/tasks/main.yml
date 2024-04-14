@@ -1,0 +1,12 @@
+
+- name: Create /etc/apt/keyrings directory
+  ansible.builtin.file:
+    path: "~/.ssh"
+    state: directory
+    mode: '0700'
+
+- name: Copy SSH config
+  ansible.builtin.template:
+    dest: "~/.ssh/config"
+    src: "config"
+    mode: "0600"
