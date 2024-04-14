@@ -1,0 +1,22 @@
+- name: Create ~/.local/share/fonts directory
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.local/share/fonts"
+    state: directory
+    mode: '0700'
+
+- name: Install Fonts
+  block:
+    - ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts/"
+      with_fileglob:
+        - "files/fira_font/*"
+
+    - ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts/"
+      with_fileglob:
+        - "files/fira_mono_nerd/*"
+
+# Alternative is to download the fonts everytime using the below link
+# https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip

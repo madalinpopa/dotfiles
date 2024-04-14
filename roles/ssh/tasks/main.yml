@@ -1,5 +1,5 @@
 
-- name: Create /etc/apt/keyrings directory
+- name: Create ~/.ssh" directory
   ansible.builtin.file:
     path: "~/.ssh"
     state: directory

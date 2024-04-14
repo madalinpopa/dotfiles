@@ -10,14 +10,17 @@
     - ansible.builtin.import_role:
         name: packages
       tags: ["never", "setup", "packages"]
+      when: ansible_os_family == "Debian"
 
     - ansible.builtin.import_role:
         name: docker
       tags: ["never", "setup", "docker"]
+      when: ansible_os_family == "Debian"
 
     - ansible.builtin.import_role:
         name: azcli
       tags: ["never", "setup", "azcli"]
+      when: ansible_os_family == "Debian"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # Configuration roles
@@ -30,3 +33,7 @@
     - ansible.builtin.import_role:
         name: ssh
       tags: ["never", "setup", "ssh"]
+
+    - ansible.builtin.import_role:
+        name: fonts
+      tags: ["never", "setup", "fonts"]
