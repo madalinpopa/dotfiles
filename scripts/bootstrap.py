@@ -9,7 +9,7 @@ from util.display import output, progress
 from util.symlinks import create_symlinks
 
 
-def install_git_completion(config: dict[str], force_flag: bool) -> None:
+def install_git_completion(config: dict[str, str], force_flag: bool) -> None:
     """
     Install git completion script from the given configuration.
 
