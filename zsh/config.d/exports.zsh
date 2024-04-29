@@ -4,6 +4,7 @@ export PATH=/usr/local/bin:$PATH;
 export PATH=/usr/local/sbin:$PATH;
 export PATH=$HOME/.local/bin:$PATH;
 export PATH=$HOME/.local/sbin:$PATH;
+export PATH=$HOME/.cargo/bin:$PATH;
 
 # XDG Base Directory Specification;
 # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
