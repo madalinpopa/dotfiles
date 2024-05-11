@@ -1,6 +1,6 @@
 # AUTOMATION
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-brew "ansible"
+#brew "ansible"
 
 # DEVELOPEMNT
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
