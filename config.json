@@ -82,6 +82,8 @@
         "file",
         "git",
         "zsh",
-        "pipx"
+        "pipx",
+        "fzf",
+        "ripgrep"
     ]
 }
