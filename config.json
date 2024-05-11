@@ -68,6 +68,11 @@
             "name": "homebrew",
             "executable": "brew",
             "url": "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+        },
+        {
+            "name": "uv",
+            "executable": "uv",
+            "url": "https://astral.sh/uv/install.sh"
         }
     ],
     "apt_packages": [
@@ -76,6 +81,7 @@
         "curl",
         "file",
         "git",
-        "zsh"
+        "zsh",
+        "pipx"
     ]
 }
