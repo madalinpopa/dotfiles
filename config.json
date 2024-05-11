@@ -73,6 +73,11 @@
             "name": "uv",
             "executable": "uv",
             "url": "https://astral.sh/uv/install.sh"
+        },
+        {
+            "name": "nvm",
+            "executable": "nvm",
+            "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh"
         }
     ],
     "apt_packages": [
