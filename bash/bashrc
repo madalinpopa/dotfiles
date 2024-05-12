@@ -63,3 +63,9 @@ fi
 if [ -f "$HOME/.local_aliases" ]; then
     . "$HOME/.local_aliases"
 fi
+
+# This is needed for WSL to communicate with SSH Agent on Windows
+if [ -f "$HOME/.local/bin/wsl-ssh-agent-relay" ]; then
+    ${HOME}/.local/bin/wsl-ssh-agent-relay start
+    export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
+fi
