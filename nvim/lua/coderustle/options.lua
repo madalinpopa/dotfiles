@@ -65,3 +65,5 @@ w.scroll = 5
 -- Highlight cursor line
 w.cursorline = true
 
+-- Set autoread
+o.autoread = true
