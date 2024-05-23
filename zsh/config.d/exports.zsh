@@ -44,3 +44,6 @@ export PYTHONIOENCODING='UTF-8';
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
+
+# Export Go binary path
+export GOBIN=~/.local/bin/

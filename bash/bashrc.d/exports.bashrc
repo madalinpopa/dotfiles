@@ -44,3 +44,6 @@ export PYTHONIOENCODING='UTF-8';
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
+
+# Go bin is used by Go to install binaries
+export GOBIN=~/.local/bin/
