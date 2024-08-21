@@ -27,4 +27,4 @@ brew "ruff-lsp"
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 brew "fzf"
 brew "ripgrep"
-
+brew "watchman"
