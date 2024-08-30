@@ -2,13 +2,6 @@
 # Email: contact@madalinpopa.com
 
 for FILE in ~/.config/zsh/config.d/*; do
-    source $FILE
-done
-
-# Enable zsh functions
-if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
-   fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-~}/.zsh_functions
 else
    mkdir -p ${ZDOTDIR:-~}/.zsh_functions
    fpath+=~/.zfunc
@@ -68,4 +61,9 @@ fi
 if [ -f "$HOME/.local/bin/wsl-ssh-agent-relay" ]; then
     ${HOME}/.local/bin/wsl-ssh-agent-relay start
     export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
+fi
+
+# Load direnv
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
 fi
