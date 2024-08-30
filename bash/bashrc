@@ -71,6 +71,6 @@ if [ -f "$HOME/.local/bin/wsl-ssh-agent-relay" ]; then
 fi
 
 # Load direnv
-if command -v direnv &> /dev/null; then
+if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook bash)"
 fi
