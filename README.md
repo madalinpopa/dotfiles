@@ -8,12 +8,9 @@ To setup my dotfiles I use plain Python with no other dependencies beside what i
 git clone https://github.com/madalinpopa/dotfiles ~/.dotfiles
 .dotfiles/install.sh
 ```
-The `install.sh` script will check if Python installation exists and it will run `bootstrap.py`. The Python script will create a symlink for every entry in `config.json` file.
+**Step 1**: The first step is to run the `install.sh` script which will create symlinks for all the files in the `config.json` file. If the target file already exists and is not a symlink, the script will ask if you want to skip or delete the existing target file. Using the `--force` flag will remove any existing targets by default.
 
-By default, `bootstrap.py` will check if target exists and is not a symlink. If this is the case, a prompt will ask if you want to skip or delete the existing target file. If you want to remove any existing targets by default you can run the `install.sh` with `--force` flag.
+**Step 2**: The second step is to run the `install.sh` using the `--setup` flag. This will install all the necessary tools and applications that are listed in the `config.json` file under `external_scripts`.
 
-```bash
-.dotfiles/install.sh --force
-```
 ## test
 To test the dotfiles config and how they look, you can run `make build` and `make run`.
