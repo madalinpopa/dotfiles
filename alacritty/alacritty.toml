@@ -4,9 +4,8 @@ shape = "Beam"
 [font]
 size = 13.0
 
-# [font.normal]
-# family = "Monospace Neon"
-# style = "Regular"
+[font.normal]
+family = "JetBrainsMono Nerd Font"
 
 [scrolling]
 history = 10000
