@@ -64,3 +64,6 @@ vim.opt.scrolloff = 8
 vim.opt.colorcolumn = ""
 
 --vim.opt.termguicolors = true
+
+-- Netrw settings
+vim.g.netrw_list_hide = (vim.fn["netrw_gitignore#Hide"]()) .. [[,\(^\|\s\s\)\zs\.\S\+]] -- use .gitignore
