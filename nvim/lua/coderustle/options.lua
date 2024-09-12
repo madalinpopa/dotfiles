@@ -1,69 +1,66 @@
 ------------------------------------------------------
 -- Author: Madalin Popa
--- Email: contact@madalinpopa.com
+--
+-- Email: madalin@coderustle.ro
 ------------------------------------------------------
 
-------------------------------------------------------
--- NEOVIM API ALIASSES
-------------------------------------------------------
-local g = vim.g         		-- global variables
-local o = vim.o         		-- global options
-local b = vim.bo        		-- buffer-scoped options
-local w = vim.wo        		-- windows-scoped options
-
-------------------------------------------------------
--- SETTINGS
-------------------------------------------------------
-g.mapleader = ','                   -- Set leader to ''
-g.maplocalleader = ','              -- Set local leader to ''
 
 -- Global options
 ------------------------------------------------------
+
+-- Set default leader
+vim.g.mapleader = ","
+
+-- Configure the appearance of the mouse
+vim.opt.guicursor = ""
+
+-- Set relative line numbers
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
 -- Set tabs to use spaces
-o.expandtab = true
+vim.opt.expandtab = true
 
 -- Set highlight on search
-o.hlsearch = false
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- Enable mouse mode
-o.mouse = 'a'
+vim.opt.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
-o.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
-o.breakindent = true
+vim.opt.breakindent = true
 
 -- Save undo history
-o.undofile = true
+vim.opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
-o.ignorecase = true
-o.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Decrease update time
-o.updatetime = 250
-o.timeoutlen = 300
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 150
 
 -- Set completeopt to have a better completion experience
-o.completeopt = 'menuone,noselect'
+vim.opt.completeopt = 'menuone,noselect'
 
--- NOTE: You should make sure your terminal supports this
-o.termguicolors = true
+-- Set default tab stop
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
--- Keep signcolumn on by default
-o.signcolumn = 'yes'
+-- Number of spaces to use for each step
+vim.opt.shiftwidth = 4
 
--- Window scoped options
-------------------------------------------------------
--- Make line numbers default
-w.number = true
+-- Disable swapfile
+vim.opt.swapfile = false
 
--- Update line numbers for scroll
-w.scroll = 5
+-- Set the number of lines for scroll
+vim.opt.scrolloff = 8
 
--- Highlight cursor line
-w.cursorline = true
+vim.opt.colorcolumn = ""
 
--- Set autoread
-o.autoread = true
+--vim.opt.termguicolors = true

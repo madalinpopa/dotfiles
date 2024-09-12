@@ -1,0 +1,16 @@
+return {
+  { 'olimorris/onedarkpro.nvim' },
+  { 'arcticicestudio/nord-vim' },
+  { 'navarasu/onedark.nvim' },
+  { 'projekt0n/github-nvim-theme' },
+  { 'rose-pine/neovim' },
+  { 'aliqyan-21/darkvoid.nvim' },
+  { "scottmckendry/cyberdream.nvim" },
+  { "folke/tokyonight.nvim" },
+  { "mhartington/oceanic-next" },
+  { "EdenEast/nightfox.nvim" },
+  { "catppuccin/nvim", name = "catppuccin"},
+  {'nyoom-engineering/oxocarbon.nvim'},
+  {'sainnhe/everforest'},
+  {'rafi/awesome-vim-colorschemes'},
+}

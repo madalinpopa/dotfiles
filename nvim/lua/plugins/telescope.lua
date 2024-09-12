@@ -7,6 +7,7 @@ return {
         'nvim-lua/plenary.nvim',
         -- Fuzzy Finder Algorithm which requires local dependencies to be built.
         -- Only load if `make` is available. Make sure you have the system
+
         -- requirements installed.
         {
             'nvim-telescope/telescope-fzf-native.nvim',
@@ -24,9 +25,11 @@ return {
             mappings = {
                 i = {
                     ['<C-u>'] = false,
+
                     ['<C-d>'] = false,
                 },
             },
         },
     }
 }
+
