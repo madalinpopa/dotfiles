@@ -2,11 +2,11 @@
 shape = "Beam"
 
 [font]
-size = 18.0
+size = 13.0
 
-[font.normal]
-family = "FiraCode Nerd Font"
-style = "Retina"
+# [font.normal]
+# family = "Monospace Neon"
+# style = "Regular"
 
 [scrolling]
 history = 10000
@@ -17,7 +17,7 @@ opacity = 0.9
 blur = true
 
 [window.dimensions]
-columns = 100
+columns = 120
 lines = 30
 
 [window.padding]
