@@ -20,7 +20,7 @@ export DATE=$(date +%d-%m-%Y);
 export LANG=en_US.UTF-8;
 
 # Enable  256 color support
-export TERM="xterm-256color";
+# export TERM="xterm-256color";
 
 # Enable colors for ls, etc.
 export CLICOLOR=1;
