@@ -1,54 +1,37 @@
 # Author: Madalin Popa
 # Email: contact@madalinpopa.com
 
-for FILE in ~/.config/zsh/config.d/*; do
-    source $FILE
+# Source configuration files
+ZSH_CONFIG="$HOME/.config/zsh/config.d"
+
+for file in "$ZSH_CONFIG"/*; do
+    source $file
 done
 
+# Load machine specific configuration
+if [ -f "$HOME/.machine_specific.zsh" ]; then
+    source "$HOME/.machine_specific.zsh"
+fi
+
+# Local aliasses
+if [ -f "$HOME/.local_aliases" ]; then
+    . "$HOME/.local_aliases"
+fi
+
 # Enable zsh functions
-if [ -d "${ZDOTDIR:-~}/.zsh_functions" ]; then
+if [ -d "${ZDOTDIR:-$HOME}/.zsh_functions" ]; then
    fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-~}/.zsh_functions
+   fpath+=${ZDOTDIR:-$HOME}/.zsh_functions
 else
-   mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+   mkdir -p ${ZDOTDIR:-$HOME}/.zsh_functions
    fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-~}/.zsh_functions
+   fpath+=${ZDOTDIR:-$HOME}/.zsh_functions
 fi
 
-# Set PATH, MANPATH, etc., for Homebrew.
-if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-fi
-if [ -f "/opt/homebrew/bin/brew" ]; then
-  eval $(/opt/homebrew/bin/brew shellenv)
-fi
 
-# Bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# # This loads nvm
+# This loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# # This loads nvm bash_completion
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Kubectl completions
-if [ -x "$(command -v kubectl)" ]; then
-  source <(kubectl completion zsh)
-fi
-
-# # Kustomize completions
-if [ -x "$(command -v kustomize)" ]; then
-  source <(kustomize completion zsh)
-fi
-
-# Add hatch completions
-if [ -x "$(command -v hatch)" ] && [ ! -f "$HOME/.hatch-complete.zsh" ]; then
-  _HATCH_COMPLETE=zsh_source hatch > ~/.hatch-complete.zsh
-  source ~/.hatch-complete.zsh
-elif [ -f "$HOME/.hatch-complete.zsh" ]; then
-    source ~/.hatch-complete.zsh
-fi
 
 # Start tmux session
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
@@ -57,11 +40,6 @@ fi
 
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
-fi
-
-# Local aliasses
-if [ -f "$HOME/.local_aliases" ]; then
-    . "$HOME/.local_aliases"
 fi
 
 # This is needed for WSL to communicate with SSH Agent on Windows

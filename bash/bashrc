@@ -3,13 +3,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
-
-
 # Load custom files
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
@@ -19,6 +12,11 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
 
 # Load git completion and prompt.sh
 if [ -f ~/.git-completion.bash ]; then
