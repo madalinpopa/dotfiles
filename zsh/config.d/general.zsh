@@ -1,44 +1,40 @@
+# -----------------------------------
+# Author: Madalin Popa              -
+# Email: coderustle@madalinpopa.com -
+# -----------------------------------
 
-# Enable zsh functions
-if [ -d "${ZDOTDIR:-$HOME}/.zsh_functions" ]; then
-   fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-$HOME}/.zsh_functions
+
+ZSH_FUNC_DIR="${ZDOTDIR:-$HOME}/.zsh_functions"
+if [[ -d "$ZSH_FUNC_DIR" ]]; then
+   fpath+=("$HOME/.zfunc" "$ZSH_FUNC_DIR")
 else
-   mkdir -p ${ZDOTDIR:-$HOME}/.zsh_functions
-   fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-$HOME}/.zsh_functions
+   mkdir -p "$ZSH_FUNC_DIR"
+   fpath+=("$HOME/.zfunc" "$ZSH_FUNC_DIR")
 fi
 
-# Set PATH, MANPATH, etc., for Homebrew.
-if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# Set PATH, MANPATH, etc., for Homebrew
+if [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [[ -f "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Load homebrew
-if [ -f "/opt/homebrew/bin/brew" ]; then
-  eval $(/opt/homebrew/bin/brew shellenv)
-fi
+# Load NVM if available
+NVM_SCRIPT="$NVM_DIR/nvm.sh"
+[[ -s "$NVM_SCRIPT" ]] && source "$NVM_SCRIPT"
 
-# Load Nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# Load Cargo if available
+CARGO_ENV="$HOME/.cargo/env"
+[[ -f "$CARGO_ENV" ]] && source "$CARGO_ENV"
 
-# Load Cargo
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
-
-# Load direnv
-if [ -x "$(command -v direnv)" ]; then
+# Load direnv if available
+if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
-# This is needed for WSL to communicate with SSH Agent on Windows
-if [ -f "$HOME/.local/bin/wsl-ssh-agent-relay" ]; then
-    ${HOME}/.local/bin/wsl-ssh-agent-relay start
-    export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
+# Start WSL SSH Agent Relay if available (for Windows SSH agent communication)
+WSL_SSH_RELAY="$HOME/.local/bin/wsl-ssh-agent-relay"
+if [[ -f "$WSL_SSH_RELAY" ]]; then
+  "$WSL_SSH_RELAY" start
+  export SSH_AUTH_SOCK="$HOME/.ssh/wsl-ssh-agent.sock"
 fi
-
-# Start tmux session
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#    tmux attach -t default || tmux new -s default
-# fi
