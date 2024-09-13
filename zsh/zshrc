@@ -1,7 +1,7 @@
-# -----------------------------------
-# Author: Madalin Popa              -
-# Email: coderustle@madalinpopa.com -
-# -----------------------------------
+# ----------------------------------------------------------------------
+# Author: Madalin Popa              
+# Email: coderustle@madalinpopa.com 
+# ----------------------------------------------------------------------
 
 # Source configuration files
 ZSH_CONFIG="$HOME/.config/zsh/config.d"

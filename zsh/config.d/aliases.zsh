@@ -1,47 +1,73 @@
+# ----------------------------------------------------------------------
+# Author: Madalin Popa              
+# Email: coderustle@madalinpopa.com 
+# ----------------------------------------------------------------------
 
-# Easier navigation: .., ..., ...., ....., ~ and -
+# ----------------------------------------------------------------------
+# Easier navigation aliases
+# ----------------------------------------------------------------------
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
+alias ~="cd $HOME" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# Shortcuts
-alias dl="cd ~/Downloads"
-alias p="cd ~/Projects"
+# ----------------------------------------------------------------------
+# Directory shortcuts
+# ----------------------------------------------------------------------
+alias dl="cd $HOME/Downloads"
+alias p="cd $HOME/Projects"
+
+# ----------------------------------------------------------------------
+# Git shortcuts
+# ----------------------------------------------------------------------
 alias g="git"
+alias gag="git exec ag"
+
+# ----------------------------------------------------------------------
+# Kubernetes shortcuts
+# ----------------------------------------------------------------------
 alias k="kubectl"
 
+# ----------------------------------------------------------------------
+# List commands
+# ----------------------------------------------------------------------
 # List all files colorized in long format, excluding . and ..
 alias la="ls -lAF --color=auto"
 
 # List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+alias lsd="ls -lF --color=auto | grep --color=never '^d'"
 
 # Always use color output for `ls`
 alias ls="command ls --color=auto"
 
-# Always enable colored `grep` output
-# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+# ----------------------------------------------------------------------
+# Grep commands
+# ----------------------------------------------------------------------
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Aliases to protect against overwriting
-alias cp='cp -i'
-alias mv='mv -i'
+# ----------------------------------------------------------------------
+# File operations (protected)
+# ----------------------------------------------------------------------
+alias cp='command cp -i'
+alias mv='command mv -i'
 
-# git related aliases
-alias gag='git exec ag'
-
-# use neovim diff
+# ----------------------------------------------------------------------
+# Neovim diff
+# ----------------------------------------------------------------------
 alias vimdiff='nvim -d'
 
-# LazyGit aliases
-alias ly=lazygit
+# ----------------------------------------------------------------------
+# LazyGit alias
+# ----------------------------------------------------------------------
+alias ly="lazygit"
 
+# ----------------------------------------------------------------------
 # tmux aliases
+# ----------------------------------------------------------------------
 alias ta='tmux attach'
 alias tls='tmux ls'
 alias tat='tmux attach -t'

@@ -1,9 +1,12 @@
-# -----------------------------------
-# Author: Madalin Popa              -
-# Email: coderustle@madalinpopa.com -
-# -----------------------------------
+# ----------------------------------------------------------------------
+# Author: Madalin Popa              
+# Email: coderustle@madalinpopa.com 
+# ----------------------------------------------------------------------
 
-
+# ----------------------------------------------------------------------
+# Zsh functions directory setup
+# This sets up the fpath to include custom Zsh functions.
+# ----------------------------------------------------------------------
 ZSH_FUNC_DIR="${ZDOTDIR:-$HOME}/.zsh_functions"
 if [[ -d "$ZSH_FUNC_DIR" ]]; then
    fpath+=("$HOME/.zfunc" "$ZSH_FUNC_DIR")
@@ -12,27 +15,42 @@ else
    fpath+=("$HOME/.zfunc" "$ZSH_FUNC_DIR")
 fi
 
-# Set PATH, MANPATH, etc., for Homebrew
+# ----------------------------------------------------------------------
+# Homebrew configuration
+# Add Homebrew binaries to the PATH, depending on the installation path.
+# ----------------------------------------------------------------------
 if [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [[ -f "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Load NVM if available
+# ----------------------------------------------------------------------
+# NVM configuration
+# Load Node Version Manager (NVM) if the script is available.
+# ----------------------------------------------------------------------
 NVM_SCRIPT="$NVM_DIR/nvm.sh"
 [[ -s "$NVM_SCRIPT" ]] && source "$NVM_SCRIPT"
 
-# Load Cargo if available
+# ----------------------------------------------------------------------
+# Cargo configuration
+# Load Cargo (Rust's package manager) environment if available.
+# ----------------------------------------------------------------------
 CARGO_ENV="$HOME/.cargo/env"
 [[ -f "$CARGO_ENV" ]] && source "$CARGO_ENV"
 
-# Load direnv if available
+# ----------------------------------------------------------------------
+# Direnv configuration
+# Load Direnv for managing project-specific environment variables.
+# ----------------------------------------------------------------------
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
-# Start WSL SSH Agent Relay if available (for Windows SSH agent communication)
+# ----------------------------------------------------------------------
+# WSL SSH Agent Relay (Windows-specific)
+# Start the WSL SSH Agent Relay for communication with the Windows SSH agent.
+# ----------------------------------------------------------------------
 WSL_SSH_RELAY="$HOME/.local/bin/wsl-ssh-agent-relay"
 if [[ -f "$WSL_SSH_RELAY" ]]; then
   "$WSL_SSH_RELAY" start
