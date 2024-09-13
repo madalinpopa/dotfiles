@@ -33,3 +33,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Keep cursor in the middle when using pager
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Add keympa for copilot to accept only one word
+vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
