@@ -19,10 +19,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Airline, for status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " Auto-pairs
 Plug 'jiangmiao/auto-pairs'
 
@@ -238,13 +234,6 @@ noremap <leader>t :term<CR>
 " -------------------------------------------------
 " PLUGINS
 " -------------------------------------------------
-
-" AIRLINE
-" -------------------------------------------------
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='ayu'
 
 " FZF
 " -------------------------------------------------
