@@ -1,5 +1,7 @@
-# Author: Madalin Popa
-# Email: contact@madalinpopa.com
+# -----------------------------------
+# Author: Madalin Popa              -
+# Email: coderustle@madalinpopa.com -
+# -----------------------------------
 
 # Source configuration files
 ZSH_CONFIG="$HOME/.config/zsh/config.d"
@@ -16,39 +18,4 @@ fi
 # Local aliasses
 if [ -f "$HOME/.local_aliases" ]; then
     . "$HOME/.local_aliases"
-fi
-
-# Enable zsh functions
-if [ -d "${ZDOTDIR:-$HOME}/.zsh_functions" ]; then
-   fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-$HOME}/.zsh_functions
-else
-   mkdir -p ${ZDOTDIR:-$HOME}/.zsh_functions
-   fpath+=~/.zfunc
-   fpath+=${ZDOTDIR:-$HOME}/.zsh_functions
-fi
-
-
-# This loads nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-
-# Start tmux session
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#    tmux attach -t default || tmux new -s default
-# fi
-
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
-
-# This is needed for WSL to communicate with SSH Agent on Windows
-if [ -f "$HOME/.local/bin/wsl-ssh-agent-relay" ]; then
-    ${HOME}/.local/bin/wsl-ssh-agent-relay start
-    export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
-fi
-
-# Load direnv
-if [ -x "$(command -v direnv)" ]; then
-  eval "$(direnv hook zsh)"
 fi
