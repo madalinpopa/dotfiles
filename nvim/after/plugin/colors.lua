@@ -1,5 +1,5 @@
 function MyCustomColor(color)
-    color = color or "cyberdream"
+    color = color or "onedark"
     -- color = color or "256_noir"
     vim.cmd.colorscheme(color)
 
@@ -10,4 +10,4 @@ function MyCustomColor(color)
     vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" }) -- End of buffer transparency
 end
 
-MyCustomColor()
+-- MyCustomColor()

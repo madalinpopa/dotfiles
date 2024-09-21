@@ -5,3 +5,5 @@ vim.cmd [[
   autocmd BufWritePre *.go lua vim.lsp.buf.format()
   autocmd BufWritePre *.lua lua vim.lsp.buf.format()
 ]]
+
+require('onedark').load()
