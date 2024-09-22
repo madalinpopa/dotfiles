@@ -46,7 +46,7 @@ dfu() {
 }
 
 # LazyGit aliases
-alias ly=lazygit
+alias lg=lazygit
 
 # tmux aliases
 alias ta='tmux attach'
