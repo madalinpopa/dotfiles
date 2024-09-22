@@ -63,6 +63,9 @@ vim.opt.scrolloff = 8
 
 vim.opt.colorcolumn = ""
 
+-- Set the foldmethod to syntax
+vim.opt.foldmethod = 'indent'
+
 --vim.opt.termguicolors = true
 
 -- Netrw settings
