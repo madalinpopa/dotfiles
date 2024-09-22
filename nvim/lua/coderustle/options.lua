@@ -63,8 +63,11 @@ vim.opt.scrolloff = 8
 
 vim.opt.colorcolumn = ""
 
--- Set the foldmethod to syntax
-vim.opt.foldmethod = 'indent'
+-- Set the fold options
+vim.opt.foldmethod = 'expr'
+vim.opt.foldlevel = 99
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldcolumn = '0'
 
 --vim.opt.termguicolors = true
 
