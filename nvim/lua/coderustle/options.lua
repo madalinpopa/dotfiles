@@ -69,7 +69,10 @@ vim.opt.foldlevel = 99
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldcolumn = '0'
 
---vim.opt.termguicolors = true
+vim.opt.termguicolors = true
+
+-- Set the background color for cursor line
+vim.opt.cursorline = true
 
 -- Netrw settings
 vim.g.netrw_list_hide = (vim.fn["netrw_gitignore#Hide"]()) .. [[,\(^\|\s\s\)\zs\.\S\+]] -- use .gitignore
