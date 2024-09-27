@@ -29,7 +29,6 @@ local on_attach = function(_, bufnr)
     nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
     nmap('<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-
     end, '[W]orkspace [L]ist Folders')
 
 
@@ -47,9 +46,12 @@ local servers = {
             }
         }
     },
+    marksman = {
+        filetypes = { 'markdown' },
+    },
     ruff_lsp = {},
     gopls = {
-        gofumpt  = true,
+        gofumpt = true,
     },
     lua_ls = {
         Lua = {
