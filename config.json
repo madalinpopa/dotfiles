@@ -47,6 +47,10 @@
         {
             "source": "alacritty/alacritty.toml",
             "target": "~/.config/alacritty/alacritty.toml"
+        },
+        {
+            "source": ".ideavimrc",
+            "target": "~/.ideavimrc"
         }
     ],
     "completion_scripts": [
