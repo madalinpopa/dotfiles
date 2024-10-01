@@ -1,0 +1,103 @@
+" -------------------------------------------------------
+" Author: Madalin Popa
+" E-mai: madalin@coderustle.ro
+" -------------------------------------------------------
+let mapleader = ","
+
+
+" Set the number of lines to show as context around the cursor for better navigation
+set scrolloff=10
+
+" Set the number of lines to show as context around the cursor for better navigation
+set scrolloff=10
+
+" Set the number of lines to show as context around the cursor for better navigation
+set history=1000
+
+" Enable Showmode, which displays the current mode (insert, normal, etc.).
+set showmode
+
+" Show when a partial command is being typed
+set showcmd
+
+" Enable smart case, which allows case-insensitive searching unless an uppercase letter is used.
+set smartcase
+
+" Enable incremental search, which highlights matches as you type
+set incsearch
+
+" Enable highlighting search matches
+set hlsearch
+
+" Set visualbell to flash the screen instead of making a noise
+set visualbell
+
+" Do incremental searching.
+set incsearch
+
+" Enable line numbers
+set nu
+
+" Enable relative line numbers
+set relativenumber
+
+" Set the timeout length for mappings to 5000 milliseconds
+set timeoutlen=5000
+
+" -------------------------------------------------------
+" Plugins
+" -------------------------------------------------------
+
+ Enable which-key plugin for showing available key bindings
+set which-key
+
+" -------------------------------------------------------
+" Mappings
+" -------------------------------------------------------
+" Reload .ideavimrc
+map <leader>r <Action>(IdeaVim.ReloadVimRc.reload)
+
+" Show navbar
+map <leader>e <Action>(ShowNavBar)
+
+" Toggle distraction free mode
+map <leader>td <Action>(ToggleDistractionFreeMode)
+
+" Toggle terminal window
+" map <C-\> <Action>(ActivateTerminalToolWindow)<CR>
+map <C-\> :call ToggleTerminal<CR>
+
+" Toggle project window
+map <leader>nn <Action>(ActivateProjectToolWindow)
+
+" Go to action
+map <leader>sa <Action>(GotoAction)
+
+" Go to type
+map <leader>st <Action>(GotoClass)
+
+" Go to symbol
+map <leader>ss <Action>(GotoSymbol)
+
+" Find in files
+map <leader>sg <Action>(FindInPath)
+
+" Search file
+map <leader>sf <Action>(GotoFile)
+
+" Search buffers
+map <leader>sr <Action>(RecentFiles)
+
+" -------------------------------------------------------
+" Functions
+" -------------------------------------------------------
+" Function to toggle terminal window
+function! ToggleTerminal()
+    if exists('g:terminal_visible') && g:terminal_visible
+        <Action>(HideActiveWindow)
+        let g:terminal_visible = 0
+    else
+        <Action>(ActivateTerminalToolWindow)
+        let g:terminal_visible = 1
+    endif
+endfunction
