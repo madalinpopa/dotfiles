@@ -6,7 +6,7 @@ return {
     { 'aliqyan-21/darkvoid.nvim',         lazy = true },
     { "scottmckendry/cyberdream.nvim",    lazy = true },
     { "folke/tokyonight.nvim",            lazy = true },
-    { "mhartington/oceanic-next",         lazy = true },
+    { "mhartington/oceanic-next",         lazy = false },
     { "EdenEast/nightfox.nvim",           lazy = true },
     { "catppuccin/nvim",                  lazy = true, name = "catppuccin" },
     { 'nyoom-engineering/oxocarbon.nvim', lazy = true },
