@@ -1,94 +1,98 @@
 {
-    "dotfiles": [
-        {
-            "source": "bash/bashrc",
-            "target": "~/.bashrc"
-        },
-        {
-            "source": "bash/bashrc.d",
-            "target": "~/.bashrc.d"
-        },
-        {
-            "source": "git/gitconfig",
-            "target": "~/.gitconfig"
-        },
-        {
-            "source": "git/gitignore_global",
-            "target": "~/.gitignore_global"
-        },
-        {
-            "source": "zsh/zshrc",
-            "target": "~/.zshrc"
-        },
-        {
-            "source": "zsh/config.d",
-            "target": "~/.config/zsh/config.d"
-        },
-        {
-            "source": "tmux/tmux.conf",
-            "target": "~/.config/tmux/tmux.conf"
-        },
-        {
-            "source": "vim",
-            "target": "~/.vim"
-        },
-        {
-            "source": "nvim",
-            "target": "~/.config/nvim"
-        },
-        {
-            "source": "helix",
-            "target": "~/.config/helix"
-        },
-        {
-            "source": "ansible/ansible.cfg",
-            "target": "~/.ansible.cfg"
-        },
-        {
-            "source": "alacritty/alacritty.toml",
-            "target": "~/.config/alacritty/alacritty.toml"
-        },
-        {
-            "source": ".ideavimrc",
-            "target": "~/.ideavimrc"
-        }
-    ],
-    "completion_scripts": [
-        {
-            "target": "~/.git-completion.bash",
-            "url": "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
-        },
-        {
-            "target": "~/.git-prompt.sh",
-            "url": "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
-        }
-    ],
-    "external_scripts": [
-        {
-            "name": "homebrew",
-            "executable": "brew",
-            "url": "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
-        },
-        {
-            "name": "uv",
-            "executable": "uv",
-            "url": "https://astral.sh/uv/install.sh"
-        },
-        {
-            "name": "nvm",
-            "executable": "nvm",
-            "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh"
-        }
-    ],
-    "apt_packages": [
-        "build-essential",
-        "procps",
-        "curl",
-        "file",
-        "git",
-        "zsh",
-        "pipx",
-        "fzf",
-        "ripgrep"
-    ]
+  "dotfiles": [
+    {
+      "source": "bash/bashrc",
+      "target": "~/.bashrc"
+    },
+    {
+      "source": "bash/bashrc.d",
+      "target": "~/.bashrc.d"
+    },
+    {
+      "source": "git/gitconfig",
+      "target": "~/.gitconfig"
+    },
+    {
+      "source": "git/gitignore_global",
+      "target": "~/.gitignore_global"
+    },
+    {
+      "source": "zsh/zshrc",
+      "target": "~/.zshrc"
+    },
+    {
+      "source": "zsh/config.d",
+      "target": "~/.config/zsh/config.d"
+    },
+    {
+      "source": "tmux/tmux.conf",
+      "target": "~/.config/tmux/tmux.conf"
+    },
+    {
+      "source": "vim",
+      "target": "~/.vim"
+    },
+    {
+      "source": "nvim",
+      "target": "~/.config/nvim"
+    },
+    {
+      "source": "helix",
+      "target": "~/.config/helix"
+    },
+    {
+      "source": "ansible/ansible.cfg",
+      "target": "~/.ansible.cfg"
+    },
+    {
+      "source": "alacritty/alacritty.toml",
+      "target": "~/.config/alacritty/alacritty.toml"
+    },
+    {
+      "source": ".ideavimrc",
+      "target": "~/.ideavimrc"
+    },
+    {
+      "source": "./zed/settings.json",
+      "target": "~/.config/zed/settings.json"
+    }
+  ],
+  "completion_scripts": [
+    {
+      "target": "~/.git-completion.bash",
+      "url": "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
+    },
+    {
+      "target": "~/.git-prompt.sh",
+      "url": "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+    }
+  ],
+  "external_scripts": [
+    {
+      "name": "homebrew",
+      "executable": "brew",
+      "url": "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+    },
+    {
+      "name": "uv",
+      "executable": "uv",
+      "url": "https://astral.sh/uv/install.sh"
+    },
+    {
+      "name": "nvm",
+      "executable": "nvm",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh"
+    }
+  ],
+  "apt_packages": [
+    "build-essential",
+    "procps",
+    "curl",
+    "file",
+    "git",
+    "zsh",
+    "pipx",
+    "fzf",
+    "ripgrep"
+  ]
 }
