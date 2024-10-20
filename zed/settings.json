@@ -20,6 +20,9 @@
   "tab_bar": {
     "show": false
   },
+  // ----------------------------------------
+  // File scan settings
+  // ----------------------------------------
   "file_scan_exclusions": [
     ".idea",
     ".git",
@@ -28,6 +31,10 @@
     ".pytest_cache",
     "__pycache__"
   ],
+
+  // ----------------------------------------
+  // Language Server Protocol (LSP) settings
+  // ----------------------------------------
   "lsp": {
     "pyright": {
       "settings": {
@@ -39,6 +46,23 @@
           "pythonPath": ".venv/bin/python"
         }
       }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          // Ruff server settings goes here
+          "lineLength": 88
+        }
+      }
+    }
+  },
+
+  // ----------------------------------------
+  // Language specific settings
+  // ----------------------------------------
+  "languages": {
+    "Python": {
+      "language_servers": ["ruff", "pyright"]
     }
   }
 }
