@@ -55,6 +55,14 @@
     {
       "source": "./zed/settings.json",
       "target": "~/.config/zed/settings.json"
+    },
+    {
+      "source": "./zed/tasks.json",
+      "target": "~/.config/zed/tasks.json"
+    },
+    {
+      "source": "./zed/keymap.json",
+      "target": "~/.config/zed/keymap.json"
     }
   ],
   "completion_scripts": [

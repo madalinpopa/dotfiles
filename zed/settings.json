@@ -9,8 +9,8 @@
 {
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
     },
     "version": "2"
   },
@@ -18,7 +18,7 @@
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "tab_bar": {
-    "show": false
+    "show": true
   },
   // ----------------------------------------
   // File scan settings
@@ -29,7 +29,8 @@
     ".venv",
     "node_modules",
     ".pytest_cache",
-    "__pycache__"
+    "__pycache__",
+    ".DS_Store"
   ],
 
   // ----------------------------------------
