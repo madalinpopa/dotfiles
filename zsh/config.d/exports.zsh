@@ -1,6 +1,6 @@
 # ----------------------------------------------------------------------
-# Author: Madalin Popa              
-# Email: coderustle@madalinpopa.com 
+# Author: Madalin Popa
+# Email: coderustle@madalinpopa.com
 # ----------------------------------------------------------------------
 
 # ----------------------------------------------------------------------
@@ -51,8 +51,8 @@ export GOBIN="$HOME/.local/bin"
 # Editor settings
 # ----------------------------------------------------------------------
 # Default editor settings
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="hx"
+export VISUAL="hx"
 
 # Python should use UTF-8 encoding for stdin, stdout, stderr
 export PYTHONIOENCODING="UTF-8"

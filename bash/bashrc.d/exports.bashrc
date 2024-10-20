@@ -36,8 +36,8 @@ export NVM_DIR="$HOME/.nvm";
 export GPG_TTY=$(tty);
 
 # Export default editor
-export EDITOR=vim;
-export VISUAL=vim;
+export EDITOR=hx;
+export VISUAL=hx;
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
