@@ -18,6 +18,7 @@
     ".git",
     ".venv",
     "node_modules",
-    ".pytest_cache"
+    ".pytest_cache",
+    "__pycache__"
   ]
 }
