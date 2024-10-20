@@ -7,7 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Catppuccin Macchiato",
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "version": "2"
+  },
+  "theme": "Rosé Pine",
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "tab_bar": {
@@ -20,5 +27,18 @@
     "node_modules",
     ".pytest_cache",
     "__pycache__"
-  ]
+  ],
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "off",
+          "typeCheckingMode": "off"
+        },
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        }
+      }
+    }
+  }
 }
