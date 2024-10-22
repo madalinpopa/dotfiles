@@ -24,12 +24,13 @@
   // File scan settings
   // ----------------------------------------
   "file_scan_exclusions": [
-    ".idea",
-    ".git",
-    ".venv",
-    "node_modules",
-    ".pytest_cache",
-    "__pycache__",
+    ".idea/",
+    ".zed/",
+    ".git/",
+    ".venv/",
+    "node_modules/",
+    "**/.pytest_cache",
+    "**/__pycache__",
     ".DS_Store"
   ],
 
