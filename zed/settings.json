@@ -69,5 +69,7 @@
   },
   "file_types": {
     "HTML": ["gohtml"]
-  }
+  },
+
+  "show_inline_completions": false
 }
