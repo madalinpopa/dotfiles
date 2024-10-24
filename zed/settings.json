@@ -65,11 +65,15 @@
   "languages": {
     "Python": {
       "language_servers": ["ruff", "pyright"]
+    },
+    "Markdown": {
+      "soft_wrap": "preferred_line_length",
+      "preferred_line_length": 88
     }
   },
   "file_types": {
     "HTML": ["gohtml"]
   },
 
-  "show_inline_completions": false
+  "show_inline_completions": true
 }
