@@ -11,9 +11,6 @@
 -- Set default leader
 vim.g.mapleader = ","
 
--- Configure the appearance of the mouse
-vim.opt.guicursor = ""
-
 -- Set relative line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
