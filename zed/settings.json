@@ -25,7 +25,6 @@
   // ----------------------------------------
   "file_scan_exclusions": [
     ".idea/",
-    ".zed/",
     ".git/",
     ".venv/",
     "node_modules/",
