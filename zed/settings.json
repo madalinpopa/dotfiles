@@ -14,12 +14,9 @@
     },
     "version": "2"
   },
-  "theme": "Rosé Pine",
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "tab_bar": {
-    "show": true
-  },
+  "theme": "Xcode Midnight",
+  "ui_font_size": 17,
+  "buffer_font_size": 17,
   // ----------------------------------------
   // File scan settings
   // ----------------------------------------
@@ -73,6 +70,32 @@
   "file_types": {
     "HTML": ["gohtml"]
   },
-
-  "show_inline_completions": true
+  "show_inline_completions": true,
+  "terminal": {
+    "copy_on_select": true,
+    "font_size": 17,
+    "detect_venv": {
+      "on": {
+        // Default directories to search for virtual environments, relative
+        // to the current working directory. We recommend overriding this
+        // in your project's settings, rather than globally.
+        "directories": [".venv", "venv"],
+        // Can also be `csh`, `fish`, and `nushell`
+        "activate_script": "default"
+      }
+    }
+  }
+  // "vim_mode": true,
+  // "context": "Dock",
+  // "bindings": {
+  //   "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+  //   "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+  //   "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+  //   "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
+  // },
+  // "command_aliases": {
+  //   "W": "w",
+  //   "Wq": "wq",
+  //   "Q": "q"
+  // }
 }
