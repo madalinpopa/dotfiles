@@ -10,11 +10,11 @@
   "assistant": {
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-3-5-sonnet-20240620"
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
   },
-  "theme": "Carbonfox",
+  "theme": "Rosé Pine",
   "ui_font_size": 17,
   "buffer_font_size": 17,
   // ----------------------------------------
@@ -59,6 +59,9 @@
   // Language specific settings
   // ----------------------------------------
   "languages": {
+    "Go": {
+      "show_inline_completions": false
+    },
     "Python": {
       "language_servers": ["ruff", "pyright"]
     },
@@ -84,18 +87,11 @@
         "activate_script": "default"
       }
     }
+  },
+  "vim_mode": true,
+  "command_aliases": {
+    "W": "w",
+    "Wq": "wq",
+    "Q": "q"
   }
-  // "vim_mode": true,
-  // "context": "Dock",
-  // "bindings": {
-  //   "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
-  //   "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
-  //   "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
-  //   "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
-  // },
-  // "command_aliases": {
-  //   "W": "w",
-  //   "Wq": "wq",
-  //   "Q": "q"
-  // }
 }
