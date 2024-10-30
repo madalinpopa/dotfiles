@@ -7,15 +7,21 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit space && space exit enter"
+      ]
     }
   },
   {
-    "context": "Editor",
+    "context": "EmptyPane || SharedScreen",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit space && space exit enter"
+      ]
     }
   }
 ]
