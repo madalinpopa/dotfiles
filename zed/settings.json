@@ -87,11 +87,11 @@
         "activate_script": "default"
       }
     }
-  },
-  "vim_mode": true,
-  "command_aliases": {
-    "W": "w",
-    "Wq": "wq",
-    "Q": "q"
   }
+  // "vim_mode": true,
+  // "command_aliases": {
+  //   "W": "w",
+  //   "Wq": "wq",
+  //   "Q": "q"
+  // }
 }
