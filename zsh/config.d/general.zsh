@@ -56,3 +56,10 @@ if [[ -f "$WSL_SSH_RELAY" ]]; then
   "$WSL_SSH_RELAY" start
   export SSH_AUTH_SOCK="$HOME/.ssh/wsl-ssh-agent.sock"
 fi
+
+# ----------------------------------------------------------------------
+# Zellij configuration
+# ----------------------------------------------------------------------
+if command -v zellij &> /dev/null; then
+  eval "$(zellij setup --generate-auto-start zsh)"
+fi
