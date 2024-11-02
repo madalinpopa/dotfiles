@@ -63,6 +63,10 @@
     {
       "source": "./zed/keymap.json",
       "target": "~/.config/zed/keymap.json"
+    },
+    {
+      "source": "./zellij/config.kdl",
+      "target": "~/.config/zellij/config.kdl"
     }
   ],
   "completion_scripts": [
