@@ -29,8 +29,8 @@ fi
 # NVM configuration
 # Load Node Version Manager (NVM) if the script is available.
 # ----------------------------------------------------------------------
-NVM_SCRIPT="$NVM_DIR/nvm.sh"
-[[ -s "$NVM_SCRIPT" ]] && source "$NVM_SCRIPT"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ----------------------------------------------------------------------
 # Cargo configuration
