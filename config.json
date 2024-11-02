@@ -90,6 +90,11 @@
       "name": "nvm",
       "executable": "nvm",
       "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh"
+    },
+    {
+      "name": "direnv",
+      "executable": "direnv",
+      "url": "https://direnv.net/install.sh "
     }
   ],
   "apt_packages": [
