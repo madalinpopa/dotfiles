@@ -76,7 +76,7 @@ alias tns='tmux new-session -s'
 # ----------------------------------------------------------------------
 # zellij aliases
 # ----------------------------------------------------------------------
-alias z='zellij'
+alias ze='zellij'
 alias zl='zellij list-sessions'
 alias za='zellij attach'
 
