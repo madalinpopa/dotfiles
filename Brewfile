@@ -8,7 +8,6 @@ brew "git"
 brew "lazygit"
 brew "tmux"
 brew "webp"
-brew "hatch"
 brew "black"
 brew "gcc"
 
