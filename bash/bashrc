@@ -73,7 +73,12 @@ if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook bash)"
 fi
 
+# Load Zellij
 if command -v zellij &> /dev/null; then
   eval "$(zellij setup --generate-auto-start bash)"
 fi
 
+# Load FZF
+if command -v fzf &> /dev/null; then
+    eval "(fzf --bash)"
+fi

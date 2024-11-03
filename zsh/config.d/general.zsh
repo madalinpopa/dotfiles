@@ -63,3 +63,12 @@ fi
 if command -v zellij &> /dev/null; then
   eval "$(zellij setup --generate-auto-start zsh)"
 fi
+
+# ----------------------------------------------------------------------
+# FZF configuration
+# ----------------------------------------------------------------------
+if command -v fzf &> /dev/null; then
+    source <(fzf --zsh)
+fi
+
+
