@@ -19,4 +19,3 @@ fi
 if [ -f "$HOME/.local_aliases" ]; then
     . "$HOME/.local_aliases"
 fi
-eval "$(zellij setup --generate-auto-start zsh)"
