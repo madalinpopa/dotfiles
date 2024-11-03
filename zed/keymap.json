@@ -7,21 +7,9 @@
 // from the command palette.
 [
   {
-    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "context": "Workspace",
     "bindings": {
-      "space g g": [
-        "workspace::SendKeystrokes",
-        ": new center terminal enter lazygit space && space exit enter"
-      ]
-    }
-  },
-  {
-    "context": "EmptyPane || SharedScreen",
-    "bindings": {
-      "space g g": [
-        "workspace::SendKeystrokes",
-        ": new center terminal enter lazygit space && space exit enter"
-      ]
+      "shift-l": ["task::Spawn", { "task_name": "Lazygit" }]
     }
   }
 ]
