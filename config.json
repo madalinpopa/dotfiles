@@ -67,6 +67,10 @@
     {
       "source": "./zellij/config.kdl",
       "target": "~/.config/zellij/config.kdl"
+    },
+    {
+      "source": "./starship/starship.toml",
+      "target": "~/.config/starship.toml"
     }
   ],
   "completion_scripts": [

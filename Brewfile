@@ -31,3 +31,4 @@ brew "zellij"
 
 # SHELL
 zsh-autosuggestions
+starship
