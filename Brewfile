@@ -28,3 +28,6 @@ brew "fzf"
 brew "ripgrep"
 brew "watchman"
 brew "zellij"
+
+# SHELL
+zsh-autosuggestions
