@@ -41,7 +41,7 @@ function promptSetup() {
     VCS=$vcs_info_msg_0_
     VCS_TYPE=$VCS[(ws:|:)1]
     VCS_BRANCH=$VCS[(ws:|:)2]
-    
+
     # Set VCS-specific prompt
     if [[ -n $VCS_TYPE ]]; then
         VCS_LINE+=$NOCOLOR
@@ -106,7 +106,7 @@ function promptSetup() {
 }
 
 # Hook to call the prompt setup function before each command
-add-zsh-hook precmd promptSetup
+# add-zsh-hook precmd promptSetup
 
 # ----------------------------------------------------------------------
 # Extra Hooks and Functions
@@ -116,7 +116,7 @@ add-zsh-hook precmd promptSetup
 function eraseSecondLine() {
     print -rn -- $terminfo[el]
 }
-add-zsh-hook preexec eraseSecondLine
+# add-zsh-hook preexec eraseSecondLine
 
 # Set window title to current directory
 function set-window-title() {
@@ -124,10 +124,20 @@ function set-window-title() {
     MYTITLE=${MYTITLE: -20}
     echo -e "\033];$MYTITLE\007"
 }
-add-zsh-hook precmd set-window-title
+# add-zsh-hook precmd set-window-title
 
 # Update date environment variable before each prompt
 function update-date() {
     export DATE=$(date +%d-%m-%Y)
 }
-add-zsh-hook precmd update-date
+
+# ----------------------------------------------------------------------
+# Setup starship prompt
+# ----------------------------------------------------------------------
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+else
+    add-zsh-hook precmd promptSetup
+    add-zsh-hook preexec eraseSecondLine
+    add-zsh-hook precmd set-window-title
+fi
