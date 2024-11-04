@@ -71,4 +71,8 @@ if command -v fzf &> /dev/null; then
     source <(fzf --zsh)
 fi
 
+# ----------------------------------------------------------------------
+# ZSH auto-suggestions
+# ----------------------------------------------------------------------
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
