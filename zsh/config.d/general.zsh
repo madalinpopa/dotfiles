@@ -43,9 +43,16 @@ CARGO_ENV="$HOME/.cargo/env"
 # Direnv configuration
 # Load Direnv for managing project-specific environment variables.
 # ----------------------------------------------------------------------
-if command -v direnv &> /dev/null; then
-  eval "$(direnv hook zsh)"
-fi
+# ensure compatibility tmux <-> direnv
+# if [[ -n "$TMUX" ]] && [[ -n "$DIRENV_DIR" ]]; then
+#     # zsh syntax for unsetting matching variables
+#     unset ${(M)parameters:#DIRENV_*}
+# fi
+# if command -v direnv &> /dev/null; then
+#   eval "$(direnv hook zsh)"
+# fi
+
+
 
 # ----------------------------------------------------------------------
 # WSL SSH Agent Relay (Windows-specific)
