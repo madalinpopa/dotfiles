@@ -30,5 +30,6 @@ brew "watchman"
 brew "zellij"
 
 # SHELL
-zsh-autosuggestions
-starship
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+brew "zsh-autosuggestions"
+brew "starship"
