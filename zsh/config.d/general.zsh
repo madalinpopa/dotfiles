@@ -60,9 +60,9 @@ fi
 # ----------------------------------------------------------------------
 # Zellij configuration
 # ----------------------------------------------------------------------
-if command -v zellij &> /dev/null; then
-  eval "$(zellij setup --generate-auto-start zsh)"
-fi
+# if command -v zellij &> /dev/null; then
+#   eval "$(zellij setup --generate-auto-start zsh)"
+# fi
 
 # ----------------------------------------------------------------------
 # FZF configuration
