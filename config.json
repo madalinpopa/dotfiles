@@ -49,6 +49,18 @@
       "target": "~/.config/alacritty/alacritty.toml"
     },
     {
+      "source": "alacritty/themes/rose-pine.toml",
+      "target": "~/.config/alacritty/rose-pine.toml"
+    },
+    {
+      "source": "alacritty/themes/rose-pine-moon.toml",
+      "target": "~/.config/alacritty/rose-pine-moon.toml"
+    },
+    {
+      "source": "alacritty/themes/rose-pine-dawn.toml",
+      "target": "~/.config/alacritty/rose-pine-dawn.toml"
+    },
+    {
       "source": ".ideavimrc",
       "target": "~/.ideavimrc"
     },
