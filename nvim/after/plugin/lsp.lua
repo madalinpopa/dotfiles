@@ -49,7 +49,7 @@ local servers = {
     marksman = {
         filetypes = { 'markdown' },
     },
-    ruff_lsp = {},
+    ruff = {},
     gopls = {
         gofumpt = true,
     },
