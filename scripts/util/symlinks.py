@@ -3,28 +3,42 @@ import os
 from util.system import delete_path, get_os
 from util.display import output
 
+def _remove_old_symlink(target: str):
+    """Remove an old symlink and log the action"""
+    message = f"Remove old symlink for {target}"
+    print(output(message, output_type="OK"))
+    delete_path(target)
+
+def _force_delete_target(target: str) -> bool:
+    """Force delete target and log the action"""
+    delete_path(target)
+    print(output(f"Deleted {target} (force applied)."))
+    return True
+
+def _prompt_delete_target(target: str) -> bool:
+    """Prompt user for confirmation to delete target"""
+    prompt = f"File {target} exists and is not a symlink. Delete? (y/N): "
+    response = input(output(prompt, output_type="WARNING"))
+
+    if response.lower() != "y":
+        print(output(f"Skipping {target}."))
+        return False
+
+    delete_path(target)
+    print(output(f"Deleted {target}."))
+    return True
 
 def handle_existing_target(target: str, force: bool) -> bool:
     """Validate if source file exists and is not symlink"""
-    if os.path.exists(target):
-        if force:
-            delete_path(target)
-            print(output(f"Deleted {target} (force applied)."))
-        else:
-            prompt = f"File {target} exists and is not a symlink. Delete? (y/N): "
-            response = input(output(prompt, output_type="WARNING"))
-            if response.lower() == "y":
-                delete_path(target)
-                print(output(f"Deleted {target}."))
-            else:
-                print(output(f"Skipping {target}."))
-                return False
-    else:
-        message = f"Remove old symlink for {target}"
-        print(output(message, output_type="OK"))
-        delete_path(target)
-    return True
 
+    if not os.path.exists(target):
+        _remove_old_symlink(target)
+        return True
+
+    if force:
+        return _force_delete_target(target)
+
+    return _prompt_delete_target(target)
 
 def handle_symlink_creation(source: str, target: str) -> None:
     """Attempts to create a symlink and handles potential errors"""
