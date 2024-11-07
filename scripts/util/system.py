@@ -13,6 +13,7 @@ def shell_command(
     enable_stdout=False,
     enable_stderr=False,
 ) -> subprocess.CompletedProcess:
+    """Execute a shell command and return the result."""
     with open(os.devnull, "w") as devnull_w, open(os.devnull, "r") as devnull_r:
         stdin = None if enable_stdin else devnull_r
         stdout = None if enable_stdout else devnull_w

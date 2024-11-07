@@ -10,13 +10,7 @@ from util.symlinks import create_symlinks
 
 
 def install_git_completion(config: dict[str, str], force_flag: bool) -> None:
-    """
-    Install git completion script from the given configuration.
-
-    Args:
-        config (dict): The configuration containing the external scripts.
-        force_flag (bool): Flag indicating whether to force installation even if the file already exists.
-    """
+    """Install git completion script from the given configuration."""
     for script in config.get("completion_scripts", []):
         url = script["url"]
         target = os.path.expanduser(script["target"])
