@@ -1,6 +1,6 @@
 import os
 
-from util.system import delete_path
+from util.system import delete_path, get_os
 from util.display import output
 
 
@@ -39,12 +39,26 @@ def handle_symlink_creation(source: str, target: str) -> None:
 
 def create_symlinks(config: dict, base_path: str, force: bool) -> None:
     """Creates symlinks based on the loaded configuration."""
+    current_os = get_os().lower()
+
     for dotfile in config.get("dotfiles", []):
         source = os.path.join(base_path, dotfile["source"])
         target = os.path.expanduser(dotfile["target"])
+        system = dotfile["system"].lower()
 
         if not os.path.exists(source):
             print(f"Source file {source} not found. Skipping...")
+            continue
+
+        # Check if this dotfile should be installed on this system
+        should_install = (
+            system == "all" or  # Install if specified for all systems
+            system == current_os  # Install if matches current OS
+        )
+
+        if not should_install:
+            message = f"Skipping {source} - not configured for {current_os}"
+            print(output(message, output_type="INFO"))
             continue
 
         if not handle_existing_target(target, force):

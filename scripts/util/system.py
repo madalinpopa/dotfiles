@@ -40,16 +40,15 @@ def ask_for_sudo() -> bool:
 
 
 def get_os() -> str:
-    system = platform.system().lower()
+    system = platform.system()
 
-    if system == "darwin":
-        return system.capitalize()
-    elif system == "linux":
+    if system == "Linux":
         os_release = platform.freedesktop_os_release()
         os_id = os_release.get("ID")
         if os_id and os_id in ["ubuntu", "debian", "pop"]:
             return "debian-based"
-    return ""
+
+    return system
 
 
 def locate_apt_package(package: str) -> bool:

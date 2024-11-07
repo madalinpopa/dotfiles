@@ -1,0 +1,30 @@
+[general]
+import = ["~/.config/alacritty/rose-pine.toml"]
+
+[cursor.style]
+shape = "Beam"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Medium"
+
+[scrolling]
+history = 10000
+
+[window]
+dynamic_padding = true
+opacity = 0.90
+blur = true
+decorations = "None"
+
+[window.dimensions]
+columns = 120
+lines = 30
+
+[window.padding]
+x = 5
+y = 5
+

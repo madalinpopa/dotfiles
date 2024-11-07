@@ -2,87 +2,113 @@
   "dotfiles": [
     {
       "source": "bash/bashrc",
-      "target": "~/.bashrc"
+      "target": "~/.bashrc",
+      "system": "all"
     },
     {
       "source": "bash/bashrc.d",
-      "target": "~/.bashrc.d"
+      "target": "~/.bashrc.d",
+      "system": "all"
     },
     {
       "source": "git/gitconfig",
-      "target": "~/.gitconfig"
+      "target": "~/.gitconfig",
+      "system": "all"
     },
     {
       "source": "git/gitignore_global",
-      "target": "~/.gitignore_global"
+      "target": "~/.gitignore_global",
+      "system": "all"
     },
     {
       "source": "zsh/zshrc",
-      "target": "~/.zshrc"
+      "target": "~/.zshrc",
+      "system": "all"
     },
     {
       "source": "zsh/config.d",
-      "target": "~/.config/zsh/config.d"
+      "target": "~/.config/zsh/config.d",
+      "system": "all"
     },
     {
       "source": "tmux/tmux.conf",
-      "target": "~/.config/tmux/tmux.conf"
+      "target": "~/.config/tmux/tmux.conf",
+      "system": "all"
     },
     {
       "source": "vim",
-      "target": "~/.vim"
+      "target": "~/.vim",
+      "system": "all"
     },
     {
       "source": "nvim",
-      "target": "~/.config/nvim"
+      "target": "~/.config/nvim",
+      "system": "all"
     },
     {
       "source": "helix",
-      "target": "~/.config/helix"
+      "target": "~/.config/helix",
+      "system": "all"
     },
     {
       "source": "ansible/ansible.cfg",
-      "target": "~/.ansible.cfg"
+      "target": "~/.ansible.cfg",
+      "system": "all"
     },
     {
-      "source": "alacritty/alacritty.toml",
-      "target": "~/.config/alacritty/alacritty.toml"
+      "source": "alacritty/linux_alacritty.toml",
+      "target": "~/.config/alacritty/alacritty.toml",
+      "system": "debian-based"
+    },
+    {
+      "source": "alacritty/mac_alacritty.toml",
+      "target": "~/.config/alacritty/alacritty.toml",
+      "system": "darwin"
     },
     {
       "source": "alacritty/themes/rose-pine.toml",
-      "target": "~/.config/alacritty/rose-pine.toml"
+      "target": "~/.config/alacritty/rose-pine.toml",
+      "system": "all"
     },
     {
       "source": "alacritty/themes/rose-pine-moon.toml",
-      "target": "~/.config/alacritty/rose-pine-moon.toml"
+      "target": "~/.config/alacritty/rose-pine-moon.toml",
+      "system": "all"
     },
     {
       "source": "alacritty/themes/rose-pine-dawn.toml",
-      "target": "~/.config/alacritty/rose-pine-dawn.toml"
+      "target": "~/.config/alacritty/rose-pine-dawn.toml",
+      "system": "all"
     },
     {
       "source": ".ideavimrc",
-      "target": "~/.ideavimrc"
+      "target": "~/.ideavimrc",
+      "system": "all"
     },
     {
       "source": "./zed/settings.json",
-      "target": "~/.config/zed/settings.json"
+      "target": "~/.config/zed/settings.json",
+      "system": "all"
     },
     {
       "source": "./zed/tasks.json",
-      "target": "~/.config/zed/tasks.json"
+      "target": "~/.config/zed/tasks.json",
+      "system": "all"
     },
     {
       "source": "./zed/keymap.json",
-      "target": "~/.config/zed/keymap.json"
+      "target": "~/.config/zed/keymap.json",
+      "system": "all"
     },
     {
       "source": "./zellij/config.kdl",
-      "target": "~/.config/zellij/config.kdl"
+      "target": "~/.config/zellij/config.kdl",
+      "system": "all"
     },
     {
       "source": "./starship/starship.toml",
-      "target": "~/.config/starship.toml"
+      "target": "~/.config/starship.toml",
+      "system": "all"
     }
   ],
   "completion_scripts": [

@@ -18,6 +18,7 @@ history = 10000
 dynamic_padding = true
 opacity = 0.90
 blur = true
+decorations = "None"
 
 [window.dimensions]
 columns = 120
