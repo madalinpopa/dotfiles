@@ -17,6 +17,9 @@
   "theme": "Rosé Pine",
   "ui_font_size": 18,
   "buffer_font_size": 17,
+  "buffer_font_features": {
+    "calt": false
+  },
   // ----------------------------------------
   // File scan settings
   // ----------------------------------------
