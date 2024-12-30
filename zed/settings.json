@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "restore_on_startup": "none",
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
@@ -14,9 +15,9 @@
     },
     "version": "2"
   },
-  "theme": "Rosé Pine",
-  "ui_font_size": 18,
-  "buffer_font_size": 17,
+  "theme": "Catppuccin Mocha",
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
   "buffer_font_features": {
     "calt": false
   },
@@ -75,7 +76,7 @@
     }
   },
   "file_types": {
-    "HTML": ["gohtml"]
+    "HTML": ["gohtml", "djangohtml", "django-html"]
   },
   "show_inline_completions": true,
   "terminal": {
