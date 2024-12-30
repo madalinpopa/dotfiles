@@ -1,5 +1,5 @@
 function MyCustomColor(color)
-    color = color or "rose-pine-main"
+    color = color or "catppuccin-mocha"
     -- color = color or "256_noir"
     vim.cmd.colorscheme(color)
 
