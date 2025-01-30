@@ -53,6 +53,15 @@ local servers = {
     gopls = {
         gofumpt = true,
     },
+    tailwindcss = {
+        includeLanguages = {
+            templ = "html"
+        }
+    },
+
+    emmet_ls = {
+        filetypes = { "css", "templ", "tmpl", "html", "gohtml", "javascript" }
+    },
     templ = {},
     lua_ls = {
         Lua = {
