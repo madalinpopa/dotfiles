@@ -71,5 +71,17 @@ vim.opt.termguicolors = true
 -- Set the background color for cursor line
 vim.opt.cursorline = true
 
+local gitignore_patterns = vim.fn["netrw_gitignore#Hide"]()
+
+-- Define custom hide patterns with proper Netrw pattern syntax
+local hide_patterns = {
+    '.*_templ\\.txt$',
+    '.*_templ\\.go$'
+}
+
 -- Netrw settings
-vim.g.netrw_list_hide = (vim.fn["netrw_gitignore#Hide"]()) .. [[,\(^\|\s\s\)\zs\.\S\+]] -- use .gitignore
+local pattern_string = table.concat(hide_patterns, ',')
+
+
+-- Netrw settings
+vim.g.netrw_list_hide = (gitignore_patterns) .. [[,\(^\|\s\s\)\zs\.\S\+]] .. ',' .. (pattern_string)
