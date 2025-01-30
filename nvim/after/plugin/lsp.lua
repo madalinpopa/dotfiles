@@ -53,6 +53,7 @@ local servers = {
     gopls = {
         gofumpt = true,
     },
+    templ = {},
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
