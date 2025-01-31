@@ -37,10 +37,10 @@ alias k="kubectl"
 alias la="ls -lAF --color=auto"
 
 # List only directories
-alias lsd="ls -lF --color=auto | grep --color=never '^d'"
+alias lsd="ls -lF --color=auto"
 
 # Always use color output for `ls`
-alias ls="command ls --color=auto"
+alias ll="ls -l --color=auto"
 
 # ----------------------------------------------------------------------
 # Grep commands
