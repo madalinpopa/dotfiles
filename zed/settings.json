@@ -64,7 +64,7 @@
   // ----------------------------------------
   "languages": {
     "Go": {
-      "show_inline_completions": false
+      "show_inline_completions": true
     },
     "Python": {
       "show_inline_completions": false,
