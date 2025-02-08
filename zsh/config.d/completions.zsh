@@ -39,3 +39,11 @@ fi
 if command -v kustomize &> /dev/null; then
   source <(kustomize completion zsh)
 fi
+
+# ----------------------------------------------------------------------
+# OP Completions
+# ----------------------------------------------------------------------
+if command -v op %> /dev/null; then
+    eval "$(op completion zsh)"; compdef _op op
+fi
+
