@@ -44,10 +44,10 @@ CARGO_ENV="$HOME/.cargo/env"
 # Load Direnv for managing project-specific environment variables.
 # ----------------------------------------------------------------------
 # ensure compatibility tmux <-> direnv
-if [[ -n "$TMUX" ]] && [[ -n "$DIRENV_DIR" ]]; then
-    # zsh syntax for unsetting matching variables
-    unset ${(M)parameters:#DIRENV_*}
-fi
+# if [[ -n "$TMUX" ]] && [[ -n "$DIRENV_DIR" ]]; then
+#     # zsh syntax for unsetting matching variables
+#     unset ${(M)parameters:#DIRENV_*}
+# fi
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
