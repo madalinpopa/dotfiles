@@ -84,4 +84,4 @@ local pattern_string = table.concat(hide_patterns, ',')
 
 
 -- Netrw settings
-vim.g.netrw_list_hide = (gitignore_patterns) .. [[,\(^\|\s\s\)\zs\.\S\+]] .. ',' .. (pattern_string)
+-- vim.g.netrw_list_hide = (gitignore_patterns) .. [[,\(^\|\s\s\)\zs\.\S\+]] .. ',' .. (pattern_string)
