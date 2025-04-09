@@ -14,11 +14,11 @@
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3-5-sonnet"
+      "model": "claude-3-7-sonnet"
     },
     "version": "2"
   },
-  "theme": "Catppuccin Mocha",
+  "theme": "Github Dark",
   "ui_font_size": 16,
   "buffer_font_size": 18.0,
   "buffer_font_features": {
