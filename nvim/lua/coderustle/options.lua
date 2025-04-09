@@ -71,17 +71,29 @@ vim.opt.termguicolors = true
 -- Set the background color for cursor line
 vim.opt.cursorline = true
 
--- local gitignore_patterns = vim.fn["netrw_gitignore#Hide"]()
+-- Netrw settings
+-- Safe function to get gitignore patterns
+local function get_gitignore_patterns()
+    local ok, patterns = pcall(function() 
+        return vim.fn["netrw_gitignore#Hide"]() 
+    end)
+    return ok and patterns or ""
+end
 
 -- Define custom hide patterns with proper Netrw pattern syntax
--- local hide_patterns = {
---     '.*_templ\\.txt$',
---     '.*_templ\\.go$'
--- }
+local hide_patterns = {
+    '.*_templ\\.txt$',
+    '.*_templ\\.go$'
+}
 
--- Netrw settings
--- local pattern_string = table.concat(hide_patterns, ',')
+-- Combine patterns safely
+local gitignore_patterns = get_gitignore_patterns()
+local pattern_string = table.concat(hide_patterns, ',')
+local hidden_files_pattern = [[\(^\|\s\s\)\zs\.\S\+]]
 
-
--- Netrw settings
--- vim.g.netrw_list_hide = (gitignore_patterns) .. [[,\(^\|\s\s\)\zs\.\S\+]] .. ',' .. (pattern_string)
+-- Set Netrw list hide with proper concatenation
+if pattern_string ~= "" then
+    vim.g.netrw_list_hide = gitignore_patterns .. "," .. hidden_files_pattern .. "," .. pattern_string
+else
+    vim.g.netrw_list_hide = gitignore_patterns .. "," .. hidden_files_pattern
+end
