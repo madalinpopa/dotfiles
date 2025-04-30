@@ -109,6 +109,11 @@
       "source": "./starship/starship.toml",
       "target": "~/.config/starship.toml",
       "system": "all"
+    },
+    {
+      "source": "./ideavim/ideavimrc",
+      "target": "~/.ideavimrc",
+      "system": "all"
     }
   ],
   "completion_scripts": [
