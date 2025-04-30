@@ -1,103 +1,116 @@
 " -------------------------------------------------------
-" author: madalin popa
-" e-mai: madalin@coderustle.ro
+" Author: Madalin Popa
+" E-mai: madalin@coderustle.ro
 " -------------------------------------------------------
 let mapleader = ","
 
-
-" set the number of lines to show as context around the cursor for better navigation
-set scrolloff=10
-
-" set the number of lines to show as context around the cursor for better navigation
-set scrolloff=10
-
-" set the number of lines to show as context around the cursor for better navigation
-set history=1000
-
-" enable showmode, which displays the current mode (insert, normal, etc.).
-set showmode
-
-" show when a partial command is being typed
-set showcmd
-
-" enable smart case, which allows case-insensitive searching unless an uppercase letter is used.
-set smartcase
-
-" enable incremental search, which highlights matches as you type
-set incsearch
-
-" enable highlighting search matches
-set hlsearch
-
-" set visualbell to flash the screen instead of making a noise
-set visualbell
-
-" do incremental searching.
-set incsearch
-
-" enable line numbers
-set nu
-
-" enable relative line numbers
-set relativenumber
-
-" set the timeout length for mappings to 5000 milliseconds
-set timeoutlen=5000
-
-" -------------------------------------------------------
-" plugins
-" -------------------------------------------------------
-
- enable which-key plugin for showing available key bindings
+" Enable which key extension
 set which-key
 
+" Set no timeout
+set notimeout
+
+" increase the timeoutlen (default: 1000), don't add space around the equal sign
+set timeoutlen=5000
+
+" Set the number of lines to show as context around the cursor for better navigation
+set scrolloff=3
+
+" Set the number of lines to show as context around the cursor for better navigation
+set history=1000
+
+" Enable Showmode, which displays the current mode (insert, normal, etc.).
+set showmode
+
+" Show when a partial command is being typed
+set showcmd
+
+" Enable smart case, which allows case-insensitive searching unless an uppercase letter is used.
+set smartcase
+
+" Enable incremental search, which highlights matches as you type
+set incsearch
+
+" Enable highlighting search matches
+set hlsearch
+
+" Set visualbell to flash the screen instead of making a noise
+set visualbell
+
+" Do incremental searching.
+set incsearch
+
+" Set ignorecase to ignore case during searches"
+set ignorecase
+
+" Enable line numbers
+set nu
+
+" Enable relative line numbers
+set relativenumber
+
 " -------------------------------------------------------
-" mappings
+" Mappings
 " -------------------------------------------------------
-" reload .ideavimrc
-map <leader>r <action>(ideavim.reloadvimrc.reload)
+" Reload .ideavimrc
+map <leader>r <Action>(IdeaVim.ReloadVimRc.reload)
 
-" show navbar
-map <leader>e <action>(shownavbar)
+" Show navbar
+map <leader>e <Action>(ShowNavBar)
 
-" toggle distraction free mode
-map <leader>td <action>(toggledistractionfreemode)
+" Toggle distraction free mode
+map <leader>td <Action>(ToggleDistractionFreeMode)
 
-" toggle terminal window
-" map <c-\> <action>(activateterminaltoolwindow)<cr>
-map <c-\> :call toggleterminal<cr>
+" Toggle terminal window
+" map <C-\> <Action>(ActivateTerminalToolWindow)<CR>
+map <C-\> :call ToggleTerminal<CR>
 
-" toggle project window
-map <leader>nn <action>(activateprojecttoolwindow)
+" Toggle project window
+map <leader>nn <Action>(ActivateProjectToolWindow)
 
-" go to action
-map <leader>sa <action>(gotoaction)
+" Go to action
+map <leader>sa <Action>(GotoAction)
 
-" go to type
-map <leader>st <action>(gotoclass)
+" Go to type
+map <leader>st <Action>(GotoClass)
 
-" go to symbol
-map <leader>ss <action>(gotosymbol)
+" Go to symbol
+map <leader>ss <Action>(GotoSymbol)
 
-" find in files
-map <leader>sg <action>(findinpath)
+" Find in files
+map <leader>sg <Action>(FindInPath)
 
-" search file
-map <leader>sf <action>(gotofile)
+" Search file
+map <leader>sf <Action>(GotoFile)
 
-" search buffers
-map <leader>sr <action>(recentfiles)
+" Search buffers
+map <leader>sr <Action>(RecentFiles)
+
+" Save file
+nnoremap <leader>w :w<CR>
+
+" Close file
+nnoremap <leader>q :q<CR>
+
+" Navigate between splits using Ctrl + {h,j,k,l}
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Clear search highlight with <leader>h
+nnoremap <leader>h :nohlsearch<CR>
 
 " -------------------------------------------------------
-" functions
+" Functions
 " -------------------------------------------------------
-" function to toggle terminal window
-function! toggleterminal()
+" Function to toggle terminal window
+function! ToggleTerminal()
     if exists('g:terminal_visible') && g:terminal_visible
-        <action>(hideactivewindow)
+        <Action>(HideActiveWindow)
         let g:terminal_visible = 0
     else
-        <action>(activateterminaltoolwindow)
+        <Action>(ActivateTerminalToolWindow)
         let g:terminal_visible = 1
     endif
 endfunction

@@ -4,12 +4,17 @@
 " -------------------------------------------------------
 let mapleader = ","
 
+" Enable which key extension
+set which-key
+
+" Set no timeout
+set notimeout
+
+" increase the timeoutlen (default: 1000), don't add space around the equal sign
+set timeoutlen=5000
 
 " Set the number of lines to show as context around the cursor for better navigation
-set scrolloff=10
-
-" Set the number of lines to show as context around the cursor for better navigation
-set scrolloff=10
+set scrolloff=3
 
 " Set the number of lines to show as context around the cursor for better navigation
 set history=1000
@@ -35,21 +40,14 @@ set visualbell
 " Do incremental searching.
 set incsearch
 
+" Set ignorecase to ignore case during searches"
+set ignorecase
+
 " Enable line numbers
 set nu
 
 " Enable relative line numbers
 set relativenumber
-
-" Set the timeout length for mappings to 5000 milliseconds
-set timeoutlen=5000
-
-" -------------------------------------------------------
-" Plugins
-" -------------------------------------------------------
-
- Enable which-key plugin for showing available key bindings
-set which-key
 
 " -------------------------------------------------------
 " Mappings
@@ -87,6 +85,21 @@ map <leader>sf <Action>(GotoFile)
 
 " Search buffers
 map <leader>sr <Action>(RecentFiles)
+
+" Save file
+nnoremap <leader>w :w<CR>
+
+" Close file
+nnoremap <leader>q :q<CR>
+
+" Navigate between splits using Ctrl + {h,j,k,l}
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Clear search highlight with <leader>h
+nnoremap <leader>h :nohlsearch<CR>
 
 " -------------------------------------------------------
 " Functions
