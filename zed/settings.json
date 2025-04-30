@@ -7,20 +7,24 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "vim_mode": true,
+  "base_keymap": "JetBrains",
   "features": {
-    "inline_completion_provider": "zed"
+    "edit_prediction_provider": "zed"
   },
   "restore_on_startup": "none",
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3-7-sonnet"
+      "model": "gemini-2.5-pro"
     },
     "version": "2"
   },
-  "theme": "Github Dark",
+  "theme": "JetBrains New Dark",
   "ui_font_size": 16,
-  "buffer_font_size": 18.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_weight": 600,
+  "buffer_font_size": 17.0,
   "buffer_font_features": {
     "calt": false
   },
@@ -67,10 +71,10 @@
   // ----------------------------------------
   "languages": {
     "Go": {
-      "show_inline_completions": true
+      "show_edit_predictions": true
     },
     "Python": {
-      "show_inline_completions": false,
+      "show_edit_predictions": false,
       "language_servers": ["ruff", "pyright"]
     },
     "Markdown": {
@@ -79,9 +83,9 @@
     }
   },
   "file_types": {
-    "HTML": ["gohtml", "djangohtml", "django-html"]
+    "HTML": ["gohtml", "djangohtml", "django-html", "templ"]
   },
-  "show_inline_completions": true,
+  "show_edit_predictions": true,
   "terminal": {
     "copy_on_select": true,
     "font_size": 18,
