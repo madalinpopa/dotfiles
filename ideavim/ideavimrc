@@ -1,0 +1,103 @@
+" -------------------------------------------------------
+" author: madalin popa
+" e-mai: madalin@coderustle.ro
+" -------------------------------------------------------
+let mapleader = ","
+
+
+" set the number of lines to show as context around the cursor for better navigation
+set scrolloff=10
+
+" set the number of lines to show as context around the cursor for better navigation
+set scrolloff=10
+
+" set the number of lines to show as context around the cursor for better navigation
+set history=1000
+
+" enable showmode, which displays the current mode (insert, normal, etc.).
+set showmode
+
+" show when a partial command is being typed
+set showcmd
+
+" enable smart case, which allows case-insensitive searching unless an uppercase letter is used.
+set smartcase
+
+" enable incremental search, which highlights matches as you type
+set incsearch
+
+" enable highlighting search matches
+set hlsearch
+
+" set visualbell to flash the screen instead of making a noise
+set visualbell
+
+" do incremental searching.
+set incsearch
+
+" enable line numbers
+set nu
+
+" enable relative line numbers
+set relativenumber
+
+" set the timeout length for mappings to 5000 milliseconds
+set timeoutlen=5000
+
+" -------------------------------------------------------
+" plugins
+" -------------------------------------------------------
+
+ enable which-key plugin for showing available key bindings
+set which-key
+
+" -------------------------------------------------------
+" mappings
+" -------------------------------------------------------
+" reload .ideavimrc
+map <leader>r <action>(ideavim.reloadvimrc.reload)
+
+" show navbar
+map <leader>e <action>(shownavbar)
+
+" toggle distraction free mode
+map <leader>td <action>(toggledistractionfreemode)
+
+" toggle terminal window
+" map <c-\> <action>(activateterminaltoolwindow)<cr>
+map <c-\> :call toggleterminal<cr>
+
+" toggle project window
+map <leader>nn <action>(activateprojecttoolwindow)
+
+" go to action
+map <leader>sa <action>(gotoaction)
+
+" go to type
+map <leader>st <action>(gotoclass)
+
+" go to symbol
+map <leader>ss <action>(gotosymbol)
+
+" find in files
+map <leader>sg <action>(findinpath)
+
+" search file
+map <leader>sf <action>(gotofile)
+
+" search buffers
+map <leader>sr <action>(recentfiles)
+
+" -------------------------------------------------------
+" functions
+" -------------------------------------------------------
+" function to toggle terminal window
+function! toggleterminal()
+    if exists('g:terminal_visible') && g:terminal_visible
+        <action>(hideactivewindow)
+        let g:terminal_visible = 0
+    else
+        <action>(activateterminaltoolwindow)
+        let g:terminal_visible = 1
+    endif
+endfunction
