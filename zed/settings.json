@@ -8,15 +8,15 @@
 // from the command palette or from `Zed` application menu.
 {
   "vim_mode": true,
-  "base_keymap": "JetBrains",
+  "base_keymap": "VSCode",
   "features": {
     "edit_prediction_provider": "zed"
   },
   "restore_on_startup": "none",
   "assistant": {
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gemini-2.5-pro"
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-thinking-latest"
     },
     "version": "2"
   },
