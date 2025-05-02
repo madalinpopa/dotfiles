@@ -114,7 +114,12 @@
       "source": "./ideavim/ideavimrc",
       "target": "~/.ideavimrc",
       "system": "all"
-    }
+    },
+    {
+      "source": "./ghostty/config",
+      "target": "~/.config/ghostty/config",
+      "system": "all"
+    },
   ],
   "completion_scripts": [
     {
