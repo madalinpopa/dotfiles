@@ -119,7 +119,7 @@
       "source": "./ghostty/config",
       "target": "~/.config/ghostty/config",
       "system": "all"
-    },
+    }
   ],
   "completion_scripts": [
     {
