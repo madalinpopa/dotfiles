@@ -9,3 +9,9 @@ This is an optional step and is usualy done before encryption.
 ```bash
 dd if=/dev/urandom of=/dev/nvme0n1 status=progress bs=4096
 ```
+
+**Check if computer has BIOS or UEFI**
+
+```bash
+ls /sys/firmware/efi/efivars
+```
