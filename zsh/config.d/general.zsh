@@ -1,6 +1,6 @@
 # ----------------------------------------------------------------------
-# Author: Madalin Popa              
-# Email: coderustle@madalinpopa.com 
+# Author: Madalin Popa
+# Email: coderustle@madalinpopa.com
 # ----------------------------------------------------------------------
 
 # ----------------------------------------------------------------------
@@ -81,5 +81,17 @@ fi
 # ----------------------------------------------------------------------
 # ZSH auto-suggestions
 # ----------------------------------------------------------------------
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# if command -v brew &> /dev/null; then
+#     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fi
 
+# ----------------------------------------------------------------------
+# ZSH auto-suggestions
+# ----------------------------------------------------------------------
+if [ -f /etc/os-release ]; then
+  . /etc/os-release
+  if [ "$ID" = "arch" ]; then
+    # Arch Linux specific config
+    source usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+  fi
+fi
