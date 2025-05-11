@@ -92,6 +92,6 @@ if [ -f /etc/os-release ]; then
   . /etc/os-release
   if [ "$ID" = "arch" ]; then
     # Arch Linux specific config
-    source usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   fi
 fi
