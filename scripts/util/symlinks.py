@@ -3,17 +3,20 @@ import os
 from util.system import delete_path, get_os
 from util.display import output
 
+
 def _remove_old_symlink(target: str):
     """Remove an old symlink and log the action"""
     message = f"Remove old symlink for {target}"
     print(output(message, output_type="OK"))
     delete_path(target)
 
+
 def _force_delete_target(target: str) -> bool:
     """Force delete target and log the action"""
     delete_path(target)
     print(output(f"Deleted {target} (force applied)."))
     return True
+
 
 def _prompt_delete_target(target: str) -> bool:
     """Prompt user for confirmation to delete target"""
@@ -28,6 +31,7 @@ def _prompt_delete_target(target: str) -> bool:
     print(output(f"Deleted {target}."))
     return True
 
+
 def handle_existing_target(target: str, force: bool) -> bool:
     """Validate if source file exists and is not symlink"""
 
@@ -39,6 +43,7 @@ def handle_existing_target(target: str, force: bool) -> bool:
         return _force_delete_target(target)
 
     return _prompt_delete_target(target)
+
 
 def handle_symlink_creation(source: str, target: str) -> None:
     """Attempts to create a symlink and handles potential errors"""
@@ -59,16 +64,14 @@ def create_symlinks(config: dict, base_path: str, force: bool) -> None:
         source = os.path.join(base_path, dotfile["source"])
         target = os.path.expanduser(dotfile["target"])
         system = dotfile["system"].lower()
+        supported_systems = config.get("supported_systems")
 
         if not os.path.exists(source):
             print(f"Source file {source} not found. Skipping...")
             continue
 
         # Check if this dotfile should be installed on this system
-        should_install = (
-            system == "all" or  # Install if specified for all systems
-            system == current_os  # Install if matches current OS
-        )
+        should_install = system == current_os and system in supported_systems
 
         if not should_install:
             message = f"Skipping {source} - not configured for {current_os}"
