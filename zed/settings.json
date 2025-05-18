@@ -7,24 +7,38 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
   "vim_mode": true,
   "base_keymap": "VSCode",
   "features": {
     "edit_prediction_provider": "zed"
   },
   "restore_on_startup": "none",
-  "assistant": {
+  "tab_bar": {
+    "show": false
+  },
+  "agent": {
+    "default_profile": "ask",
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-7-sonnet-thinking-latest"
     },
     "version": "2"
   },
-  "theme": "GitHub Dark Default",
+  "theme": "JetBrains New Dark",
   "ui_font_size": 20,
+  "agent_font_size": 20,
+  "agent_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 600,
-  "buffer_font_size": 17.0,
+  "buffer_font_size": 16.0,
   "buffer_font_features": {
     "calt": false
   },
