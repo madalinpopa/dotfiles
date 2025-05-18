@@ -13,4 +13,5 @@ return {
     { 'sainnhe/everforest',               lazy = true },
     { 'rafi/awesome-vim-colorschemes',    lazy = true },
     { 'navarasu/onedark.nvim',            lazy = true },
+    { 'nickkadutskyi/jb.nvim',            lazy = true },
 }

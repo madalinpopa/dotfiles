@@ -10,4 +10,4 @@ function MyCustomColor(color)
     -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" }) -- End of buffer transparency
 end
 
-MyCustomColor()
+MyCustomColor("jb")
