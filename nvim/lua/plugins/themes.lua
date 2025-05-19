@@ -4,7 +4,6 @@ return {
     { 'projekt0n/github-nvim-theme',      lazy = true },
     { 'rose-pine/neovim',                 lazy = true },
     { 'aliqyan-21/darkvoid.nvim',         lazy = true },
-    { "scottmckendry/cyberdream.nvim",    lazy = true },
     { "folke/tokyonight.nvim",            lazy = true },
     { "mhartington/oceanic-next",         lazy = true },
     { "EdenEast/nightfox.nvim",           lazy = true },
