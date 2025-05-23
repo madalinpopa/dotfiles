@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "edit_predictions": {
-    "mode": "subtle",
+    "mode": "eager",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null
@@ -37,8 +37,8 @@
   "agent_font_size": 20,
   "agent_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_weight": 600,
-  "buffer_font_size": 16.0,
+  // "buffer_font_weight": 600,
+  "buffer_font_size": 18,
   "buffer_font_features": {
     "calt": false
   },
@@ -52,7 +52,8 @@
     "node_modules/",
     "**/.pytest_cache",
     "**/__pycache__",
-    ".DS_Store"
+    ".DS_Store",
+    "**/*_templ.go"
   ],
 
   // ----------------------------------------
@@ -77,6 +78,31 @@
           "lineLength": 88
         }
       }
+    },
+    "Templ": {
+      "formatter": {
+        "external": {
+          "command": "templ",
+          "arguments": ["fmt", "-stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on",
+      "language_servers": [
+        "tailwindcss-language-server",
+        "vscode-html-language-server",
+        "emmet-language-server"
+      ],
+      "inlay_hints": {
+        "enabled": true
+      }
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "includeLanguages": {
+          "templ": "html",
+          "Templ": "html"
+        }
+      }
     }
   },
 
@@ -97,7 +123,7 @@
     }
   },
   "file_types": {
-    "HTML": ["gohtml", "djangohtml", "django-html", "templ"]
+    "HTML": ["gohtml", "djangohtml", "django-html"]
   },
   "show_edit_predictions": true,
   "terminal": {
