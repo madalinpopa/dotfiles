@@ -13,8 +13,8 @@
   "theme": "GitHub Dark Default",
   "ui_font_size": 20,
   "buffer_font_family": "Monaspace Neon",
-  // "buffer_font_weight": 600,
-  "buffer_font_size": 19.0,
+  // "buffer_font_weight": 400,
+  "buffer_font_size": 20,
   "buffer_font_features": {
     "calt": false
   },
