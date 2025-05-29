@@ -7,6 +7,40 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  // ----------------------------------------
+  // Editor Appearance & Behavior
+  // ----------------------------------------
+  "theme": "GitHub Dark Default",
+  "ui_font_size": 20,
+  "buffer_font_family": "Monaspace Neon",
+  // "buffer_font_weight": 600,
+  "buffer_font_size": 19.0,
+  "buffer_font_features": {
+    "calt": false
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "restore_on_startup": "none",
+  "hide_mouse": "on_typing_and_movement",
+  "cursor_blink": false,
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "vim_mode": true,
+  "base_keymap": "VSCode",
+
+  // ----------------------------------------
+  // AI & Code Prediction
+  // ----------------------------------------
+  "features": {
+    "edit_prediction_provider": "zed",
+    "copilot": false
+  },
   "edit_predictions": {
     "mode": "eager",
     "copilot": {
@@ -15,35 +49,20 @@
     },
     "enabled_in_text_threads": false
   },
-  "vim_mode": true,
-  "base_keymap": "VSCode",
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "restore_on_startup": "none",
-  "tab_bar": {
-    "show": false
-  },
+  "show_edit_predictions": false, // Global setting, can be overridden per language
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-thinking-latest"
+      "model": "claude-sonnet-4-thinking-latest"
     },
     "version": "2"
   },
-  "theme": "JetBrains New Dark",
-  "ui_font_size": 20,
   "agent_font_size": 20,
-  "agent_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  // "buffer_font_weight": 600,
-  "buffer_font_size": 18,
-  "buffer_font_features": {
-    "calt": false
-  },
+  "agent_font_family": "Monaspace Neon",
+
   // ----------------------------------------
-  // File scan settings
+  // File Management & Search Exclusions
   // ----------------------------------------
   "file_scan_exclusions": [
     ".idea/",
@@ -53,11 +72,17 @@
     "**/.pytest_cache",
     "**/__pycache__",
     ".DS_Store",
-    "**/*_templ.go"
+    "**/*_templ.go",
+    "**/*.sqlite-wal",
+    "**/*.sqlite-shm",
+    "**/*.sqlite-journal"
   ],
+  "file_types": {
+    "HTML": ["gohtml", "djangohtml", "django-html"]
+  },
 
   // ----------------------------------------
-  // Language Server Protocol (LSP) settings
+  // Language Server Protocol (LSP) Settings
   // ----------------------------------------
   "lsp": {
     "pyright": {
@@ -89,11 +114,10 @@
       "format_on_save": "on",
       "language_servers": [
         "tailwindcss-language-server",
-        "vscode-html-language-server",
         "emmet-language-server"
       ],
       "inlay_hints": {
-        "enabled": true
+        "enabled": false
       }
     },
     "tailwindcss-language-server": {
@@ -101,15 +125,21 @@
         "includeLanguages": {
           "templ": "html",
           "Templ": "html"
+        },
+        "tailwindCSS": {
+          "emmetCompletions": true
         }
       }
     }
   },
 
   // ----------------------------------------
-  // Language specific settings
+  // Language Specific Settings
   // ----------------------------------------
   "languages": {
+    "JSONC": {
+      "show_edit_predictions": false
+    },
     "Go": {
       "show_edit_predictions": true
     },
@@ -122,13 +152,13 @@
       "preferred_line_length": 88
     }
   },
-  "file_types": {
-    "HTML": ["gohtml", "djangohtml", "django-html"]
-  },
-  "show_edit_predictions": true,
+
+  // ----------------------------------------
+  // Terminal
+  // ----------------------------------------
   "terminal": {
     "copy_on_select": true,
-    "font_size": 18,
+    "font_size": 20,
     "detect_venv": {
       "on": {
         // Default directories to search for virtual environments, relative
@@ -139,11 +169,26 @@
         "activate_script": "default"
       }
     }
+  },
+
+  // ----------------------------------------
+  // Git Integration
+  // ----------------------------------------
+  "git_panel": {
+    "prompt_generate_commit": "Write a short and concise commit message, no more than 50 characters."
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+
+  // ----------------------------------------
+  // Telemetry
+  // ----------------------------------------
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
   }
-  // "vim_mode": true,
-  // "command_aliases": {
-  //   "W": "w",
-  //   "Wq": "wq",
-  //   "Q": "q"
-  // }
 }
