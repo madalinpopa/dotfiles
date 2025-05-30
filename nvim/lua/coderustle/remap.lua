@@ -1,8 +1,6 @@
-
-
 -- Keymaps for quick save and exit
-vim.keymap.set("n", "<leader>ww",  ":w<CR>")
-vim.keymap.set("n", "<leader>q",  ":q!<CR>")
+vim.keymap.set("n", "<leader>ww", ":w<CR>")
+vim.keymap.set("n", "<leader>q", ":q!<CR>")
 
 -- Keymaps for explorer
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
@@ -52,3 +50,19 @@ vim.keymap.set("n", "<leader>8", "8gt")
 vim.keymap.set("n", "<leader>9", "9gt")
 vim.keymap.set("n", "<leader>0", ":tablast<CR>")
 
+local diagnostics_visible = true
+vim.keymap.set("n", "<leader>dt", function() -- Diagnostic Toggle
+    diagnostics_visible = not diagnostics_visible
+    vim.diagnostic.config({
+        virtual_text = diagnostics_visible,
+        -- You can also configure other diagnostic options here if needed
+        -- signs = diagnostics_visible,
+        -- underline = diagnostics_visible,
+        -- update_in_insert = false,
+    })
+    if diagnostics_visible then
+        vim.notify("Virtual diagnostics enabled", vim.log.levels.INFO, { title = "Diagnostics" })
+    else
+        vim.notify("Virtual diagnostics disabled", vim.log.levels.INFO, { title = "Diagnostics" })
+    end
+end, { desc = "Toggle virtual diagnostics" })

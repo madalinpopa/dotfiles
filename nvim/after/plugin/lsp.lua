@@ -20,7 +20,7 @@ local on_attach = function(_, bufnr)
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
     nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols') -- Note: You already have <leader>sd for telescope diagnostics
     nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -30,6 +30,11 @@ local on_attach = function(_, bufnr)
     nmap('<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, '[W]orkspace [L]ist Folders')
+
+    nmap('[d', vim.diagnostic.goto_prev, 'Go to previous diagnostic')
+    nmap(']d', vim.diagnostic.goto_next, 'Go to next diagnostic')
+    nmap('<leader>do', vim.diagnostic.open_float, 'Open diagnostics float')              -- Changed from <leader>df to <leader>do to avoid conflict if you use <leader>f for format
+    nmap('<leader>dl', "<cmd>Telescope diagnostics<CR>", 'List diagnostics (Telescope)') -- This is similar to your existing <leader>sd
 
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
