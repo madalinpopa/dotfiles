@@ -10,10 +10,10 @@
   // ----------------------------------------
   // Editor Appearance & Behavior
   // ----------------------------------------
-  "theme": "GitHub Dark Default",
+  "theme": "Catppuccin Mocha",
   "ui_font_size": 22,
   "buffer_font_family": "Monaspace Neon",
-  // "buffer_font_weight": 400,
+  "buffer_font_weight": 400,
   "buffer_font_size": 18,
   "buffer_font_features": {
     "calt": false
@@ -41,19 +41,20 @@
     "copilot": false
   },
   "edit_predictions": {
-    "mode": "eager",
+    "mode": "subtle",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null
     },
     "enabled_in_text_threads": false
   },
-  "show_edit_predictions": false, // Global setting, can be overridden per language
+  "show_edit_predictions": true, // Global setting, can be overridden per language
   "agent": {
+    "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-thinking-latest"
+      "model": "claude-opus-4-thinking"
     },
     "version": "2"
   },
@@ -111,10 +112,6 @@
         }
       },
       "format_on_save": "on",
-      "language_servers": [
-        "tailwindcss-language-server",
-        "emmet-language-server"
-      ],
       "inlay_hints": {
         "enabled": false
       }
@@ -140,7 +137,7 @@
       "show_edit_predictions": false
     },
     "Go": {
-      "show_edit_predictions": false
+      "show_edit_predictions": true
     },
     "Python": {
       "show_edit_predictions": false,
