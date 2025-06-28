@@ -7,10 +7,11 @@ return {
     { "folke/tokyonight.nvim",            lazy = true },
     { "mhartington/oceanic-next",         lazy = true },
     { "EdenEast/nightfox.nvim",           lazy = true },
-    { "catppuccin/nvim",                  lazy = false, name = "catppuccin", priority = 1000 },
+    { "catppuccin/nvim",                  lazy = true,        name = "catppuccin", priority = 1000 },
     { 'nyoom-engineering/oxocarbon.nvim', lazy = true },
     { 'sainnhe/everforest',               lazy = true },
     { 'rafi/awesome-vim-colorschemes',    lazy = true },
     { 'navarasu/onedark.nvim',            lazy = true },
     { 'nickkadutskyi/jb.nvim',            lazy = true },
+    { 'Everblush/nvim',                   name = 'everblush', lazy = false },
 }
