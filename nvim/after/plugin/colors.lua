@@ -1,5 +1,5 @@
 function MyCustomColor(color)
-    color = color or "carbonfox"
+    color = color or "github_dark_default"
     -- color = color or "256_noir"
     vim.cmd.colorscheme(color)
 
