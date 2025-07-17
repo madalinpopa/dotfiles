@@ -1,5 +1,5 @@
 function MyCustomColor(color)
-    color = color or "everblush"
+    color = color or "carbonfox"
     -- color = color or "256_noir"
     vim.cmd.colorscheme(color)
 
