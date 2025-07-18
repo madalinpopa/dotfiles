@@ -1,12 +1,13 @@
-require("coderustle")
 
--- Highlight selection on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
+-- options.lua
+require("config.options")
 
-})
+-- lazy.lua
+require("config.lazy")
+
+-- autocmds.lua
+require("config.autocmds")
+
+-- keymaps.lua
+require("config.keymaps")
+
